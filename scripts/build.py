@@ -239,8 +239,15 @@ def lp_html(posts):
     hero_side = f'<aside class="hero-side"><p class="hs-t">はじめて読む方へ</p><p class="hs-s">よく読まれている3本。タップして読めます</p><ol>{side}</ol><a class="hs-more" href="{BASE}/#articles">記事をすべて見る →</a></aside>' if first else ""
     cta_btns = f'<p class="cta-btns"><a class="btn" href="tel:{tel_raw}">電話で相談する {SITE["tel"]}</a><a class="btn ghost" href="{SITE["contact_url"]}">フォームで無料見積り</a></p>'
     lamp = '<svg class="lamp" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6c9 12 14 19 14 27a14 14 0 0 1-28 0c0-8 5-15 14-27z" fill="#C9A961"/><path d="M32 18c4.5 6 7 10 7 14a7 7 0 0 1-14 0c0-4 2.5-8 7-14z" fill="#fff"/><rect x="23" y="52" width="18" height="5" rx="2.5" fill="#C9A961"/></svg>'
-    trust = "".join(f'<li><b>{esc(t[0])}</b><span>{esc(t[1])}</span></li>' for t in L.get("trust", []))
-    trust_bar = f'<ul class="trust">{trust}</ul>' if trust else ""
+    ticons = [
+        '<svg viewBox="0 0 32 32"><path d="M16 3l10 4v8c0 7-4.5 11.5-10 14C10.5 26.5 6 22 6 15V7z"/><path d="M11.5 16l3 3 6-7"/></svg>',
+        '<svg viewBox="0 0 32 32"><circle cx="16" cy="11" r="6"/><path d="M12 16l-2 12 6-3.5 6 3.5-2-12"/></svg>',
+        '<svg viewBox="0 0 32 32"><path d="M4 26h24M7 26V14l9-7 9 7v12M13 26v-7h6v7"/></svg>',
+        '<svg viewBox="0 0 32 32"><rect x="6" y="5" width="20" height="22" rx="2"/><path d="M11 12h10M11 17h10M11 22h6"/></svg>',
+        '<svg viewBox="0 0 32 32"><rect x="7" y="14" width="18" height="13" rx="2"/><path d="M11 14V10a5 5 0 0 1 10 0v4M16 19v4"/></svg>',
+    ]
+    trust = "".join(f'<li><span class="ti">{ticons[i % len(ticons)]}</span><b>{esc(t[0])}</b><span class="td">{esc(t[1])}</span></li>' for i, t in enumerate(L.get("trust", [])))
+    trust_bar = f'<div class="trust-wrap"><p class="trust-t">安心してご相談いただくために</p><ul class="trust">{trust}</ul></div>' if trust else ""
     hero = f"""<section class="lp-hero"><div class="in"><div>{lamp}<h1>{esc(L["hero_title"])}</h1><p>{esc(L["hero_sub"])}</p>{cta_btns}<p class="note">{esc(SITE["tel_hours"])}／出張査定・お見積り無料／対応エリア {esc(SITE["area"])}</p></div>{hero_side}</div>{trust_bar}</section>"""
     # 悩み別：各カテゴリの記事3本
     pains = ""

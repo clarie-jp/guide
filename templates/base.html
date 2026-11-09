@@ -178,12 +178,18 @@ footer p{margin:4px 0}
 .lp .cards{margin-top:0}
 
 /* ---- 安心材料（ヒーロー直下） ---- */
-.lp-hero .trust{list-style:none;margin:26px auto 0;padding:14px 0 0;max-width:1100px;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid rgba(230,207,156,.28)}
-.lp-hero .trust li{display:flex;flex-direction:column;align-items:center;text-align:center;padding:6px 10px;position:relative}
-.lp-hero .trust li+li::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:1px;background:rgba(230,207,156,.28)}
-.lp-hero .trust b{font-family:var(--serif);font-size:15px;color:var(--gold-light);font-weight:600;letter-spacing:.02em}
-.lp-hero .trust span{font-size:12px;color:#C9CFDD;margin-top:2px;line-height:1.6}
-@media (max-width:700px){.lp-hero .trust{grid-template-columns:1fr 1fr;gap:2px 0;padding:10px 6px}.lp-hero .trust li{padding:8px 6px;min-width:0}.lp-hero .trust li+li::before{display:none}.lp-hero .trust li:last-child{grid-column:1/-1}.lp-hero .trust b{font-size:14px}.lp-hero .trust span{font-size:11px}}
+.trust-wrap{max-width:1100px;margin:34px auto 0;padding:26px 0 6px;border-top:1px solid rgba(230,207,156,.28)}
+.trust-t{text-align:center;font-family:var(--serif);font-size:14px;letter-spacing:.14em;color:var(--gold-light);margin:0 0 16px}
+.trust-t::before,.trust-t::after{content:"";display:inline-block;width:28px;height:1px;background:rgba(230,207,156,.6);vertical-align:middle;margin:0 12px}
+.lp-hero .trust{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.lp-hero .trust li{background:rgba(255,255,255,.07);border:1px solid rgba(230,207,156,.35);border-radius:14px;padding:18px 14px 16px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;transition:background .2s,border-color .2s}
+.lp-hero .trust li:hover{background:rgba(255,255,255,.11);border-color:rgba(230,207,156,.7)}
+.lp-hero .trust .ti{width:44px;height:44px;border-radius:50%;background:rgba(230,207,156,.14);display:flex;align-items:center;justify-content:center;margin-bottom:4px}
+.lp-hero .trust .ti svg{width:26px;height:26px;fill:none;stroke:var(--gold-light);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.lp-hero .trust b{font-family:var(--serif);font-size:15px;color:#fff;font-weight:600;line-height:1.45}
+.lp-hero .trust .td{font-size:12px;color:#C9CFDD;line-height:1.6}
+@media (max-width:980px){.lp-hero .trust{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:700px){.trust-wrap{margin-top:26px;padding-top:20px}.lp-hero .trust{grid-template-columns:1fr 1fr;gap:8px}.lp-hero .trust li{padding:14px 10px 12px;gap:4px}.lp-hero .trust li:last-child{grid-column:1/-1}.lp-hero .trust .ti{width:38px;height:38px}.lp-hero .trust .ti svg{width:22px;height:22px}.lp-hero .trust b{font-size:14px}.lp-hero .trust .td{font-size:11.5px}}
 
 /* ---- 30秒診断 ---- */
 .quiz [hidden]{display:none!important}
