@@ -12,7 +12,7 @@ on:
         default: ""
   push:
     branches: [main]
-    paths: ["content/**", "templates/**", "scripts/**", "site.yaml", "static/**", "keywords.csv", "cases.csv"]
+    paths: ["content/**", "templates/**", "scripts/**", "site.yaml", "static/**", "keywords.csv", "cases.csv", ".github/workflows/**"]
 
 permissions:
   contents: write
