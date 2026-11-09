@@ -236,7 +236,7 @@ def lp_html(posts):
     # ヒーロー右：はじめに読む3本（基礎カテゴリ優先）
     first = [p for p in posts if p.get("category") in ("hiyou", "ihin", "seizen")][:3] or posts[:3]
     side = "".join(f'<li><a href="{BASE}/posts/{p["slug"]}/">{esc(p["title"])}<small>{CATS.get(p["category"], "")}・約{max(1, p["words"] // 500)}分</small></a></li>' for p in first)
-    hero_side = f'<aside class="hero-side"><p class="hs-t">はじめて読む方へ</p><ol>{side}</ol></aside>' if first else ""
+    hero_side = f'<aside class="hero-side"><p class="hs-t">はじめて読む方へ</p><p class="hs-s">よく読まれている3本。タップして読めます</p><ol>{side}</ol><a class="hs-more" href="{BASE}/#articles">記事をすべて見る →</a></aside>' if first else ""
     cta_btns = f'<p class="cta-btns"><a class="btn" href="tel:{tel_raw}">電話で相談する {SITE["tel"]}</a><a class="btn ghost" href="{SITE["contact_url"]}">フォームで無料見積り</a></p>'
     lamp = '<svg class="lamp" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6c9 12 14 19 14 27a14 14 0 0 1-28 0c0-8 5-15 14-27z" fill="#C9A961"/><path d="M32 18c4.5 6 7 10 7 14a7 7 0 0 1-14 0c0-4 2.5-8 7-14z" fill="#fff"/><rect x="23" y="52" width="18" height="5" rx="2.5" fill="#C9A961"/></svg>'
     trust = "".join(f'<li><b>{esc(t[0])}</b><span>{esc(t[1])}</span></li>' for t in L.get("trust", []))

@@ -116,14 +116,16 @@ footer p{margin:4px 0}
 .lp-hero .cta-btns{margin:0 0 14px}
 .lp-hero .btn{font-size:16px;padding:14px 24px}
 .lp-hero .note{font-size:13px;color:#C9CFDD;margin:0}
-.hero-side{background:rgba(255,255,255,.06);border:1px solid rgba(230,207,156,.35);border-radius:14px;padding:22px 22px 16px}
-.hero-side .hs-t{font-family:var(--serif);font-size:15px;color:var(--gold-light);margin:0 0 10px;letter-spacing:.08em}
-.hero-side ol{margin:0;padding:0;list-style:none}
-.hero-side li{border-top:1px solid rgba(255,255,255,.12);padding:10px 0}
-.hero-side li:first-child{border-top:none;padding-top:0}
-.hero-side a{color:#fff;text-decoration:none;font-weight:500;font-size:15px;line-height:1.55;display:block}
-.hero-side a:hover{color:var(--gold-light)}
-.hero-side small{display:block;color:#C9CFDD;font-size:12px;margin-top:2px}
+.hero-side{background:rgba(255,255,255,.06);border:1px solid rgba(230,207,156,.35);border-radius:14px;padding:20px 18px 16px}
+.hero-side .hs-t{font-family:var(--serif);font-size:15px;color:var(--gold-light);margin:0 0 4px;letter-spacing:.08em}
+.hero-side .hs-s{font-size:12px;color:#C9CFDD;margin:0 0 12px}
+.hero-side ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.hero-side li{counter-increment:hs}
+.hero-side ol a{position:relative;display:block;background:#fff;color:var(--navy);text-decoration:none;font-weight:600;font-size:15px;line-height:1.5;border-radius:10px;padding:12px 44px 12px 14px;transition:transform .15s,box-shadow .15s}
+.hero-side ol a::after{content:"";position:absolute;right:14px;top:50%;width:9px;height:9px;border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:translateY(-50%) rotate(-45deg)}
+.hero-side ol a:hover{transform:translateX(3px);box-shadow:0 8px 20px rgba(0,0,0,.25)}
+.hero-side small{display:block;color:var(--mute);font-size:12px;margin-top:3px;font-weight:400}
+.hero-side .hs-more{display:block;text-align:right;font-size:13px;color:var(--gold-light);margin:10px 0 0;text-decoration:underline;text-underline-offset:3px}
 
 .pains{list-style:none;padding:0;margin:0;display:grid;gap:16px;grid-template-columns:repeat(2,1fr)}
 .pains li{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:22px 22px 16px}
