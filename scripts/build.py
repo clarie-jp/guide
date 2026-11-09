@@ -141,53 +141,89 @@ def gbp_text(p):
 
 
 def quiz_html(posts):
-    """30秒診断：3問で状況を選ぶと、読むべき記事と次の一手を出す。静的・匿名。"""
+    """30秒診断：3問を選ぶと、状況に合った進め方・最初の一歩・先に読む記事を出す。静的・匿名。"""
     def picks(cat, n=2):
         return [{"t": p["title"], "u": f"{BASE}/posts/{p['slug']}/"} for p in posts if p["category"] == cat][:n]
-    data = {
-        "articles": {k: picks(k) for k in CATS},
-        "tel": SITE["tel"], "tel_raw": SITE["tel"].replace("-", ""), "contact": SITE["contact_url"], "test": SITE["test_url"], "base": BASE,
+    data = {"articles": {k: picks(k) for k in CATS}, "tel": SITE["tel"], "tel_raw": SITE["tel"].replace("-", ""),
+            "contact": SITE["contact_url"], "test": SITE["test_url"], "base": BASE}
+    tel_raw = data["tel_raw"]
+    ic = {  # 選択肢の小さなアイコン（線画）
+        "home": '<svg viewBox="0 0 32 32"><path d="M4 16 16 5l12 11M8 14v12h16V14M13 26v-7h6v7"/></svg>',
+        "flower": '<svg viewBox="0 0 32 32"><circle cx="16" cy="12" r="4"/><path d="M16 16v11M16 5v3M9 9l2 2M23 9l-2 2M8 15h3M21 15h3M11 27h10"/></svg>',
+        "person": '<svg viewBox="0 0 32 32"><circle cx="16" cy="10" r="5"/><path d="M6 28c1-6 5-9 10-9s9 3 10 9"/></svg>',
+        "clock1": '<svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3"/></svg>',
+        "clock2": '<svg viewBox="0 0 32 32"><rect x="5" y="7" width="22" height="20" rx="2"/><path d="M5 13h22M11 4v6M21 4v6"/></svg>',
+        "cloud": '<svg viewBox="0 0 32 32"><path d="M9 25a6 6 0 0 1-1-11.9A8 8 0 0 1 23.5 12 5.5 5.5 0 0 1 24 25z"/></svg>',
+        "yen": '<svg viewBox="0 0 32 32"><path d="M9 6l7 10 7-10M16 16v11M10 19h12M10 23h12"/></svg>',
+        "steps": '<svg viewBox="0 0 32 32"><path d="M5 27h7v-6h7v-6h7V8"/></svg>',
+        "family": '<svg viewBox="0 0 32 32"><circle cx="11" cy="11" r="4"/><circle cx="22" cy="12" r="3.2"/><path d="M3 27c1-5 4-8 8-8s7 3 8 8M17 26c.6-3.5 2.6-5.6 5.5-5.6S28 22.5 29 26"/></svg>',
+        "doc": '<svg viewBox="0 0 32 32"><path d="M8 4h11l6 6v18H8zM19 4v6h6M12 16h9M12 21h9"/></svg>',
     }
-    return f"""<section class="sec" id="shindan"><div class="sec-h"><h2>30秒でわかる、いま何をすべきか</h2></div>
-<p class="sec-sub">3つ選ぶだけで、あなたの状況に合った進め方と、先に読む記事をお出しします。入力は保存されません。</p>
+    def opt(v, icon, label, sub):
+        return f'<button type="button" data-v="{v}"><span class="ico">{ic[icon]}</span><span class="lb">{label}</span><span class="sb">{sub}</span></button>'
+    q1 = opt("parent", "home", "親の家", "親は元気。先々のために") + opt("bereaved", "flower", "亡くなった家族の家", "遺品の整理と手続き") + opt("self", "person", "自分の身辺整理", "元気なうちに自分で")
+    q2 = opt("soon", "clock1", "1か月以内", "退去・売却など期限がある") + opt("half", "clock2", "半年くらい", "急がないが進めたい") + opt("undecided", "cloud", "まだ決めていない", "まず知りたい段階")
+    q3 = opt("cost", "yen", "費用はいくら？", "見積りの見方、安くする方法") + opt("how", "steps", "何から始める？", "手順と順番") + opt("family", "family", "家族との話し合い", "切り出し方、もめない進め方") + opt("house", "doc", "家・相続のこと", "売る・残す、手続きの順番")
+    return f"""<section class="sec shindan" id="shindan">
 <div class="quiz" id="quiz">
- <div class="qstep" data-q="1"><p class="qq">1. どなたの片付けですか？</p><div class="qopts">
-  <button type="button" data-v="parent">親の家（親は元気）</button><button type="button" data-v="bereaved">亡くなった家族の家</button><button type="button" data-v="self">自分の身辺整理</button></div></div>
- <div class="qstep" data-q="2" hidden><p class="qq">2. いつまでに終えたいですか？</p><div class="qopts">
-  <button type="button" data-v="soon">1か月以内</button><button type="button" data-v="half">半年以内</button><button type="button" data-v="undecided">まだ決めていない</button></div></div>
- <div class="qstep" data-q="3" hidden><p class="qq">3. いちばん気になることは？</p><div class="qopts">
-  <button type="button" data-v="cost">費用</button><button type="button" data-v="how">何から始めるか</button><button type="button" data-v="family">家族との話し合い</button><button type="button" data-v="house">家や相続のこと</button></div></div>
- <div class="qresult" hidden>
-  <p class="qr-k">あなたの状況</p><p class="qr-h"></p><p class="qr-b"></p>
-  <p class="qr-k">先に読む記事</p><ul class="qr-list"></ul>
-  <p class="cta-btns"><a class="btn" href="tel:{data['tel_raw']}">電話で相談する {SITE['tel']}</a><a class="btn navy" href="{SITE['contact_url']}">フォームで無料見積り</a><a class="btn ghost dark" href="{SITE['test_url']}">理解度テストで詳しく（3分）</a></p>
-  <button type="button" class="qagain">もう一度選ぶ</button>
+ <div class="qhead">
+  <p class="qeyebrow">30秒診断・無料・入力は残りません</p>
+  <h2>3つ選ぶだけで、<br class="sp">あなたに合う進め方がわかります</h2>
+  <p class="qlead">費用の目安、最初の一歩、先に読むべき記事を、その場でお出しします。</p>
  </div>
- <p class="qprog"><span></span></p>
+ <div class="qbody">
+  <div class="qbar"><span class="qnum">質問 <b>1</b> / 3</span><span class="qdots"><i class="on"></i><i></i><i></i></span><button type="button" class="qback" hidden>← 戻る</button></div>
+  <div class="qstep" data-q="1"><p class="qq">どなたの片付けですか？</p><div class="qopts">{q1}</div></div>
+  <div class="qstep" data-q="2" hidden><p class="qq">いつまでに終えたいですか？</p><div class="qopts">{q2}</div></div>
+  <div class="qstep" data-q="3" hidden><p class="qq">いちばん気になることは？</p><div class="qopts four">{q3}</div></div>
+  <div class="qresult" hidden>
+   <p class="qr-k">診断結果</p>
+   <p class="qr-h"></p>
+   <p class="qr-b"></p>
+   <div class="qr-grid">
+    <div class="qr-box"><p class="qr-t">最初の一歩</p><ol class="qr-steps"></ol></div>
+    <div class="qr-box"><p class="qr-t">先に読む記事</p><ul class="qr-list"></ul></div>
+   </div>
+   <div class="qr-cta">
+    <p class="qr-cta-t">読む前に聞いてしまったほうが早いときは</p>
+    <p class="cta-btns"><a class="btn" href="tel:{tel_raw}">電話で相談する {SITE['tel']}</a><a class="btn navy" href="{SITE['contact_url']}">フォームで無料見積り</a></p>
+    <p class="qr-note">{html.escape(SITE['tel_hours'])}。相談・見積りは無料、お断りいただいても費用はかかりません。</p>
+   </div>
+   <button type="button" class="qagain">もう一度、選び直す</button>
+  </div>
+ </div>
 </div>
 <script>
 (function(){{
 var D={json.dumps(data, ensure_ascii=False)};
 var A={{}};var root=document.getElementById('quiz');if(!root)return;
-var steps=root.querySelectorAll('.qstep'),res=root.querySelector('.qresult'),prog=root.querySelector('.qprog span');
-function show(n){{steps.forEach(function(s){{s.hidden=(+s.dataset.q!==n)}});res.hidden=true;prog.style.width=((n-1)/3*100)+'%';}}
+var steps=root.querySelectorAll('.qstep'),res=root.querySelector('.qresult'),dots=root.querySelectorAll('.qdots i'),num=root.querySelector('.qnum b'),back=root.querySelector('.qback'),bar=root.querySelector('.qbar');
+var cur=1;
+function show(n){{cur=n;steps.forEach(function(s){{s.hidden=(+s.dataset.q!==n);}});res.hidden=true;bar.hidden=false;num.textContent=n;dots.forEach(function(d,i){{d.className=i<n-1?'done':(i===n-1?'on':'');}});back.hidden=(n===1);
+ steps.forEach(function(s){{s.querySelectorAll('button').forEach(function(b){{b.classList.toggle('sel',A['q'+s.dataset.q]===b.dataset.v);}});}});}}
 var H={{
- parent:{{h:'親が元気なうちに始める「生前整理」です',b:'物より先に、通帳・保険・連絡先などの情報から整えると家族の負担が大きく減ります。価値のある物は捨てる前に査定を。',cats:['seizen','jikka']}},
- bereaved:{{h:'期限と手続きを意識する「遺品整理」です',b:'先に貴重品と書類を確認し、相続放棄の可能性があれば処分の前に専門家へ。見積りは買取額を差し引いた金額で比べてください。',cats:['ihin','souzoku']}},
- self:{{h:'自分のペースで進める「身辺整理」です',b:'残す・手放す・託すの3つに分け、託す物は査定を受けてから行き先を決めると無駄がありません。',cats:['seizen','kaitori']}}
+ parent:{{h:'親が元気なうちに始める「生前整理」が向いています',b:'物より先に、通帳・保険・連絡先などの「情報」から整えると、家族の負担が大きく減ります。価値のある物は、捨てる前に一度査定を。',
+  steps:['親に「困ったときのために、大事な物の場所だけ教えて」と切り出す','通帳・保険証券・権利証など書類の置き場所を1か所にまとめる','使っていない貴金属・着物・骨董は、処分の前に無料査定へ'],cats:['seizen','jikka']}},
+ bereaved:{{h:'期限と手続きを意識して進める「遺品整理」です',b:'先に貴重品と書類を確認し、相続放棄の可能性があれば処分の前に専門家へ。見積りは「買取額を差し引いた金額」で比べてください。',
+  steps:['通帳・印鑑・保険・年金の書類、鍵、現金を先に確保する','相続放棄の可能性があるなら、物を処分する前に司法書士・弁護士へ','整理費用と買取額を同じ見積書で出す業者に相見積りを取る'],cats:['ihin','souzoku']}},
+ self:{{h:'自分のペースで進める「身辺整理」です',b:'残す・手放す・託すの3つに分け、託す物は査定を受けてから行き先を決めると無駄がありません。',
+  steps:['1日1引き出し。小さく始めて、止まらないことを優先する','写真・手紙など「残す物」の箱を先に決める','手放す物は、捨てる前に値段が付くかだけ確認する'],cats:['seizen','kaitori']}}
 }};
-var T={{soon:'期限が近いので、見積りを先に取り、仕分けと搬出を同時に進める段取りが向いています。',half:'半年あれば、貴重品の確認→家族で仕分け→業者に搬出、の順で費用を抑えられます。',undecided:'まずは費用の目安と手順を知るところから。1日1引き出しの小さな一歩で十分です。'}};
+var T={{soon:'期限が近いので、見積りを先に取り、仕分けと搬出を同時に進める段取りが向いています。',half:'半年あれば、貴重品の確認→家族で仕分け→業者に搬出、の順で費用を抑えられます。',undecided:'まずは費用の目安と手順を知るところから。急いで決める必要はありません。'}};
 var C={{cost:'hiyou',how:'ihin',family:'seizen',house:'jikka'}};
-root.addEventListener('click',function(e){{var b=e.target.closest('button');if(!b)return;
- if(b.classList.contains('qagain')){{A={{}};show(1);return;}}
- var st=b.closest('.qstep');if(!st)return;A['q'+st.dataset.q]=b.dataset.v;var n=+st.dataset.q;
- if(n<3){{show(n+1);return;}}
- steps.forEach(function(s){{s.hidden=true}});prog.style.width='100%';
+function finish(){{steps.forEach(function(s){{s.hidden=true;}});bar.hidden=true;
  var h=H[A.q1]||H.parent;root.querySelector('.qr-h').textContent=h.h;root.querySelector('.qr-b').textContent=h.b+' '+(T[A.q2]||'');
- var cats=[C[A.q3]].concat(h.cats);var seen={{}};var list=[];cats.forEach(function(c){{(D.articles[c]||[]).forEach(function(a){{if(!seen[a.u]&&list.length<3){{seen[a.u]=1;list.push(a);}}}})}});
- root.querySelector('.qr-list').innerHTML=list.map(function(a){{return '<li><a href="'+a.u+'">'+a.t+'</a></li>'}}).join('')||'<li>記事を準備しています。まずはお電話でご相談ください。</li>';
- res.hidden=false;res.scrollIntoView({{behavior:'smooth',block:'nearest'}});
- if(window.gtag)gtag('event','shindan_complete',{{q1:A.q1,q2:A.q2,q3:A.q3}});
+ root.querySelector('.qr-steps').innerHTML=h.steps.map(function(t){{return '<li>'+t+'</li>';}}).join('');
+ var cats=[C[A.q3]].concat(h.cats);var seen={{}};var list=[];cats.forEach(function(c){{(D.articles[c]||[]).forEach(function(a){{if(!seen[a.u]&&list.length<3){{seen[a.u]=1;list.push(a);}}}});}});
+ root.querySelector('.qr-list').innerHTML=list.map(function(a){{return '<li><a href="'+a.u+'">'+a.t+'</a></li>';}}).join('')||'<li>記事を準備しています。まずはお電話でご相談ください。</li>';
+ res.hidden=false;root.scrollIntoView({{behavior:'smooth',block:'start'}});
+ if(window.gtag)gtag('event','shindan_complete',{{q1:A.q1,q2:A.q2,q3:A.q3}});}}
+root.addEventListener('click',function(e){{var b=e.target.closest('button');if(!b)return;
+ if(b.classList.contains('qagain')){{A={{}};show(1);root.scrollIntoView({{behavior:'smooth',block:'start'}});return;}}
+ if(b.classList.contains('qback')){{if(cur>1)show(cur-1);return;}}
+ var st=b.closest('.qstep');if(!st)return;var n=+st.dataset.q;A['q'+n]=b.dataset.v;
+ b.classList.add('sel');
+ setTimeout(function(){{if(n<3)show(n+1);else finish();}},180);
 }});
 }})();
 </script></section>"""
@@ -203,7 +239,9 @@ def lp_html(posts):
     hero_side = f'<aside class="hero-side"><p class="hs-t">はじめて読む方へ</p><ol>{side}</ol></aside>' if first else ""
     cta_btns = f'<p class="cta-btns"><a class="btn" href="tel:{tel_raw}">電話で相談する {SITE["tel"]}</a><a class="btn ghost" href="{SITE["contact_url"]}">フォームで無料見積り</a></p>'
     lamp = '<svg class="lamp" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6c9 12 14 19 14 27a14 14 0 0 1-28 0c0-8 5-15 14-27z" fill="#C9A961"/><path d="M32 18c4.5 6 7 10 7 14a7 7 0 0 1-14 0c0-4 2.5-8 7-14z" fill="#fff"/><rect x="23" y="52" width="18" height="5" rx="2.5" fill="#C9A961"/></svg>'
-    hero = f"""<section class="lp-hero"><div class="in"><div>{lamp}<h1>{esc(L["hero_title"])}</h1><p>{esc(L["hero_sub"])}</p>{cta_btns}<p class="note">{esc(SITE["tel_hours"])}／出張査定・お見積り無料／対応エリア {esc(SITE["area"])}</p></div>{hero_side}</div></section>"""
+    trust = "".join(f'<li><b>{esc(t[0])}</b><span>{esc(t[1])}</span></li>' for t in L.get("trust", []))
+    trust_bar = f'<ul class="trust">{trust}</ul>' if trust else ""
+    hero = f"""<section class="lp-hero"><div class="in"><div>{lamp}<h1>{esc(L["hero_title"])}</h1><p>{esc(L["hero_sub"])}</p>{cta_btns}<p class="note">{esc(SITE["tel_hours"])}／出張査定・お見積り無料／対応エリア {esc(SITE["area"])}</p></div>{hero_side}</div>{trust_bar}</section>"""
     # 悩み別：各カテゴリの記事3本
     pains = ""
     for x in L["pains"]:
@@ -252,7 +290,7 @@ def main():
           "url": SITE["brand_url"], "telephone": SITE["tel"], "areaServed": SITE["area"],
           "address": {"@type": "PostalAddress", "addressRegion": "神奈川県", "addressLocality": "横浜市西区", "streetAddress": "みなとみらい2-2-1 ランドマークプラザ5階"},
           "description": "生前整理・遺品整理と買取をひとつの窓口で行うサービス"}
-    top = page(SITE["site_name"], SITE["tagline"], lp_html(posts), BASE + "/", f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>')
+    top = page("生前整理・遺品整理・実家じまいの費用と手順", SITE["tagline"], lp_html(posts), BASE + "/", f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>')
     (DIST / "index.html").write_text(top, encoding="utf-8")
     # カテゴリ・タグ・著者
     for k, v in CATS.items():
