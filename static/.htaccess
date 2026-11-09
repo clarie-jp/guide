@@ -1,0 +1,21 @@
+# guide.clarie.jp 用。静的サイトのため PHP は使わない
+Options -Indexes
+DirectoryIndex index.html
+AddDefaultCharset UTF-8
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/xml image/svg+xml
+</IfModule>
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType text/css "access plus 7 days"
+</IfModule>
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # http → https
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+</IfModule>

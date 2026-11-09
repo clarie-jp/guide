@@ -1,0 +1,68 @@
+name: 記事の自動生成と公開
+
+on:
+  schedule:
+    # 毎日 06:10 JST（21:10 UTC）に記事を生成して公開
+    - cron: "10 21 * * *"
+  workflow_dispatch:
+    inputs:
+      count:
+        description: "今回生成する本数（空なら site.yaml の設定）"
+        required: false
+        default: ""
+  push:
+    branches: [main]
+    paths: ["content/**", "templates/**", "scripts/**", "site.yaml", "static/**", "keywords.csv", "cases.csv"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  generate-build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml markdown
+
+      - name: 記事を生成（cron と手動実行のときだけ）
+        if: github.event_name != 'push'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -n "${{ github.event.inputs.count }}" ]; then
+            python3 scripts/generate.py --count "${{ github.event.inputs.count }}"
+          else
+            python3 scripts/generate.py
+          fi
+
+      - name: 生成した記事をコミット
+        if: github.event_name != 'push'
+        run: |
+          git config user.name "clarie-bot"
+          git config user.email "bot@clarie.jp"
+          git add content keywords.csv cases.csv
+          git diff --cached --quiet || git commit -m "記事を自動生成 $(date -u +%Y-%m-%d)"
+          git push
+
+      - name: サイトをビルド
+        run: python3 scripts/build.py
+
+      # お名前.com レンタルサーバーへ SSH（鍵認証）で差分転送。
+      # Secrets: SSH_HOST（例 www1222.onamae.ne.jp）, SSH_USER（例 rs2446171）, SSH_KEY（秘密鍵の中身）, DEPLOY_PATH（guide.clarie.jp の公開ディレクトリ）
+      - name: サーバーへ転送（rsync over SSH）
+        uses: easingthemes/ssh-deploy@v5.1.0
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_USER: ${{ secrets.SSH_USER }}
+          REMOTE_PORT: ${{ secrets.SSH_PORT || 22 }}
+          SOURCE: "dist/"
+          TARGET: ${{ secrets.DEPLOY_PATH }}
+          ARGS: "-rlgoDzvc -i --delete"
