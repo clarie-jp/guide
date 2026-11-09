@@ -15,7 +15,7 @@ AddDefaultCharset UTF-8
 </IfModule>
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  # http → https
-  RewriteCond %{HTTPS} !=on
+  # http → https。お名前.com はSSLを前段サーバーで処理するため %{HTTPS} は使わず X-Forwarded-Proto で判定する
+  RewriteCond %{HTTP:X-Forwarded-Proto} =http
   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 </IfModule>
