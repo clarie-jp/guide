@@ -55,7 +55,7 @@ jobs:
         run: python3 scripts/build.py
 
       # お名前.com レンタルサーバーへ SSH（鍵認証）で差分転送。
-      # Secrets: SSH_HOST（例 www1222.onamae.ne.jp）, SSH_USER（例 rs2446171）, SSH_KEY（秘密鍵の中身）, DEPLOY_PATH（guide.clarie.jp の公開ディレクトリ）
+      # Secrets: SSH_HOST（www1222.onamae.ne.jp）, SSH_PORT（8022）, SSH_USER（r3199320）, SSH_KEY（秘密鍵の中身）, DEPLOY_PATH（/home/r3199320/public_html/guide.clarie.jp/）
       - name: サーバーへ転送（rsync over SSH）
         uses: easingthemes/ssh-deploy@v5.1.0
         with:

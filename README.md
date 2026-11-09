@@ -35,6 +35,14 @@ python3 scripts/build.py && python3 -m http.server -d dist 8000
 - 記事は4領域（basic/area/case/item）を site.yaml の mix の比率で生成。事例は cases.csv の実データのみから生成
 - 1日の生成本数: posts_per_run（既定3）
 
+### 接続情報（2026-11-09 設定済み。秘密鍵・APIキーは GitHub Secrets のみに保管）
+- サーバー: www1222.onamae.ne.jp（お名前.com レンタルサーバー ベーシック、契約番号 2446171、CPユーザー rs2446171）
+- SSH: ポート 8022、ユーザー r3199320、鍵名 github-actions-clarie-guide（ed25519、公開鍵はCP → サーバー → SSH に登録済み）
+- 公開ディレクトリ（DEPLOY_PATH）: /home/r3199320/public_html/guide.clarie.jp/
+- DNS: clarie.jp は CP の DNS で管理（本体 A → 34.111.141.225 = STUDIO、www → 157.120.209.206）。guide はサブドメイン追加時に自動設定
+- SSL: 無料SSL（アルファSSL）を guide.clarie.jp に申込み済み
+- 国外アクセス制限（SSH）: オフのまま（GitHub Actions は海外IPのため）
+
 ### 初回セットアップ手順
 1. お名前.com コントロールパネル: ドメイン → clarie.jp → サブドメイン「guide」を追加（公開ディレクトリのパスを控える）
 2. サーバー → SSH → key の新規自動作成（秘密鍵をダウンロード）
