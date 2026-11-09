@@ -170,6 +170,7 @@ def quiz_html(posts):
   <p class="qeyebrow">30秒診断・無料・入力は残りません</p>
   <h2>3つ選ぶだけで、<br class="sp">あなたに合う進め方がわかります</h2>
   <p class="qlead">費用の目安、最初の一歩、先に読むべき記事を、その場でお出しします。</p>
+  <div class="qtest"><p class="qtest-t">もっと詳しく知りたい方は</p><a class="btn ghost light" href="{SITE['test_url']}">理解度テストを受ける（無料・3分）<small>生前整理・遺品整理の基礎知識をチェック</small></a></div>
  </div>
  <div class="qbody">
   <div class="qbar"><span class="qnum">質問 <b>1</b> / 3</span><span class="qdots"><i class="on"></i><i></i><i></i></span><button type="button" class="qback" hidden>← 戻る</button></div>
@@ -186,7 +187,7 @@ def quiz_html(posts):
    </div>
    <div class="qr-cta">
     <p class="qr-cta-t">読む前に聞いてしまったほうが早いときは</p>
-    <p class="cta-btns"><a class="btn" href="tel:{tel_raw}">電話で相談する {SITE['tel']}</a><a class="btn navy" href="{SITE['contact_url']}">フォームで無料見積り</a></p>
+    <p class="cta-btns"><a class="btn" href="tel:{tel_raw}">電話で相談する {SITE['tel']}</a><a class="btn navy" href="{SITE['contact_url']}">フォームで無料見積り</a><a class="btn ghost light" href="{SITE['test_url']}">理解度テストを受ける（3分）</a></p>
     <p class="qr-note">{html.escape(SITE['tel_hours'])}。相談・見積りは無料、お断りいただいても費用はかかりません。</p>
    </div>
    <button type="button" class="qagain">もう一度、選び直す</button>
