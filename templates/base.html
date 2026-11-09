@@ -35,7 +35,8 @@ header.top{background:var(--navy);color:#fff;border-bottom:1px solid rgba(201,16
 .brand{display:flex;justify-content:space-between;align-items:center;padding:14px 0;gap:14px}
 .brand .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
 .brand .logo svg{width:44px;height:44px;flex:none}
-.brand .logo .nm{font-family:var(--serif);font-size:22px;letter-spacing:.28em;line-height:1}
+.brand .logo .nm{font-family:var(--serif);font-size:22px;letter-spacing:.28em;line-height:1;display:flex;align-items:baseline;gap:12px;white-space:nowrap}
+.brand .logo .rm{font-family:var(--serif);font-size:12px;letter-spacing:.32em;color:var(--gold-light);font-weight:500}
 .brand .logo .sub{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.04em;color:var(--gold-light);margin-top:5px}
 .brand .telbtn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#fff;text-decoration:none;padding:10px 16px;border-radius:999px;font-weight:700;font-size:15px;white-space:nowrap}
 .brand .telbtn small{font-weight:500;font-size:12px;opacity:.9}
@@ -262,7 +263,8 @@ footer p{margin:4px 0}
   nav.cats a{flex:none}
   h1{font-size:23px}h2{font-size:19px}.cards{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr}
-  .brand .logo .nm{font-size:19px}
+  .brand .logo .nm{font-size:18px;letter-spacing:.2em;flex-direction:column;align-items:flex-start;gap:3px;white-space:nowrap}
+  .brand .logo .rm{font-size:9px;letter-spacing:.28em}
   .brand .telbtn small{display:none}
   .fixcta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:50;gap:8px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--line);box-shadow:0 -4px 14px rgba(0,0,0,.08)}
   .fixcta a{flex:1;text-align:center;padding:13px 6px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none}
@@ -277,7 +279,7 @@ footer p{margin:4px 0}
 <div class="brand">
 <a class="logo" href="{{base}}/" aria-label="クラリエ 生前整理・遺品整理ガイド">
 <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="3" y="3" width="58" height="58" rx="14" fill="#192240" stroke="#C9A961" stroke-width="3"/><circle cx="32" cy="30" r="14" fill="#232E54"/><path d="M32 15c6 8 9 12 9 17a9 9 0 0 1-18 0c0-5 3-9 9-17z" fill="#C9A961"/><path d="M32 22c3 4 4.5 6.5 4.5 9a4.5 4.5 0 0 1-9 0c0-2.5 1.5-5 4.5-9z" fill="#fff"/><rect x="26" y="44" width="12" height="4" rx="2" fill="#C9A961"/></svg>
-<span><span class="nm">クラリエ</span><span class="sub">生前整理・遺品整理ガイド　運営：{{company}}</span></span>
+<span><span class="nm">クラリエ<span class="rm">CLARIE</span></span><span class="sub">生前整理・遺品整理ガイド　運営：{{company}}</span></span>
 </a>
 <a class="telbtn" href="tel:{{tel_raw}}">{{tel}}<small>{{tel_hours}}</small></a>
 </div>
