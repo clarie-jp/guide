@@ -34,7 +34,7 @@ mix:
   case: 0.2
   item: 0.1
 # true にすると、生成した記事を content/drafts に置き、確認してから content/posts に移す運用になる
-review_before_publish: false
+review_before_publish: true
 
 # ---- トップページ（LP）の文言。ここを直せばLPが変わる ----
 lp:
