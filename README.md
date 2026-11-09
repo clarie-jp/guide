@@ -51,3 +51,8 @@ python3 scripts/build.py && python3 -m http.server -d dist 8000
 5. Settings → Secrets and variables → Actions に上記 Secrets を登録（DEPLOY_PATH は手順1のパス、末尾スラッシュあり）
 6. Actions → 「記事の自動生成と公開」→ Run workflow（count=3）で初回実行
 7. Google Search Console に guide.clarie.jp を登録し、sitemap.xml を送信
+
+## 整合性ルール（2026-11-09〜）
+- 料金・電話番号・受付時間・対応エリア・追加請求の扱いは **site.yaml だけ** が正。LP・記事・Googleマップ投稿はすべてここに合わせる
+- `scripts/consistency.py` が、記事生成時（不採用にする）とビルド時（公開を止める）の両方でチェックする
+- 料金を変えるときは site.yaml の `lp.pricing.rows` を直し、既存記事もビルドが通るように直してから公開する

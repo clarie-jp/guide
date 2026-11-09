@@ -4,6 +4,9 @@
 """
 import re, json, shutil, pathlib, datetime, html
 import yaml, markdown
+import sys
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import consistency
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = yaml.safe_load((ROOT / "site.yaml").read_text(encoding="utf-8"))
@@ -136,7 +139,7 @@ def gbp_text(p):
     body = re.sub(r"\[(.*?)\]\(.*?\)", r"\1", body)
     lead = re.split(r"\n\s*\n", body.strip())[0].strip()
     lead = re.sub(r"\s+", " ", lead)[:300]
-    t = f"【{p['title']}】\n\n{lead}\n\n続きは記事で解説しています。\n{BASE}/posts/{p['slug']}/\n\n生前整理・遺品整理・買取のご相談は、クラリエ（{SITE['company']}）へ。出張査定・お見積り無料。{SITE['area']}対応。\n電話 {SITE['tel']}（{SITE['tel_hours']}）"
+    t = f"【{p['title']}】\n\n{lead}\n\n続きは記事で解説しています。\n{BASE}/posts/{p['slug']}/\n\n生前整理・遺品整理・買取のご相談は、クラリエ（{SITE['company']}）へ。出張査定・お見積り無料。{SITE['area']}対応。\n電話 {SITE['tel']}　{SITE['tel_hours']}"
     return t[:1400]
 
 
@@ -289,6 +292,13 @@ def main():
     if DIST.exists(): shutil.rmtree(DIST)
     DIST.mkdir()
     posts = sorted([parse(p) for p in POSTS.glob("*.md")], key=lambda x: x["date"], reverse=True)
+    # 整合性チェック：料金・電話番号などが site.yaml（＝LP）と違う記事があれば公開しない
+    bad = []
+    for p in posts:
+        txt = " ".join([p["title"], p["description"], p["body_md"]] + [f.get("q", "") + f.get("a", "") for f in p.get("faq", [])])
+        bad += [f"{p['slug']}: {x}" for x in consistency.check_text(txt, SITE)]
+    if bad:
+        sys.exit("整合性チェックで止めました（LPと記事の内容が食い違っています）:\n" + "\n".join(bad))
     for p in posts:
         d = DIST / "posts" / p["slug"]; d.mkdir(parents=True, exist_ok=True)
         (d / "index.html").write_text(post_html(p, posts), encoding="utf-8")

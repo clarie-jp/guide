@@ -22,6 +22,8 @@ import argparse, csv, json, os, re, sys, datetime, pathlib, urllib.request, coll
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 import yaml
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import consistency
 SITE = yaml.safe_load((ROOT / "site.yaml").read_text(encoding="utf-8"))
 KW = ROOT / "keywords.csv"
 CASES = ROOT / "cases.csv"
@@ -93,6 +95,8 @@ def common_rules(posts, extra_links=40):
     a = SITE["author"]
     return f"""【書き手】{a['name']}（{a['title']}）。{a['bio']}
 【会社】{SITE['company']}。生前整理・遺品整理サービス「クラリエ」。買取（古物商）と整理を一括で行い、買取額を整理費用から差し引ける。対応エリアは{SITE['area']}。
+
+{consistency.facts_for_prompt(SITE)}
 
 【守ること】
 - 見出しは「## 」と「### 」を使い、## は4〜7個。最初の## の前に、結論を3行以内で書く導入を置く
@@ -212,6 +216,8 @@ def call_claude(prompt):
 def check(article, dom, row, posts):
     problems = []
     body = article.get("body_md", "")
+    full = " ".join([article.get("title", ""), article.get("description", ""), body] + [x.get("q", "") + x.get("a", "") for x in article.get("faq", [])])
+    problems += consistency.check_text(full, SITE)
     if len(body) < MIN_CHARS[dom]: problems.append(f"本文が短い（{len(body)}文字）")
     if body.count("## ") < 4: problems.append("## 見出しが4つ未満")
     if len(article.get("title", "")) > 34: problems.append("タイトルが長い")
