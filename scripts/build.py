@@ -134,13 +134,30 @@ def post_html(p, posts):
 
 
 def gbp_text(p):
-    """Googleビジネスプロフィールの投稿文。結論→要点→案内の順で、1,500字以内。"""
-    body = re.sub(r"[#*`>|_\-]+", " ", p["body_md"])
+    """Googleビジネスプロフィールの投稿文。
+    Googleの投稿ポリシーで却下されないよう、本文に電話番号・URLは書かない
+    （リンクは投稿の「詳細」ボタン、電話はプロフィールの電話ボタンで案内される）。"""
+    body = re.sub(r"[#*`>|_]+", " ", p["body_md"])
     body = re.sub(r"\[(.*?)\]\(.*?\)", r"\1", body)
+    body = re.sub(r"https?://\S+", "", body)
     lead = re.split(r"\n\s*\n", body.strip())[0].strip()
     lead = re.sub(r"\s+", " ", lead)[:300]
-    t = f"【{p['title']}】\n\n{lead}\n\n続きは記事で解説しています。\n{BASE}/posts/{p['slug']}/\n\n生前整理・遺品整理・買取のご相談は、クラリエ（{SITE['company']}）へ。出張査定・お見積り無料。{SITE['area']}対応。\n電話 {SITE['tel']}　{SITE['tel_hours']}"
+    lead = re.sub(r"0\d{1,4}-\d{1,4}-\d{3,4}", "", lead)
+    t = (f"【{p['title']}】\n\n{lead}\n\n"
+         "続きは「詳細」から記事でご覧いただけます。\n\n"
+         f"生前整理・遺品整理・買取のご相談は、クラリエへ。出張査定・お見積り無料、土日も受付しています。対応エリアは{SITE['area']}です。")
     return t[:1400]
+
+
+def gbp_image(p):
+    """マップ投稿に付ける画像。記事の写真があればそれ、無ければカテゴリのブランド画像。"""
+    img = pick_image(p)
+    if img:
+        return f"{BASE}/{img}"
+    cat = p.get("category", "ihin")
+    if (ROOT / "static" / "img" / "gbp" / f"{cat}.jpg").exists():
+        return f"{BASE}/img/gbp/{cat}.jpg"
+    return f"{BASE}/img/gbp/ihin.jpg"
 
 
 def quiz_html(posts):
@@ -330,7 +347,7 @@ def main():
     items = "".join(f"<item><title>{html.escape(p['title'])}</title><link>{BASE}/posts/{p['slug']}/</link><guid>{BASE}/posts/{p['slug']}/</guid><pubDate>{p['date']}</pubDate><description>{html.escape(p['description'])}</description></item>" for p in posts[:50])
     (DIST / "feed.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>{html.escape(SITE["site_name"])}</title><link>{BASE}/</link><description>{html.escape(SITE["tagline"])}</description>{items}</channel></rss>', encoding="utf-8")
     # Google ビジネスプロフィール投稿用フィード（Zapier/Make の「RSS→投稿」で使う。本文は1,500字以内の投稿文）
-    gbp = "".join(f"<item><title>{html.escape(p['title'])}</title><link>{BASE}/posts/{p['slug']}/</link><guid>{BASE}/posts/{p['slug']}/</guid><pubDate>{p['date']}</pubDate><description>{html.escape(gbp_text(p))}</description>{('<enclosure url=\"' + BASE + '/' + pick_image(p) + '\" type=\"image/jpeg\" length=\"0\"/>') if pick_image(p) else ''}<image>{BASE}/{pick_image(p)}</image></item>" for p in posts[:20])
+    gbp = "".join(f"<item><title>{html.escape(p['title'])}</title><link>{BASE}/posts/{p['slug']}/</link><guid>{BASE}/posts/{p['slug']}/</guid><pubDate>{p['date']}</pubDate><description>{html.escape(gbp_text(p))}</description><enclosure url=\"{gbp_image(p)}\" type=\"image/jpeg\" length=\"0\"/><image>{gbp_image(p)}</image></item>" for p in posts[:20])
     (DIST / "gbp.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>クラリエ 投稿用</title><link>{BASE}/</link><description>Googleビジネスプロフィール投稿用</description>{gbp}</channel></rss>', encoding="utf-8")
     (DIST / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n", encoding="utf-8")
     (DIST / ".nojekyll").write_text("", encoding="utf-8")
