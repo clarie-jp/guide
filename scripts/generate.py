@@ -215,8 +215,30 @@ def ping():
     print("API接続OK:", MODEL, "/", "".join(b.get("text", "") for b in data["content"]).strip())
 
 
+ARTICLE_TOOL = {
+    "name": "save_article",
+    "description": "書き上げた記事を保存する",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "title": {"type": "string"}, "description": {"type": "string"}, "slug": {"type": "string"},
+            "tags": {"type": "array", "items": {"type": "string"}},
+            "body_md": {"type": "string"},
+            "faq": {"type": "array", "items": {"type": "object", "properties": {"q": {"type": "string"}, "a": {"type": "string"}}, "required": ["q", "a"]}},
+        },
+        "required": ["title", "description", "slug", "tags", "body_md", "faq"],
+    },
+}
+
+
 def call_claude(prompt):
-    data = _post({"model": MODEL, "max_tokens": 8000, "messages": [{"role": "user", "content": prompt}]})
+    # 記事は save_article ツールの引数（JSON）として受け取る。本文中の記号でJSONが壊れて不採用になるのを防ぐ
+    prompt = prompt + "\n\n（出力は save_article ツールで渡してください。項目は上の出力形式と同じです）"
+    data = _post({"model": MODEL, "max_tokens": 12000, "messages": [{"role": "user", "content": prompt}],
+                  "tools": [ARTICLE_TOOL], "tool_choice": {"type": "tool", "name": "save_article"}})
+    for b in data["content"]:
+        if b.get("type") == "tool_use":
+            return b["input"]
     text = "".join(b.get("text", "") for b in data["content"])
     m = re.search(r"\{.*\}", text, re.S)
     return json.loads(m.group(0))
@@ -274,13 +296,18 @@ def main():
     ap.add_argument("--count", type=int, default=int(SITE.get("posts_per_run", 3)))
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--ping", action="store_true", help="記事は作らずAPI接続だけ確認")
+    ap.add_argument("--cases", default="", help="事例IDを指定して生成（例 c001,c002）")
     args = ap.parse_args()
     if args.ping:
         ping(); return
     kws = load_csv(KW)
     cases = load_csv(CASES) if CASES.exists() else []
     posts = existing_posts()
-    targets = pick_targets(args.count, kws, cases, posts)
+    if args.cases:
+        ids = [x.strip() for x in args.cases.split(",") if x.strip()]
+        targets = [("case", c) for c in cases if c["id"] in ids]
+    else:
+        targets = pick_targets(args.count, kws, cases, posts)
     if not targets:
         print("生成できる対象がありません（keywords.csv / cases.csv の todo を確認）"); return
     if args.dry_run:

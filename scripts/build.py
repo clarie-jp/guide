@@ -40,6 +40,7 @@ def parse(path):
     fm["body_md"] = body
     fm["words"] = len(re.sub(r"\s", "", body))
     fm["date"] = str(fm["date"])
+    fm["file"] = path.name
     return fm
 
 
@@ -360,7 +361,17 @@ def main():
     items = "".join(f"<item><title>{html.escape(p['title'])}</title><link>{BASE}/posts/{p['slug']}/</link><guid>{BASE}/posts/{p['slug']}/</guid><pubDate>{p['date']}</pubDate><description>{html.escape(p['description'])}</description></item>" for p in posts[:50])
     (DIST / "feed.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>{html.escape(SITE["site_name"])}</title><link>{BASE}/</link><description>{html.escape(SITE["tagline"])}</description>{items}</channel></rss>', encoding="utf-8")
     # Google ビジネスプロフィール投稿用フィード（Zapier/Make の「RSS→投稿」で使う。本文は1,500字以内の投稿文）
-    gbp = "".join(f"<item><title>{html.escape(p['title'])}</title><link>{BASE}/posts/{p['slug']}/</link><guid>{BASE}/posts/{p['slug']}/</guid><pubDate>{p['date']}</pubDate><description>{html.escape(gbp_text(p))}</description><enclosure url=\"{gbp_image(p)}\" type=\"image/jpeg\" length=\"0\"/><image>{gbp_image(p)}</image></item>" for p in posts[:20])
+    # Googleマップへの投稿は1日2本まで（site.yaml の gbp_per_day）。記事が3本の日は、事例以外を優先して2本だけ載せる。
+    # 記事の front matter に gbp: true / false があればそれに従う。
+    per_day = int(SITE.get("gbp_per_day", 2))
+    gbp_posts, by_day = [], {}
+    for p in posts:
+        by_day.setdefault(str(p["date"]), []).append(p)
+    for d in sorted(by_day, reverse=True):
+        day = sorted(by_day[d], key=lambda p: (p.get("gbp") is not True, p.get("category") == "jirei", p.get("file", "")))
+        day = [p for p in day if p.get("gbp") is not False]
+        gbp_posts += day[:per_day]
+    gbp = "".join(f"<item><title>{html.escape(p['title'])}</title><link>{BASE}/posts/{p['slug']}/</link><guid>{BASE}/posts/{p['slug']}/</guid><pubDate>{p['date']}</pubDate><description>{html.escape(gbp_text(p))}</description><enclosure url=\"{gbp_image(p)}\" type=\"image/jpeg\" length=\"0\"/><image>{gbp_image(p)}</image></item>" for p in gbp_posts[:20])
     (DIST / "gbp.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>クラリエ 投稿用</title><link>{BASE}/</link><description>Googleビジネスプロフィール投稿用</description>{gbp}</channel></rss>', encoding="utf-8")
     (DIST / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n", encoding="utf-8")
     (DIST / ".nojekyll").write_text("", encoding="utf-8")

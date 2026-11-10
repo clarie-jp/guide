@@ -27,6 +27,8 @@ categories:
   jirei: 現場の事例
 # 1回の自動実行で生成する本数（GitHub Actions の cron で毎日実行）
 posts_per_run: 3
+# Googleマップへの投稿は1日何本までにするか（記事が多い日も、この本数だけ投稿する）
+gbp_per_day: 2
 # 4領域の生成比率。keywords.csv の domain 列（basic / area / case / item）に対応。合計1.0
 mix:
   basic: 0.4
