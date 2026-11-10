@@ -9,16 +9,16 @@ priority,category,keyword,intent,angle,status,slug,domain
 1,ihin,遺品整理 いつから,時期,四十九日・相続・賃貸の退去期限から逆算する時期の決め方,todo,,basic
 1,ihin,遺品整理 業者 選び方,比較検討,古物商許可・一般廃棄物の許可・損害保険。見積書で見抜くポイント,todo,,basic
 1,ihin,遺品整理 トラブル,不安,高額請求・不法投棄・貴重品紛失の事例と防ぎ方。クーリングオフ,todo,,basic
-1,kaitori,遺品 買取 何が売れる,買取,貴金属・時計・ブランド・骨董・楽器・お酒・切手。値段が付かない物の基準,draft,ihin-kaitori-nani-ga-ureru,item
+1,kaitori,遺品 買取 何が売れる,買取,貴金属・時計・ブランド・骨董・楽器・お酒・切手。値段が付かない物の基準,done,ihin-kaitori-nani-ga-ureru,item
 1,kaitori,遺品整理 買取 相殺,買取,買取額で整理費用を相殺する仕組み。相殺の実例と注意点,todo,,item
 1,jikka,実家じまい 進め方,手順,親の家を片付けて売るまでの全体の流れ。期間と費用,todo,,basic
 1,jikka,実家 片付け 親が元気なうち,生前,親と揉めない片付けの進め方。声のかけ方。残す物の決め方,todo,,basic
 1,souzoku,遺品整理 相続放棄,法律,相続放棄を予定しているときに触ってよい物・いけない物,todo,,basic
 1,souzoku,遺品整理 遺産分割 前,法律,遺産分割協議の前に遺品整理をしてよいか。相続人の同意の取り方,todo,,basic
 1,seizen,終活 片付け,手順,終活の中の片付けの位置づけ。エンディングノートとの連動,todo,,basic
-1,area,遺品整理 横浜市,地域,横浜市の家庭ごみ・粗大ごみのルール。区ごとの搬入先。マンションが多い地域の注意,draft,ihin-seiri-yokohama-gomi-rule,area
-1,area,遺品整理 川崎市,地域,川崎市の粗大ごみ・リサイクル。鉄道沿線の単身物件の特徴,draft,ihin-seiri-kawasaki-gomi-recycle,area
-1,area,生前整理 横浜,地域,横浜で生前整理を頼むときの相場と業者の探し方,draft,seizen-seiri-yokohama-hiyou-gyosha,area
+1,area,遺品整理 横浜市,地域,横浜市の家庭ごみ・粗大ごみのルール。区ごとの搬入先。マンションが多い地域の注意,done,ihin-seiri-yokohama-gomi-rule,area
+1,area,遺品整理 川崎市,地域,川崎市の粗大ごみ・リサイクル。鉄道沿線の単身物件の特徴,done,ihin-seiri-kawasaki-gomi-recycle,area
+1,area,生前整理 横浜,地域,横浜で生前整理を頼むときの相場と業者の探し方,done,seizen-seiri-yokohama-hiyou-gyosha,area
 2,hiyou,遺品整理 費用 誰が払う,相続,費用の負担者。相続財産から払えるか。領収書の扱い,todo,,basic
 2,hiyou,遺品整理 安くする方法,節約,自分で仕分ける・買取を使う・時期をずらす。安さだけで選ぶ危険,todo,,basic
 2,hiyou,遺品整理 見積もり 無料,比較検討,無料見積りの流れ。訪問査定で見られる点。追加料金が出る条件,todo,,basic

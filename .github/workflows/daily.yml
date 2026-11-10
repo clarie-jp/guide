@@ -1,10 +1,10 @@
 name: 記事の自動生成と公開
 
 on:
-  # 自動生成の cron は、記事の生成を毎回 大西さんに確認してから行う運用のため停止中（2026-11-09）。
-  # 再開するときは下の2行のコメントを外す（毎日 06:10 JST = 21:10 UTC）。
-  # schedule:
-  #   - cron: "10 21 * * *"
+  # 毎朝 06:10 JST：記事の「生成」はしない。公開日が来た記事をビルドして公開するだけ。
+  # 記事の生成は、大西さんの確認を取ってから手動実行（workflow_dispatch）でのみ行う。
+  schedule:
+    - cron: "10 21 * * *"
   workflow_dispatch:
     inputs:
       count:
@@ -36,8 +36,8 @@ jobs:
           python-version: "3.12"
       - run: pip install pyyaml markdown
 
-      - name: 記事を生成（cron と手動実行のときだけ）
-        if: github.event_name != 'push'
+      - name: 記事を生成（手動実行のときだけ）
+        if: github.event_name == 'workflow_dispatch'
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
@@ -50,7 +50,7 @@ jobs:
           fi
 
       - name: 生成した記事をコミット
-        if: github.event_name != 'push'
+        if: github.event_name == 'workflow_dispatch'
         run: |
           git config user.name "clarie-bot"
           git config user.email "bot@clarie.jp"

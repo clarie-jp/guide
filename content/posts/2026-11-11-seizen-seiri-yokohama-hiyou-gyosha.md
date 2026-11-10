@@ -2,7 +2,7 @@
 title: 生前整理 横浜の費用相場と業者の探し方｜マンションと戸建て
 description: 横浜で生前整理を頼むときの費用相場と業者の探し方を解説。坂道や団地、マンションの搬出事情、横浜市の粗大ごみや家電リサイクルの仕組み、見積りで見る項目まで、遺品整理士が現場目線でまとめました。クラリエの整理費用の目安も紹介します。
 slug: seizen-seiri-yokohama-hiyou-gyosha
-date: '2026-11-10'
+date: '2026-11-11'
 category: area
 domain: area
 keyword: 生前整理 横浜

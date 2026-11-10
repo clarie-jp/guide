@@ -308,7 +308,9 @@ def listing(title, desc, posts, url, intro=""):
 def main():
     if DIST.exists(): shutil.rmtree(DIST)
     DIST.mkdir()
-    posts = sorted([parse(p) for p in POSTS.glob("*.md")], key=lambda x: x["date"], reverse=True)
+    # 公開日が未来の記事はまだ出さない（毎朝のビルドで日付が来たものから公開される）
+    today = (datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=9)).date().isoformat()
+    posts = sorted([x for x in (parse(p) for p in POSTS.glob("*.md")) if str(x["date"]) <= today], key=lambda x: x["date"], reverse=True)
     # 整合性チェック：料金・電話番号などが site.yaml（＝LP）と違う記事があれば公開しない
     bad = []
     for p in posts:
