@@ -146,13 +146,10 @@ def post_html(p, posts):
 
 def gbp_text(p):
     """Googleビジネスプロフィールの投稿文。
+    要約は記事ごとの description（110〜130字で書いてある）を使う。本文の先頭は見出しのことがあり、要約として薄くなるため。
     Googleの投稿ポリシーで却下されないよう、本文に電話番号・URLは書かない
     （リンクは投稿の「詳細」ボタン、電話はプロフィールの電話ボタンで案内される）。"""
-    body = re.sub(r"[#*`>|_]+", " ", p["body_md"])
-    body = re.sub(r"\[(.*?)\]\(.*?\)", r"\1", body)
-    body = re.sub(r"https?://\S+", "", body)
-    lead = re.split(r"\n\s*\n", body.strip())[0].strip()
-    lead = re.sub(r"\s+", " ", lead)[:300]
+    lead = re.sub(r"https?://\S+", "", str(p.get("description", ""))).strip()
     lead = re.sub(r"0\d{1,4}-\d{1,4}-\d{3,4}", "", lead)
     t = (f"【{p['title']}】\n\n{lead}\n\n"
          "続きは「詳細」から記事でご覧いただけます。\n\n"
