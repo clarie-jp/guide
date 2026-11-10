@@ -77,10 +77,20 @@ def cta_html():
 </aside>"""
 
 
+def is_new(p, days=7):
+    """公開から7日以内なら NEW 表示。"""
+    today = (datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=9)).date()
+    try:
+        return (today - datetime.date.fromisoformat(str(p["date"]))).days < days
+    except ValueError:
+        return False
+
+
 def card(p):
     img = pick_image(p)
     thumb = f'<img src="{BASE}/{img}" alt="" loading="lazy">' if img else ""
-    return f"""<li class="card"><a href="{BASE}/posts/{p['slug']}/">{thumb}<span class="cat">{CATS.get(p['category'], p['category'])}</span><span class="t">{html.escape(p['title'])}</span><span class="d">{html.escape(p['description'][:70])}…</span><time>{p['date']}</time></a></li>"""
+    new = '<span class="new">NEW</span>' if is_new(p) else ""
+    return f"""<li class="card"><a href="{BASE}/posts/{p['slug']}/">{thumb}<span class="cat">{new}{CATS.get(p['category'], p['category'])}</span><span class="t">{html.escape(p['title'])}</span><span class="d">{html.escape(p['description'][:70])}…</span><time>{p['date']}</time></a></li>"""
 
 
 def related(p, posts, n=4):
@@ -257,7 +267,7 @@ def lp_html(posts):
     # ヒーロー右：はじめに読む3本（基礎カテゴリ優先）
     first = [p for p in posts if p.get("category") in ("hiyou", "ihin", "seizen")][:3] or posts[:3]
     side = "".join(f'<li><a href="{BASE}/posts/{p["slug"]}/">{esc(p["title"])}<small>{CATS.get(p["category"], "")}・約{max(1, p["words"] // 500)}分</small></a></li>' for p in first)
-    hero_side = f'<aside class="hero-side"><p class="hs-t">はじめて読む方へ</p><p class="hs-s">よく読まれている3本。タップして読めます</p><ol>{side}</ol><a class="hs-more" href="{BASE}/#articles">記事をすべて見る →</a></aside>' if first else ""
+    hero_side = f'<aside class="hero-side"><p class="hs-t">はじめて読む方へ</p><p class="hs-s">まず読んでほしい3本。タップして読めます</p><ol>{side}</ol><a class="hs-more" href="{BASE}/#articles">記事をすべて見る →</a></aside>' if first else ""
     cta_btns = f'<p class="cta-btns"><a class="btn" href="tel:{tel_raw}">電話で相談する {SITE["tel"]}</a><a class="btn ghost" href="{SITE["contact_url"]}">フォームで無料見積り</a></p>'
     lamp = '<svg class="lamp" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6c9 12 14 19 14 27a14 14 0 0 1-28 0c0-8 5-15 14-27z" fill="#C9A961"/><path d="M32 18c4.5 6 7 10 7 14a7 7 0 0 1-14 0c0-4 2.5-8 7-14z" fill="#fff"/><rect x="23" y="52" width="18" height="5" rx="2.5" fill="#C9A961"/></svg>'
     ticons = [
@@ -285,6 +295,7 @@ def lp_html(posts):
     cat_blocks = "".join(f'<li><a href="{BASE}/category/{k}/"><b>{v}</b><span>{len([p for p in posts if p["category"] == k])}記事</span></a></li>' for k, v in CATS.items())
     return f"""<div class="lp">
 {hero}
+<section class="sec" id="new"><div class="sec-h"><h2>新着記事</h2></div><ul class="cards">{"".join(card(p) for p in posts[:3])}</ul><p class="more-link"><a href="{BASE}/#list">記事一覧を見る</a></p></section>
 <section class="sec"><div class="sec-h"><h2>いま困っていることから</h2></div><ul class="pains">{pains}</ul></section>
 {quiz_html(posts)}
 <section class="sec" id="tokucho"><div class="sec-h"><h2>窓口は、ひとつだけ</h2></div><p class="sec-sub">クラリエは買取を先に勧めません。まず整理の見積りを出し、買取額を費用から差し引く。お客さまが損をしない順番で進めます。</p>
@@ -295,7 +306,7 @@ def lp_html(posts):
 <section class="sec" id="faq"><div class="sec-h"><h2>よくあるご質問</h2></div>{faq}</section>
 <section class="contact" id="contact"><h2>まず、状況を聞かせてください</h2><p>間取り・時期・地域が分かれば、電話で概算をお伝えできます。見積り後にお断りいただいても費用はかかりません。</p><a class="tel" href="tel:{tel_raw}">{SITE["tel"]}</a><p class="hours">{esc(SITE["tel_hours"])}</p><p class="cta-btns"><a class="btn" href="{SITE["contact_url"]}">フォームで無料見積りを頼む</a><a class="btn ghost" href="{SITE["test_url"]}">理解度テストを受ける（無料・3分）</a></p></section>
 <section class="sec" id="articles"><div class="sec-h"><h2>テーマから記事を探す</h2></div><ul class="catgrid">{cat_blocks}</ul></section>
-<section class="sec"><div class="sec-h"><h2>新着記事</h2></div><ul class="cards">{"".join(card(p) for p in posts[:9])}</ul></section>
+<section class="sec" id="list"><div class="sec-h"><h2>記事一覧</h2></div><ul class="cards">{"".join(card(p) for p in posts[:12])}</ul></section>
 </div>"""
 
 
