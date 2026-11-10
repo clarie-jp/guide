@@ -1,0 +1,23 @@
+name: 表示確認（診断用）
+on:
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 公開ページの応答を確認
+        run: |
+          for u in "https://guide.clarie.jp/" "https://guide.clarie.jp/?nocache=$RANDOM$RANDOM" "https://guide.clarie.jp/posts/ihin-seiri-yokohama-gomi-rule/"; do
+            echo "===== $u"
+            curl -sS -D - -o page.html "$u" | grep -iE "^HTTP|cache|age:|expires|last-modified|server|^x-" || true
+            echo "RESULT yokohama=$(grep -c 'yokohama-gomi-rule' page.html) newbadge=$(grep -c 'class=\"new\"' page.html)"
+          done
+      - name: サーバー上のファイルを確認
+        env:
+          KEY: ${{ secrets.SSH_KEY }}
+        run: |
+          echo "$KEY" > k && chmod 600 k
+          ssh -i k -p ${{ secrets.SSH_PORT }} -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} '
+            cd ${{ secrets.DEPLOY_PATH }} && echo "SERVER index.html:" && ls -la --time-style=+%F_%T index.html && echo "SERVER yokohama=$(grep -c yokohama-gomi-rule index.html)";
+            echo "--- public_html:"; ls ~/public_html' || true
+          rm -f k
