@@ -73,3 +73,36 @@ jobs:
           SOURCE: "dist/"
           TARGET: ${{ secrets.DEPLOY_PATH }}
           ARGS: "-rlgoDzvc -i --delete"
+
+      # 公開後の確認：本番URL（https://guide.clarie.jp/）で、公開日が来た記事がすべて表示されているかを確かめる。
+      # 1本でも出ていなければ、この実行を「失敗」にして気づけるようにする。
+      - name: 本番URLで公開を確認
+        run: |
+          sleep 20
+          python3 - <<'PY'
+          import re, sys, urllib.request, pathlib, datetime
+          base = "https://guide.clarie.jp"
+          today = (datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=9)).date().isoformat()
+          slugs = []
+          for f in sorted(pathlib.Path("content/posts").glob("*.md")):
+              t = f.read_text(encoding="utf-8")
+              d = re.search(r"^date:\s*'?([0-9-]+)", t, re.M).group(1)
+              s = re.search(r"^slug:\s*(\S+)", t, re.M).group(1)
+              if d <= today: slugs.append((d, s))
+          slugs.sort(reverse=True)
+          def get(u):
+              r = urllib.request.urlopen(urllib.request.Request(u, headers={"Cache-Control": "no-cache"}), timeout=30)
+              return r.status, r.read().decode("utf-8", "replace")
+          bad = []
+          st, top = get(base + "/")
+          for d, s in slugs[:3]:
+              if s not in top: bad.append(f"トップの新着に出ていない: {s}")
+          for d, s in slugs:
+              st, _ = get(f"{base}/posts/{s}/")
+              if st != 200: bad.append(f"記事が開けない({st}): {s}")
+          print(f"確認した記事: {len(slugs)}本（本日 {today}）")
+          for d, s in slugs[:3]: print(f"  新着: {d} {s}")
+          if bad:
+              print("NG"); print("\n".join(bad)); sys.exit(1)
+          print("OK: 本番URLで全記事の公開を確認")
+          PY
