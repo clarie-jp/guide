@@ -233,9 +233,9 @@ ARTICLE_TOOL = {
 
 def call_claude(prompt):
     # 記事は save_article ツールの引数（JSON）として受け取る。本文中の記号でJSONが壊れて不採用になるのを防ぐ
-    prompt = prompt + "\n\n（出力は save_article ツールで渡してください。項目は上の出力形式と同じです）"
+    prompt = prompt + "\n\n【重要】記事は文章で返さず、必ず save_article ツールを1回だけ呼び出して渡してください。項目は上の出力形式と同じです。"
     data = _post({"model": MODEL, "max_tokens": 12000, "messages": [{"role": "user", "content": prompt}],
-                  "tools": [ARTICLE_TOOL], "tool_choice": {"type": "tool", "name": "save_article"}})
+                  "tools": [ARTICLE_TOOL]})
     for b in data["content"]:
         if b.get("type") == "tool_use":
             return b["input"]
