@@ -11,6 +11,10 @@ on:
         description: "今回生成する本数（空なら site.yaml の設定）"
         required: false
         default: ""
+      ping:
+        description: "記事を作らず API 接続だけ確認する（true / 空）"
+        required: false
+        default: ""
   push:
     branches: [main]
     paths: ["content/**", "templates/**", "scripts/**", "site.yaml", "static/**", "keywords.csv", "cases.csv", ".github/workflows/**"]
@@ -37,7 +41,9 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          if [ -n "${{ github.event.inputs.count }}" ]; then
+          if [ "${{ github.event.inputs.ping }}" = "true" ]; then
+            python3 scripts/generate.py --ping
+          elif [ -n "${{ github.event.inputs.count }}" ]; then
             python3 scripts/generate.py --count "${{ github.event.inputs.count }}"
           else
             python3 scripts/generate.py

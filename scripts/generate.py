@@ -18,7 +18,7 @@
   3. JSON で返させる（title / description / slug / body_md / faq）
   4. 品質チェックに通ったものだけ保存し、表の status を done にする
 """
-import argparse, csv, json, os, re, sys, datetime, pathlib, urllib.request, collections
+import argparse, csv, json, os, re, sys, datetime, pathlib, urllib.request, urllib.error, collections
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 import yaml
@@ -194,18 +194,29 @@ def build_prompt(dom, row, posts):
 
 # ---------- API ----------
 
-def call_claude(prompt):
+def _post(payload):
     key = os.environ.get("ANTHROPIC_API_KEY")
     if not key:
         sys.exit("ANTHROPIC_API_KEY が設定されていません")
-    body = json.dumps({
-        "model": MODEL, "max_tokens": 8000, "temperature": 0.7,
-        "messages": [{"role": "user", "content": prompt}],
-    }).encode()
-    req = urllib.request.Request("https://api.anthropic.com/v1/messages", data=body, headers={
+    req = urllib.request.Request("https://api.anthropic.com/v1/messages", data=json.dumps(payload).encode(), headers={
         "x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"})
-    with urllib.request.urlopen(req, timeout=300) as r:
-        data = json.load(r)
+    try:
+        with urllib.request.urlopen(req, timeout=300) as r:
+            return json.load(r)
+    except urllib.error.HTTPError as e:
+        # 原因が分かるように、APIが返したエラー本文を出す（キーは出さない）
+        detail = e.read().decode("utf-8", "replace")[:600]
+        raise RuntimeError(f"HTTP {e.code}: {detail}") from None
+
+
+def ping():
+    """記事は作らず、APIにつながるかだけ確認する（数円未満）。"""
+    data = _post({"model": MODEL, "max_tokens": 16, "messages": [{"role": "user", "content": "OKとだけ返してください"}]})
+    print("API接続OK:", MODEL, "/", "".join(b.get("text", "") for b in data["content"]).strip())
+
+
+def call_claude(prompt):
+    data = _post({"model": MODEL, "max_tokens": 8000, "messages": [{"role": "user", "content": prompt}]})
     text = "".join(b.get("text", "") for b in data["content"])
     m = re.search(r"\{.*\}", text, re.S)
     return json.loads(m.group(0))
@@ -262,7 +273,10 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--count", type=int, default=int(SITE.get("posts_per_run", 3)))
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--ping", action="store_true", help="記事は作らずAPI接続だけ確認")
     args = ap.parse_args()
+    if args.ping:
+        ping(); return
     kws = load_csv(KW)
     cases = load_csv(CASES) if CASES.exists() else []
     posts = existing_posts()
