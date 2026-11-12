@@ -3,11 +3,11 @@ priority,category,keyword,intent,angle,status,slug,domain
 1,ihin,遺品整理 自分でやる,手順,親族だけで進める手順と限界。業者に頼む線引き。貴重品の見つけ方,done,ihin-seiri-jibun-de,basic
 1,seizen,生前整理 何から始める,手順,60代からの始め方。残す・手放す・託すの3分類。1日でできる最初の一歩,done,seizen-seiri-nani-kara,basic
 1,hiyou,遺品整理 1K 費用,比較検討,単身の1Kの相場と作業時間。アパート退去期限との両立,done,ihin-seiri-1k-hiyou-sagyo-jikan,basic
-1,hiyou,遺品整理 2LDK 費用,比較検討,夫婦世帯の2LDK。家具家電が多い場合の加算,todo,,basic
+1,hiyou,遺品整理 2LDK 費用,比較検討,夫婦世帯の2LDK。家具家電が多い場合の加算,draft,ihin-seiri-2ldk-hiyou-kagu-kaden-kasan,basic
 1,hiyou,遺品整理 3LDK 費用,比較検討,マンション3LDKの実例。搬出経路と管理規約,todo,,basic
 1,hiyou,生前整理 費用,比較検討,生前整理の料金体系。部分整理と全体整理の違い。買取との相殺,todo,,basic
 1,ihin,遺品整理 いつから,時期,四十九日・相続・賃貸の退去期限から逆算する時期の決め方,todo,,basic
-1,ihin,遺品整理 業者 選び方,比較検討,古物商許可・一般廃棄物の許可・損害保険。見積書で見抜くポイント,todo,,basic
+1,ihin,遺品整理 業者 選び方,比較検討,古物商許可・一般廃棄物の許可・損害保険。見積書で見抜くポイント,draft,ihin-seiri-gyosha-selection-guide,basic
 1,ihin,遺品整理 トラブル,不安,高額請求・不法投棄・貴重品紛失の事例と防ぎ方。クーリングオフ,todo,,basic
 1,kaitori,遺品 買取 何が売れる,買取,貴金属・時計・ブランド・骨董・楽器・お酒・切手。値段が付かない物の基準,done,ihin-kaitori-nani-ga-ureru,item
 1,kaitori,遺品整理 買取 相殺,買取,買取額で整理費用を相殺する仕組み。相殺の実例と注意点,todo,,item
