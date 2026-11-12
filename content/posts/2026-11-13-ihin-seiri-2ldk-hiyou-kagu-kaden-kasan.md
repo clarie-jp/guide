@@ -2,7 +2,7 @@
 title: 遺品整理 2LDKの費用｜夫婦世帯で家具家電が多い場合の加算
 description: 遺品整理を2LDKで頼む費用の目安は7万円〜（2026年時点、買取額を差し引く前）。夫婦世帯で家具家電が多いとき、何が加算の要因になるか、見積りで確認する項目と比較の基準を遺品整理士が解説します。現場の目安も紹介します。
 slug: ihin-seiri-2ldk-hiyou-kagu-kaden-kasan
-date: '2026-11-12'
+date: '2026-11-13'
 category: hiyou
 domain: basic
 keyword: 遺品整理 2LDK 費用
@@ -61,6 +61,8 @@ author: 大西 司
 外から見ると家具は2〜3点でも、中身を出すと段ボール箱で何十個分にもなることがあります。
 作業時間を左右するのは家具の数より、この「中身の量」です。
 
+<figure class="photo"><img src="/img/posts/ihin-seiri-2ldk-hiyou-kagu-kaden-kasan/shokkidana.jpg" alt="ガラス扉の中に食器がぎっしり入った大型の食器棚" width="1200" height="1600" loading="lazy"><figcaption>作業前：中身の詰まった大型食器棚。外から見える以上に物量があります</figcaption></figure>
+
 ### 作業日数の目安
 
 2LDKで物が標準的な量なら、作業は半日〜1日が目安です。
@@ -87,6 +89,8 @@ author: 大西 司
 夫婦世帯では、冷蔵庫が大型で、テレビが2台、洗濯機が1台という家が珍しくありません。
 家電リサイクル法の対象品目は、処分に専用の手続きが必要です。
 どの品目が対象になるかは、お住まいの自治体や専門家、家電販売店に確認すると確実です。
+
+<figure class="photo"><img src="/img/posts/ihin-seiri-2ldk-hiyou-kagu-kaden-kasan/kaden.jpg" alt="台所の棚に置かれた電子レンジとトースター、隣に冷蔵庫" width="1200" height="1600" loading="lazy"><figcaption>作業前：台所の家電。冷蔵庫は家電リサイクル法の対象です</figcaption></figure>
 
 ### 搬出経路で作業は大きく変わります
 

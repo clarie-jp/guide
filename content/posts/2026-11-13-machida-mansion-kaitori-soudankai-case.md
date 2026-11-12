@@ -2,7 +2,7 @@
 title: 町田市の築約20年マンションのバッグと貴金属｜買取相談会の記録
 description: 町田市の築約20年の大規模マンションで開いた、2日間の買取相談会の記録です。ブランドバッグ・貴金属・時計の査定の流れ、居住者の相談内容、2日目に再訪が起きた理由、自宅の片付けでも使える判断基準をまとめました。出張査定にも触れます。
 slug: machida-mansion-kaitori-soudankai-case
-date: '2026-11-12'
+date: '2026-11-13'
 category: jirei
 domain: case
 keyword: 事例 町田市
@@ -67,6 +67,8 @@ author: 大西 司
 
 ブランドと型番、動くかどうか、ベルトの状態を見ます。箱や保証書があれば、あわせて確認します。止まっている時計も、まず見せていただく価値はあります。
 
+<figure class="photo"><img src="/img/posts/machida-mansion-kaitori-soudankai-case/tokei.jpg" alt="金色のケースとブレスレットの腕時計" width="1200" height="1600" loading="lazy"><figcaption>時計の査定例（別の現場で買取した品です）</figcaption></figure>
+
 何が売れて何が売れにくいかは、[遺品の買取で何が売れる｜値段が付く物と付かない物の基準](/posts/ihin-kaitori-nani-ga-ureru/)にもまとめています。
 
 ## 2日目に起きたこと｜再訪と出張査定
@@ -127,7 +129,7 @@ author: 大西 司
 
 これから片付けを始める方は、[生前整理は何から始める？60代からの進め方と最初の一歩](/posts/seizen-seiri-nani-kara/)も参考にしてください。
 
-同じ多摩エリア周辺の事例では、[江東区の築20年マンションで出た貴金属と時計](/posts/koto-ku-mansion-kaitori-soudankai-case/)や、[日野市の築約25年マンションで出た貴金属と骨董](/posts/hino-mansion-kaitori-soudankai-case/)も紹介しています。
+ほかのマンションの事例では、[江東区の築20年マンションで出た貴金属と時計](/posts/koto-ku-mansion-kaitori-soudankai-case/)や、[日野市の築約25年マンションで出た貴金属と骨董](/posts/hino-mansion-kaitori-soudankai-case/)も紹介しています。
 
 ## 迷ったときの相談先
 
