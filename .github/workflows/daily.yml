@@ -19,6 +19,10 @@ on:
         description: "事例IDを指定して生成（例 c001,c002）"
         required: false
         default: ""
+      keywords:
+        description: "キーワードを指定して生成（| 区切り。例 遺品整理 1K 費用|世田谷区 実家 片付け）"
+        required: false
+        default: ""
   push:
     branches: [main]
     paths: ["content/**", "templates/**", "scripts/**", "site.yaml", "static/**", "keywords.csv", "cases.csv", ".github/workflows/**"]
@@ -47,6 +51,8 @@ jobs:
         run: |
           if [ "${{ github.event.inputs.ping }}" = "true" ]; then
             python3 scripts/generate.py --ping
+          elif [ -n "${{ github.event.inputs.keywords }}" ]; then
+            python3 scripts/generate.py --keywords "${{ github.event.inputs.keywords }}"
           elif [ -n "${{ github.event.inputs.cases }}" ]; then
             python3 scripts/generate.py --cases "${{ github.event.inputs.cases }}"
           elif [ -n "${{ github.event.inputs.count }}" ]; then

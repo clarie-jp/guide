@@ -295,13 +295,17 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--ping", action="store_true", help="記事は作らずAPI接続だけ確認")
     ap.add_argument("--cases", default="", help="事例IDを指定して生成（例 c001,c002）")
+    ap.add_argument("--keywords", default="", help="keywords.csv のキーワードを指定して生成（| 区切り）")
     args = ap.parse_args()
     if args.ping:
         ping(); return
     kws = load_csv(KW)
     cases = load_csv(CASES) if CASES.exists() else []
     posts = existing_posts()
-    if args.cases:
+    if args.keywords:
+        want = [x.strip() for x in args.keywords.split("|") if x.strip()]
+        targets = [(r.get("domain") or "basic", r) for w in want for r in kws if r["keyword"] == w and r["status"] == "todo"]
+    elif args.cases:
         ids = [x.strip() for x in args.cases.split(",") if x.strip()]
         targets = [("case", c) for c in cases if c["id"] in ids]
     else:
