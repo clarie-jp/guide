@@ -2,7 +2,7 @@
 title: 遺品整理 横浜市港北区｜粗大ごみと集合住宅の注意点
 description: 遺品整理を横浜市港北区で進める人へ。粗大ごみの出し方、家電リサイクル、集合住宅の搬出ルール、相談の多いケースを現場目線で解説します。築年やエレベーターの有無による違いにも触れます。費用の目安や見積りで見る項目、管理組合への確認点も紹介します。
 slug: ihin-seiri-yokohama-kohoku-ku-gomi
-date: '2026-11-13'
+date: '2026-11-14'
 category: area
 domain: area
 keyword: 遺品整理 横浜市 港北区
@@ -88,6 +88,8 @@ author: 大西 司
 - 家電のリサイクル手続きを後回しにする
 
 家電と大型家具から先に手配すると、あとが楽になります。ルールの細部は、[遺品整理 横浜市｜粗大ごみのルールと搬入先、マンション注意点](/posts/ihin-seiri-yokohama-gomi-rule/)も参考にしてください。
+
+<figure class="photo"><img src="/img/posts/ihin-seiri-yokohama-kohoku-ku-gomi/shiwake-fukuro.jpg" alt="机の上の引き出しや籠のまわりで、衣類や小物を透明な袋に分けている作業の様子" width="1600" height="1600" loading="lazy"><figcaption>作業中：残す物と処分する物を袋に分けているところ。仕分けの段階で、粗大ごみに出す物の量も見えてきます</figcaption></figure>
 
 ## 集合住宅で先に確認すること
 

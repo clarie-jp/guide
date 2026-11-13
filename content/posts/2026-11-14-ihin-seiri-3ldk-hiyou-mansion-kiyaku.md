@@ -1,8 +1,8 @@
 ---
 title: 遺品整理 3LDKの費用｜マンションの搬出経路と管理規約
-description: 遺品整理 3LDK 費用の考え方を、マンションの実例で解説。整理費用の目安は7万円〜(2026年時点)。搬出経路やエレベーター養生、管理規約の確認点、見積りで見る項目、相見積りの比べ方まで、実際の現場の目線で順番にまとめます。
+description: 3LDKの遺品整理費用の考え方を、マンションの実例で解説。整理費用の目安は7万円〜(2026年時点)。搬出経路やエレベーター養生、管理規約の確認点、見積りで見る項目、相見積りの比べ方まで、実際の現場の目線で順番にまとめます。
 slug: ihin-seiri-3ldk-hiyou-mansion-kiyaku
-date: '2026-11-13'
+date: '2026-11-14'
 category: hiyou
 domain: basic
 keyword: 遺品整理 3LDK 費用
@@ -46,6 +46,8 @@ author: 大西 司
 | 作業の条件 | 搬出できる時間帯、養生の指定 | 中 |
 | 買取できる品 | 貴金属、時計、骨董、ブランド品など | 差し引きで下がる |
 
+<figure class="photo"><img src="/img/posts/ihin-seiri-3ldk-hiyou-mansion-kiyaku/heya-sagyo-mae.jpg" alt="段ボール箱や紙袋、衣類を詰めた袋が床から窓際まで積み重なった部屋" width="1600" height="1200" loading="lazy"><figcaption>作業前：箱や袋が積み重なった部屋。荷物の量は、部屋数以上に費用を左右します</figcaption></figure>
+
 間取り別の全体像は、[遺品整理の費用相場｜間取り別の料金と、買取で安くする方法](/posts/ihin-seiri-hiyou-souba/)でも整理しています。比べるときの土台にしてください。
 
 ## 実例：築25年前後のマンション3LDKで、搬出経路が段取りを変えた
@@ -78,6 +80,8 @@ author: 大西 司
 - 他の搬入出と重ならない日を選ぶ
 
 荷物の量は同じでも、これを決めずに当日を迎えると、作業の中断や日程のやり直しが起きます。費用の差は、ここで生まれます。
+
+<figure class="photo"><img src="/img/posts/ihin-seiri-3ldk-hiyou-mansion-kiyaku/washitsu-katazuke-go.jpg" alt="荷物を運び出し、畳と窓だけが残った二間続きの和室" width="1108" height="1477" loading="lazy"><figcaption>片付け後：荷物をすべて運び出した和室</figcaption></figure>
 
 ## 管理規約で先に確認する項目
 
@@ -164,3 +168,5 @@ author: 大西 司
 比較の1社として、見積りを取るだけでも構いません。
 
 **電話：045-285-3751**（受付 9:00〜18:00、土日も対応）
+
+<p id="ref_6af6721afb91c8d6b1ea7668_estate-items-liquidator"><a href='https://www.zehitomo.com/profile/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BEimprove-qEedP40J8/pro' target='_blank'>ゼヒトモ内でのプロフィール: 株式会社Improve</a>,&nbsp;<a href='https://www.zehitomo.com/lifestyle/family/estate-items-liquidators/estate-items-liquidator' target='_blank'>ゼヒトモの遺品整理・生前整理サービス</a>,&nbsp;<a href='https://www.zehitomo.com' target='_blank'>仕事をお願いしたい依頼者と様々な「プロ」をつなぐサービス</a></p>
