@@ -2,7 +2,7 @@
 title: 遺品整理 横浜市戸塚区｜団地とマンションの搬出と費用
 description: 遺品整理を横浜市戸塚区の団地・マンションの実家で進める人へ。階段搬出やエレベーターの確認点、粗大ごみと家電リサイクルの仕組み、見積りで見る項目、2026年時点の費用の目安を、現場の経験から、判断の基準と手順、相談先まで具体的にまとめました。
 slug: ihin-seiri-yokohama-totsuka-ku-danchi
-date: '2026-11-15'
+date: '2026-11-16'
 category: area
 domain: area
 keyword: 遺品整理 横浜市 戸塚区
@@ -59,6 +59,8 @@ JRと市営地下鉄が乗り入れる戸塚駅を中心に、住宅地が広が
 
 築年が古い団地では、間取りの割に収納が多い家もあります。
 押入れや天袋、ベランダの物置に、長年の荷物が残っていることがよくあります。
+
+<figure class="photo"><img src="/img/posts/ihin-seiri-yokohama-totsuka-ku-danchi/oshiire-kara.jpg" alt="中の荷物を運び出し、棚板と壁だけが残った押入れと天袋" width="1108" height="1477" loading="lazy"><figcaption>片付け後：空になった押入れと天袋。見落としやすい天袋の荷物も、見積りの段階で量に入れておきます</figcaption></figure>
 
 ## 団地とマンションで、見積りの前に確認すること
 

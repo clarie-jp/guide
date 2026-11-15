@@ -8,7 +8,7 @@ priority,category,keyword,intent,angle,status,slug,domain
 1,hiyou,生前整理 費用,比較検討,生前整理の料金体系。部分整理と全体整理の違い。買取との相殺,done,seizen-seiri-hiyou-ryokin-taikei,basic
 1,ihin,遺品整理 いつから,時期,四十九日・相続・賃貸の退去期限から逆算する時期の決め方,done,ihin-seiri-itsukara-timing,basic
 1,ihin,遺品整理 業者 選び方,比較検討,古物商許可・一般廃棄物の許可・損害保険。見積書で見抜くポイント,done,ihin-seiri-gyosha-selection-guide,basic
-1,ihin,遺品整理 トラブル,不安,高額請求・不法投棄・貴重品紛失の事例と防ぎ方。クーリングオフ,draft,ihin-seiri-trouble-prevention,basic
+1,ihin,遺品整理 トラブル,不安,高額請求・不法投棄・貴重品紛失の事例と防ぎ方。クーリングオフ,done,ihin-seiri-trouble-prevention,basic
 1,kaitori,遺品 買取 何が売れる,買取,貴金属・時計・ブランド・骨董・楽器・お酒・切手。値段が付かない物の基準,done,ihin-kaitori-nani-ga-ureru,item
 1,kaitori,遺品整理 買取 相殺,買取,買取額で整理費用を相殺する仕組み。相殺の実例と注意点,todo,,item
 1,jikka,実家じまい 進め方,手順,親の家を片付けて売るまでの全体の流れ。期間と費用,todo,,basic
@@ -62,7 +62,7 @@ priority,category,keyword,intent,angle,status,slug,domain
 2,kaitori,不用品回収 遺品整理 違い,比較検討,不用品回収と遺品整理の違い。許可・料金・作業範囲,done,junk-removal-vs-ihin-seiri-difference,item
 2,area,遺品整理 横浜市 港北区,地域,港北区の粗大ごみ・集合住宅,done,ihin-seiri-yokohama-kohoku-ku-gomi,area
 2,area,遺品整理 横浜市 青葉区,地域,青葉区の戸建と実家じまい,done,ihin-seiri-yokohama-aoba-ku-jikka,area
-2,area,遺品整理 横浜市 戸塚区,地域,戸塚区の団地・マンション,draft,ihin-seiri-yokohama-totsuka-ku-danchi,area
+2,area,遺品整理 横浜市 戸塚区,地域,戸塚区の団地・マンション,done,ihin-seiri-yokohama-totsuka-ku-danchi,area
 2,area,遺品整理 相模原市,地域,相模原市の粗大ごみ・市の支援,todo,,area
 2,area,遺品整理 藤沢市,地域,藤沢市のルール,todo,,area
 2,area,遺品整理 町田市,地域,町田市のルール,todo,,area

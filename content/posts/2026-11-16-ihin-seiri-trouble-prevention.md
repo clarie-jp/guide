@@ -2,7 +2,7 @@
 title: 遺品整理のトラブル事例と防ぎ方｜クーリングオフも解説
 description: 遺品整理のトラブルで多い高額請求、不法投棄、貴重品の紛失を、現場の事例で解説します。見積りで見る項目、クーリングオフの考え方、困ったときの相談先まで、次の一歩が分かります。40代から70代のご家族向けに、横浜・神奈川・東京の現場経験をもとにまとめました。
 slug: ihin-seiri-trouble-prevention
-date: '2026-11-15'
+date: '2026-11-16'
 category: ihin
 domain: basic
 keyword: 遺品整理 トラブル
@@ -123,6 +123,8 @@ author: 大西 司
 - 冷蔵庫や冷凍庫の中
 
 封筒に入った現金や、古い通帳が出ることもあります。
+
+<figure class="photo"><img src="/img/posts/ihin-seiri-trouble-prevention/shorui-desk.jpg" alt="パソコンデスクの棚に書類のファイルや説明書、小物の入ったケースが詰まった様子" width="1200" height="1600" loading="lazy"><figcaption>作業前：書類や説明書が詰まったパソコンデスク。こうした場所から通帳や保険証券が見つかることもあるため、処分の前に家族で確認します</figcaption></figure>
 貴金属は、ジュエリーケースではなく、普通の引き出しにあることも多いです。
 
 ### 作業前の段取り
@@ -219,3 +221,5 @@ author: 大西 司
 
 遺品整理は、急ぐほどトラブルが増えます。
 まずは、見積りを2〜3社で比べるところから始めてください。
+
+<p id="ref_6af6721afb91c8d6b1ea7668_estate-items-liquidator"><a href='https://www.zehitomo.com/profile/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BEimprove-qEedP40J8/pro' target='_blank'>ゼヒトモ内でのプロフィール: 株式会社Improve</a>,&nbsp;<a href='https://www.zehitomo.com/lifestyle/family/estate-items-liquidators/estate-items-liquidator' target='_blank'>ゼヒトモの遺品整理・生前整理サービス</a>,&nbsp;<a href='https://www.zehitomo.com' target='_blank'>仕事をお願いしたい依頼者と様々な「プロ」をつなぐサービス</a></p>
