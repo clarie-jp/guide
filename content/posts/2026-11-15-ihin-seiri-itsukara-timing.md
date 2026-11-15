@@ -78,6 +78,8 @@ author: 大西 司
 
 1Kでも、自分たちだけでは数週間かかる場合があります。仕事や遠方の事情があると、さらに延びます。詳しくは「[遺品整理 1Kの費用と作業時間｜退去期限との両立](/posts/ihin-seiri-1k-hiyou-sagyo-jikan/)」をご覧ください。
 
+<figure class="photo"><img src="/img/posts/ihin-seiri-itsukara-timing/washitsu-kara.jpg" alt="荷物をすべて運び出し、畳と板の間、窓だけが残った和室" width="1108" height="1477" loading="lazy"><figcaption>片付け後：荷物を運び出して空になった和室。退去や引き渡しの期限から逆算して段取りを組みます</figcaption></figure>
+
 ## 四十九日・相続の前に触らないほうがよい物
 
 四十九日の前でも、仕分けだけなら進められます。ただし、先に処分してはいけない物があります。
@@ -90,6 +92,8 @@ author: 大西 司
 - 未開封の郵便物
 
 現場では、引き出しの奥や本の間から、通帳や権利書が出ることがあります。後日見つかると手続きがやり直しになります。
+
+<figure class="photo"><img src="/img/posts/ihin-seiri-itsukara-timing/shorui-sagyo-mae.jpg" alt="和室の座卓や引き出し付きの棚の上に、書類や説明書、バッグが積まれた様子" width="1600" height="1200" loading="lazy"><figcaption>作業前：書類や説明書が積まれた座卓まわり。処分の前に、重要書類が紛れていないかを確認します</figcaption></figure>
 
 ### 処分は専門家に確認してから
 

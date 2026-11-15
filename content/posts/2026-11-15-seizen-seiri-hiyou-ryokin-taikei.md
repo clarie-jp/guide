@@ -87,6 +87,8 @@ author: 大西 司
 ところが、現場で話を聞くと、まず困っているのは納戸と押入れだけ、という場面は珍しくありません。
 その場合は、そこだけを整理するのも現実的です。
 
+<figure class="photo"><img src="/img/posts/seizen-seiri-hiyou-ryokin-taikei/tansu-hikidashi.jpg" alt="引き出しに衣類が詰まった木製の整理箪笥と、天板や床に積まれた衣類や袋" width="1600" height="1600" loading="lazy"><figcaption>作業前：衣類が詰まった整理箪笥。箪笥1台や納戸1か所から始める部分整理もできます</figcaption></figure>
+
 ### 全体整理が向くケース
 
 - 住み替え、施設への入居、家の売却や賃貸の解約など、期限がある
@@ -157,6 +159,8 @@ author: 大西 司
 - **買取額を前提に比べる**：査定前の「見込み額」だけで、見積りを比べてしまう
 
 家族で残す物を先に決め、査定は処分の前に受けてください。
+
+<figure class="photo"><img src="/img/posts/seizen-seiri-hiyou-ryokin-taikei/mishiyou-irui.jpg" alt="「未使用」と書いた紙を貼った透明な袋に、衣類を分けて詰めた様子" width="1200" height="1600" loading="lazy"><figcaption>仕分け中：未使用の衣類を袋に分けて、査定に回す物と処分する物を区別しているところ</figcaption></figure>
 買取で得た金額の税務上の扱いや、相続財産との関係は、税理士や弁護士などの専門家に確認してください。
 
 ## 見積りを比べるときの判断基準
@@ -190,3 +194,5 @@ author: 大西 司
 
 **クラリエ 電話：045-285-3751**
 受付 9:00〜18:00（土日も対応）
+
+<p id="ref_6af6721afb91c8d6b1ea7668_estate-items-liquidator"><a href='https://www.zehitomo.com/profile/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BEimprove-qEedP40J8/pro' target='_blank'>ゼヒトモ内でのプロフィール: 株式会社Improve</a>,&nbsp;<a href='https://www.zehitomo.com/lifestyle/family/estate-items-liquidators/estate-items-liquidator' target='_blank'>ゼヒトモの遺品整理・生前整理サービス</a>,&nbsp;<a href='https://www.zehitomo.com' target='_blank'>仕事をお願いしたい依頼者と様々な「プロ」をつなぐサービス</a></p>

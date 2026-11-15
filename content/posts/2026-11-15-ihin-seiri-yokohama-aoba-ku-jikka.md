@@ -58,6 +58,8 @@ author: 大西 司
 見積りでは、トラックを家の前に着けられるかを必ず確認します。
 ここが分からないまま日程を組むと、当日に作業が長引きがちです。
 
+<figure class="photo"><img src="/img/posts/ihin-seiri-yokohama-aoba-ku-jikka/kaidan-katazuke-go.jpg" alt="戸建ての2階から見下ろした、幅の狭い木の階段と手すり" width="1108" height="1477" loading="lazy"><figcaption>片付け後：戸建ての階段。幅が狭く曲がりのある階段は、大型家具を分解して運び出すことがあります</figcaption></figure>
+
 ### 築年が進んだ戸建ての荷物の傾向
 
 住宅地の造成から年数がたった家では、長く暮らした分、荷物が多めです。
@@ -157,6 +159,8 @@ author: 大西 司
 - 追加料金が出る条件が、書面に書かれているか
 
 「一式」とだけ書かれた見積書は、内訳を聞いてください。
+
+<figure class="photo"><img src="/img/posts/ihin-seiri-yokohama-aoba-ku-jikka/monooki-tekkyo-go.jpg" alt="家の脇にあった屋外物置の中身を運び出し、土の床と木の壁だけが残った様子" width="1108" height="1477" loading="lazy"><figcaption>撤去後：家の外の物置を空にしたところ。物置や庭の物も、見積りの段階で数に入れておきます</figcaption></figure>
 
 ### 現場でよくある失敗
 
