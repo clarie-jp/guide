@@ -68,6 +68,7 @@ author: 大西 司
 | ブランド・作家 | 名の通ったブランド、作家物（共箱・落款あり） | 無名の量産品、複製品 |
 | 需要 | 中古市場で動く。海外需要がある | 大型家具、着物、百科事典など |
 
+<figure class="photo"><img src="/img/posts/ihin-seiri-kaitori-sousai/hall-clock.jpg" alt="象嵌細工の木製ケースに、ローマ数字の文字盤が付いたホールクロック" width="1200" height="1600" loading="lazy"><figcaption>買取品：遺品整理の現場で査定したホールクロック。大型でも、状態や作りによっては買取の対象になります</figcaption></figure>
 貴金属は少し事情が違います。地金の重さと刻印で値段が決まるため、切れたネックレスや片方だけのピアスにも値が付くことがあります。
 
 反対に、状態が良くても需要が少ない物は値段が付きません。大きな婚礼家具や、全集類がその代表です。何が売れるかの詳しい基準は[遺品の買取で何が売れる｜値段が付く物と付かない物の基準](/posts/ihin-kaitori-nani-ga-ureru/)にまとめています。
@@ -141,3 +142,5 @@ author: 大西 司
 
 - 電話：045-285-3751（受付 9:00〜18:00（土日も対応））
 - 対応エリア：神奈川・東京・千葉・埼玉
+
+<p id="ref_6af6721afb91c8d6b1ea7668_estate-items-liquidator"><a href='https://www.zehitomo.com/profile/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BEimprove-qEedP40J8/pro' target='_blank'>ゼヒトモ内でのプロフィール: 株式会社Improve</a>,&nbsp;<a href='https://www.zehitomo.com/lifestyle/family/estate-items-liquidators/estate-items-liquidator' target='_blank'>ゼヒトモの遺品整理・生前整理サービス</a>,&nbsp;<a href='https://www.zehitomo.com' target='_blank'>仕事をお願いしたい依頼者と様々な「プロ」をつなぐサービス</a></p>

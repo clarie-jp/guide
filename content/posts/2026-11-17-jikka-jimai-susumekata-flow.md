@@ -76,6 +76,7 @@ author: 大西 司
 
 現場では、仏壇の引き出しや衣類の間、台所の缶から通帳や現金が出てくることがよくあります。大型家具ごと処分して、中身を確認し損ねた例もあります。
 
+<figure class="photo"><img src="/img/posts/jikka-jimai-susumekata-flow/heya-sagyo-mae.jpg" alt="段ボール箱や紙袋、衣類を詰めた袋が積み重なった和室" width="1600" height="1200" loading="lazy"><figcaption>作業前：荷物が積み重なった実家の一室。まず貴重品と書類を探してから仕分けに入ります</figcaption></figure>
 ### 4分類で仕分ける
 
 | 分類 | 例 | 判断の基準 |
@@ -140,6 +141,7 @@ author: 大西 司
 
 どれにするかは、片付けを始める前に不動産会社へ相談してください。先に片付けてしまい、あとで「残したほうがよかった」と分かることもあります。
 
+<figure class="photo"><img src="/img/posts/jikka-jimai-susumekata-flow/dk-kara.jpg" alt="家具や家電を運び出し、流し台とコンロだけが残ったダイニングキッチン" width="1108" height="1477" loading="lazy"><figcaption>片付け後：荷物を運び出したダイニングキッチン。売却前の内覧に備えた状態です</figcaption></figure>
 ### 不動産会社の選び方
 
 査定は、2〜3社に依頼して比べるのが基本です。査定額だけでなく、売却の見通しや連絡の頻度も確認してください。

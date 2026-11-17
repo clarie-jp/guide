@@ -60,8 +60,10 @@ author: 大西 司
 
 戸建ての見積りで差が出るのは、屋根裏、物置、庭の植木鉢や園芸用品です。生前に使っていた趣味の道具が、ここに集まっていることも少なくありません。
 
+<figure class="photo"><img src="/img/posts/ihin-seiri-sagamihara-gomi-support/kaidanshita-sagyo-mae.jpg" alt="階段下の収納に、脚立や掃除機、スーツケース、段ボール箱が詰まった様子" width="1200" height="1600" loading="lazy"><figcaption>作業前：戸建ての階段下収納。外から見えにくい場所ほど物量がたまりやすくなります</figcaption></figure>
 訪問見積りでは、家の中だけでなく敷地全体を見せてもらうのが基本です。
 
+<figure class="photo"><img src="/img/posts/ihin-seiri-sagamihara-gomi-support/genkan-niwa-katazuke-go.jpg" alt="戸建ての玄関前の庭から、植木鉢や物を運び出した後の土の地面" width="1108" height="1477" loading="lazy"><figcaption>片付け後：玄関前の庭。屋外の物も見積りに含めるかを事前に確認します</figcaption></figure>
 マンションの搬出ルールは、[遺品整理 3LDKの費用｜マンションの搬出経路と管理規約](/posts/ihin-seiri-3ldk-hiyou-mansion-kiyaku/)でも詳しく解説しています。
 
 ## 粗大ごみ・家電リサイクル・不用品回収の仕組み
@@ -129,7 +131,7 @@ author: 大西 司
 
 ## 市の支援と相談窓口の確認先
 
-遺品整理そのものに使える公的な補助が、相模原市にあるかどうかは、私の側では断定できません。制度は変わるため、次の窓口で確認するのが確実です。
+遺品整理そのものに使える公的な補助が、相模原市にあるかどうかは、この記事では断定できません。制度は変わるため、次の窓口で確認するのが確実です。
 
 - 市の粗大ごみ・資源循環の担当窓口：出し方と手数料
 - 地域包括支援センター：高齢の親の住まいや介護の相談
