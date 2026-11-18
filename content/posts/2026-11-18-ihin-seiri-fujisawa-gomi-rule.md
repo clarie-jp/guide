@@ -3,6 +3,7 @@ title: 遺品整理 藤沢市｜粗大ごみのルールと住宅別の注意点
 description: 遺品整理を藤沢市で進める方へ。粗大ごみと家電リサイクルのルール、マンション・団地・戸建て別の搬出の注意点、遠方の子世代や施設入居前などケース別の進め方、費用の目安（2026年時点）と市への確認先を、現場目線で解説します。最初に確認する順番も紹介します。
 slug: ihin-seiri-fujisawa-gomi-rule
 date: '2026-11-18'
+image: img/hero/ihin-seiri-fujisawa-gomi-rule.jpg
 category: area
 domain: area
 keyword: 遺品整理 藤沢市
