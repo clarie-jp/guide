@@ -3,6 +3,7 @@ title: 実家の片付けは親が元気なうちに｜揉めない声かけと�
 description: 実家の片付けを親が元気なうちに進めたい方へ。揉めない声のかけ方、残す物の決め方、最初の一歩を遺品整理士が現場の経験からまとめました。親子で話す順番、2026年時点の費用の目安、業者に頼む線引き、見積りの確認項目も具体的に紹介します。
 slug: jikka-katazuke-oya-genki-uchi
 date: '2026-11-18'
+image: img/hero/jikka-katazuke-oya-genki-uchi.jpg
 category: jikka
 domain: basic
 keyword: 実家 片付け 親が元気なうち

@@ -3,6 +3,7 @@ title: 遺品整理 一軒家の費用｜庭と物置と2階の搬出も解説
 description: 遺品整理を一軒家で頼むときの費用の考え方を解説。クラリエの戸建て目安は10万円〜（2026年時点）。庭・物置・2階の搬出で変わる点、解体前に整理する順番、見積りで見る項目まで、古物・買取の現場20年以上の経験からまとめました。
 slug: ihin-seiri-ikkenya-hiyou
 date: '2026-11-18'
+image: img/hero/ihin-seiri-ikkenya-hiyou.jpg
 category: hiyou
 domain: basic
 keyword: 遺品整理 一軒家 費用
