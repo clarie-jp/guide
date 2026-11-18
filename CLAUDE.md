@@ -10,6 +10,13 @@
 5. `_stock/README.md` の一覧に、ファイル名・写っている内容・合いそうな記事を書き足す。
 6. commit して main に push し、取り込んだ枚数と使わなかった写真の理由を短く報告する。
 
+## Googleドライブに入った現場写真を拾う（毎回のセッションの最初に行う）
+別のチャットに送られた写真は、このセッションからは見えない。そのため大西さんには、LINE などの写真を Googleドライブのフォルダ「クラリエ_記事サイト写真」（id: 1xk_7oZL5szuA64KxLsT2H4T9F40uPtLM）に入れてもらう運用にしている。
+
+1. Google-Drive の search_files で、このフォルダ配下（`'1xk_7oZL5szuA64KxLsT2H4T9F40uPtLM' in ancestors`）の画像（`mimeType contains 'image/'`）のうち、「99_取り込み済み（Claudeが移動します）」（id: 1Qhx7hS9PSLmt9TOyfIVlqyghtJHMc_hz）に入っていないものを探す。
+2. download_file_content で取得し、上の「チャットに現場写真が送られてきたら」と同じ手順で確認・加工して `_stock/` に取り込む。使わない写真も含め、確認が終わったものは update_file で「99_取り込み済み」に移す（消さない）。
+3. 1回のセッションで扱うのは最大30枚まで。残りは次のセッションに回す。
+
 ## 記事に写真を使うとき
 - `_stock/` の写真を記事に使ったら、`static/img/posts/<記事のslug>/` に移し、`_stock/README.md` の一覧から消す。
 - python は `python3 -m pip install pyyaml markdown pillow --break-system-packages` で入れてから使う。
