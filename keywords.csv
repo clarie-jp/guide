@@ -21,10 +21,10 @@ priority,category,keyword,intent,angle,status,slug,domain
 1,area,生前整理 横浜,地域,横浜で生前整理を頼むときの相場と業者の探し方,done,seizen-seiri-yokohama-hiyou-gyosha,area
 2,hiyou,遺品整理 費用 誰が払う,相続,費用の負担者。相続財産から払えるか。領収書の扱い,todo,,basic
 2,hiyou,遺品整理 安くする方法,節約,自分で仕分ける・買取を使う・時期をずらす。安さだけで選ぶ危険,todo,,basic
-2,hiyou,遺品整理 見積もり 無料,比較検討,無料見積りの流れ。訪問査定で見られる点。追加料金が出る条件,draft,ihin-seiri-mitsumori-muryo-flow,basic
+2,hiyou,遺品整理 見積もり 無料,比較検討,無料見積りの流れ。訪問査定で見られる点。追加料金が出る条件,done,ihin-seiri-mitsumori-muryo-flow,basic
 2,hiyou,遺品整理 一軒家 費用,比較検討,戸建の相場。庭・物置・2階の搬出。解体前の整理,done,ihin-seiri-ikkenya-hiyou,basic
 2,ihin,遺品整理 業者 必要な許可,比較検討,一般廃棄物収集運搬業・古物商・産業廃棄物の違いをやさしく,todo,,basic
-2,ihin,遺品整理 貴重品 探し方,手順,通帳・印鑑・権利証・保険証券が隠れている場所20か所,draft,ihin-seiri-kichohin-sagashikata,basic
+2,ihin,遺品整理 貴重品 探し方,手順,通帳・印鑑・権利証・保険証券が隠れている場所20か所,done,ihin-seiri-kichohin-sagashikata,basic
 2,ihin,遺品整理 仏壇 処分,宗教,閉眼供養・お焚き上げ・引き取りの流れと費用,todo,,basic
 2,ihin,遺品整理 写真 処分,感情,アルバムの残し方。デジタル化。供養という選択,todo,,basic
 2,ihin,遺品整理 衣類 処分,手順,大量の衣類の仕分け。寄付・買取・資源回収,todo,,basic
@@ -65,7 +65,7 @@ priority,category,keyword,intent,angle,status,slug,domain
 2,area,遺品整理 横浜市 戸塚区,地域,戸塚区の団地・マンション,done,ihin-seiri-yokohama-totsuka-ku-danchi,area
 2,area,遺品整理 相模原市,地域,相模原市の粗大ごみ・市の支援,done,ihin-seiri-sagamihara-gomi-support,area
 2,area,遺品整理 藤沢市,地域,藤沢市のルール,done,ihin-seiri-fujisawa-gomi-rule,area
-2,area,遺品整理 町田市,地域,町田市のルール,draft,ihin-seiri-machida-gomi-rule,area
+2,area,遺品整理 町田市,地域,町田市のルール,done,ihin-seiri-machida-gomi-rule,area
 2,area,遺品整理 鎌倉市,地域,鎌倉市の戸建と骨董,todo,,area
 2,area,遺品整理 東京 世田谷区,地域,世田谷区のルール,todo,,area
 3,ihin,遺品整理 お布施,宗教,供養のお布施の相場,todo,,basic
