@@ -38,6 +38,12 @@ jobs:
           W=$(mktemp -d)
           $S 'cd ~/logs/guide.clarie.jp && for f in $(ls access_log.*.gz 2>/dev/null | sort); do zcat "$f"; done; cat access_log' > "$W/log" 2>/dev/null
           $S 'cat ~/stats/guide-stats.json 2>/dev/null || echo "{}"' > "$W/old.json" 2>/dev/null
-          python3 scripts/stats.py "$W/log" "$W/old.json" "$W/new.json"
+          # 地域データベース（DB-IP 無料版、毎月更新）。今月分がまだ無ければ先月分を使う。取れなくても集計は続ける。
+          pip install -q maxminddb || true
+          for m in "$(date -u +%Y-%m)" "$(date -u -d '-1 month' +%Y-%m)"; do
+            curl -fsSL "https://download.db-ip.com/free/dbip-city-lite-$m.mmdb.gz" -o "$W/geo.mmdb.gz" && gunzip -f "$W/geo.mmdb.gz" && break || true
+          done
+          GEO=""; [ -s "$W/geo.mmdb" ] && GEO="$W/geo.mmdb"
+          python3 scripts/stats.py "$W/log" "$W/old.json" "$W/new.json" $GEO
           $S 'mkdir -p ~/stats && cat > ~/stats/guide-stats.json.tmp && mv ~/stats/guide-stats.json.tmp ~/stats/guide-stats.json' < "$W/new.json" 2>/dev/null
           rm -rf "$W"

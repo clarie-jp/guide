@@ -1,12 +1,31 @@
 #!/usr/bin/env python3
 """サーバーのアクセスログから、記事サイトの閲覧数を日ごとに集計する。
 
-使い方: python3 scripts/stats.py <ログをつなげたファイル> <これまでの集計.json> <新しい集計.json>
+使い方: python3 scripts/stats.py <ログをつなげたファイル> <これまでの集計.json> <新しい集計.json> [地域データベース.mmdb]
+- 地域データベース（DB-IP の無料版。IP Geolocation by DB-IP https://db-ip.com ）を渡すと、都道府県ごとの数も出す。
+  IPアドレスは外部に送らず、手元のデータベースで引く。スマホ回線は実際の場所と違う地域になることがある。
 - 出力（標準出力）は件数だけ。IP アドレスなど生のログは出さない（リポジトリが公開のため）。
 - 数えるのは「人が開いたページ」：GET・200・HTMLページ・機械（検索エンジンの巡回など）を除く。
 - 訪問者数は、IPアドレスとブラウザの組み合わせの数（日ごと）。集計ファイルには数だけを残す。
 """
-import sys, re, json, hashlib, datetime, collections, urllib.parse
+import sys, re, json, hashlib, datetime, collections, urllib.parse, unicodedata
+
+PREF = dict(zip("hokkaido aomori iwate miyagi akita yamagata fukushima ibaraki tochigi gunma saitama chiba tokyo kanagawa niigata toyama ishikawa fukui yamanashi nagano gifu shizuoka aichi mie shiga kyoto osaka hyogo nara wakayama tottori shimane okayama hiroshima yamaguchi tokushima kagawa ehime kochi fukuoka saga nagasaki kumamoto oita miyazaki kagoshima okinawa".split(),
+                "北海道 青森 岩手 宮城 秋田 山形 福島 茨城 栃木 群馬 埼玉 千葉 東京 神奈川 新潟 富山 石川 福井 山梨 長野 岐阜 静岡 愛知 三重 滋賀 京都 大阪 兵庫 奈良 和歌山 鳥取 島根 岡山 広島 山口 徳島 香川 愛媛 高知 福岡 佐賀 長崎 熊本 大分 宮崎 鹿児島 沖縄".split()))
+
+def region(db, ip):
+    """IPアドレス → 「神奈川」などの地域名。日本以外は「海外（国名）」。分からなければ「不明」。"""
+    if not db or not ip: return "不明"
+    try: r = db.get(ip)
+    except Exception: r = None
+    if not r: return "不明"
+    cc = (r.get("country") or {}).get("iso_code", "")
+    if cc != "JP":
+        return "海外（" + ((r.get("country") or {}).get("names", {}).get("ja") or (r.get("country") or {}).get("names", {}).get("en") or cc or "不明") + "）"
+    sub = (r.get("subdivisions") or [{}])[0].get("names", {}).get("en", "")
+    k = unicodedata.normalize("NFKD", sub).encode("ascii", "ignore").decode().lower()
+    k = re.sub(r"[^a-z]", "", re.sub(r"prefecture|\b(ken|to|fu)\b", "", k.replace("-", " ")))
+    return PREF.get(k, "日本（都道府県不明）")
 
 LINE = re.compile(r'\[(\d{2})/(\w{3})/(\d{4}):(\d{2}):(\d{2}):(\d{2}) ([+-]\d{4})\] "(\S+) (\S+)[^"]*" (\d{3}) \S+(?: "([^"]*)" "([^"]*)")?')
 IP = re.compile(r'(\d{1,3}(?:\.\d{1,3}){3}|[0-9a-fA-F:]*:[0-9a-fA-F:]+)')
@@ -31,8 +50,13 @@ def source(ref):
     if "line." in h or h.endswith("line.me"): return "LINE"
     return h
 
-def main(logf, oldf, newf):
-    days = collections.defaultdict(lambda: {"pv": 0, "uvset": set(), "bot": 0, "pages": collections.Counter(), "src": collections.Counter(), "dev": collections.Counter(), "hours": collections.Counter()})
+def main(logf, oldf, newf, mmdb=None):
+    db = None
+    if mmdb:
+        try:
+            import maxminddb; db = maxminddb.open_database(mmdb)
+        except Exception as e: print("地域データベースを開けませんでした:", type(e).__name__)
+    days = collections.defaultdict(lambda: {"geo": collections.Counter(), "geouv": collections.defaultdict(set), "pv": 0, "uvset": set(), "bot": 0, "pages": collections.Counter(), "src": collections.Counter(), "dev": collections.Counter(), "hours": collections.Counter()})
     total = bad = 0
     for line in open(logf, encoding="utf-8", errors="replace"):
         total += 1
@@ -51,6 +75,8 @@ def main(logf, oldf, newf):
         d["pv"] += 1
         d["uvset"].add(hashlib.sha256((ip + "|" + ua).encode()).hexdigest())
         d["pages"][p] += 1
+        if db:
+            g = region(db, ip); d["geo"][g] += 1; d["geouv"][g].add(ip + "|" + ua)
         s = source(ref)
         if s: d["src"][s] += 1
         d["dev"]["スマホ" if re.search(r"Mobile|iPhone|Android", ua) else "パソコン"] += 1
@@ -61,6 +87,7 @@ def main(logf, oldf, newf):
     today = datetime.datetime.now(JST).date().isoformat()
     for k, d in days.items():
         rec = {"pv": d["pv"], "uv": len(d["uvset"]), "bot": d["bot"], "pages": dict(d["pages"].most_common(40)), "src": dict(d["src"].most_common(15)), "dev": dict(d["dev"]), "hours": dict(sorted(d["hours"].items()))}
+        if db: rec["geo"] = dict(d["geo"].most_common(30)); rec["geo_uv"] = {g: len(v) for g, v in d["geouv"].items()}
         if k not in data or rec["pv"] >= data[k].get("pv", 0): data[k] = rec
     json.dump({"updated": datetime.datetime.now(JST).isoformat(timespec="minutes"), "days": dict(sorted(data.items()))}, open(newf, "w", encoding="utf-8"), ensure_ascii=False)
 
@@ -84,7 +111,15 @@ def main(logf, oldf, newf):
         print(f"== 直近{len(last7)}日の流入元 ==")
         for s, n in agg.most_common(10): print(f"{n}  {s}")
         print("== 直近の端末 ==", "・".join(f"{a}{b}" for a, b in dev.most_common()))
-        print(f"REPORT: {y[5:].replace('-', '/')}の閲覧数{r['pv']}・訪問者{r['uv']}／直近{len(last7)}日の閲覧数{pv7}・訪問者のべ{uv7}／記録開始からの閲覧数{sum(data[k]['pv'] for k in done)}")
+        geo = collections.Counter(); geouv = collections.Counter()
+        for k in last7:
+            geo.update(data[k].get("geo", {})); geouv.update(data[k].get("geo_uv", {}))
+        geo_txt = ""
+        if geo:
+            print(f"== 直近{len(last7)}日の地域（閲覧数／訪問者のべ）※スマホ回線は実際と違う地域になることがあります。IP Geolocation by DB-IP ==")
+            for g, n in geo.most_common(15): print(f"{g}: {n}／{geouv.get(g, 0)}")
+            geo_txt = "／地域（訪問者のべ）：" + "・".join(f"{g}{n}" for g, n in geouv.most_common(5))
+        print(f"REPORT: {y[5:].replace('-', '/')}の閲覧数{r['pv']}・訪問者{r['uv']}／直近{len(last7)}日の閲覧数{pv7}・訪問者のべ{uv7}／記録開始からの閲覧数{sum(data[k]['pv'] for k in done)}{geo_txt}")
 
 if __name__ == "__main__":
-    main(*sys.argv[1:4])
+    main(*sys.argv[1:5])
