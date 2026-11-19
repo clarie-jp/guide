@@ -87,7 +87,11 @@ def main(logf, oldf, newf, mmdb=None):
     today = datetime.datetime.now(JST).date().isoformat()
     for k, d in days.items():
         rec = {"pv": d["pv"], "uv": len(d["uvset"]), "bot": d["bot"], "pages": dict(d["pages"].most_common(40)), "src": dict(d["src"].most_common(15)), "dev": dict(d["dev"]), "hours": dict(sorted(d["hours"].items()))}
-        if db: rec["geo"] = dict(d["geo"].most_common(30)); rec["geo_uv"] = {g: len(v) for g, v in d["geouv"].items()}
+        if db:
+            rec["geo"] = dict(d["geo"].most_common(30)); rec["geo_uv"] = {g: len(v) for g, v in d["geouv"].items()}
+            # 国内だけの数。海外からのアクセスは、ブラウザを名乗る機械であることが多いので分けて数える。
+            rec["jp_pv"] = sum(n for g, n in d["geo"].items() if not g.startswith(("海外", "不明")))
+            rec["jp_uv"] = sum(len(v) for g, v in d["geouv"].items() if not g.startswith(("海外", "不明")))
         if k not in data or rec["pv"] >= data[k].get("pv", 0): data[k] = rec
     json.dump({"updated": datetime.datetime.now(JST).isoformat(timespec="minutes"), "days": dict(sorted(data.items()))}, open(newf, "w", encoding="utf-8"), ensure_ascii=False)
 
@@ -118,7 +122,12 @@ def main(logf, oldf, newf, mmdb=None):
         if geo:
             print(f"== 直近{len(last7)}日の地域（閲覧数／訪問者のべ）※スマホ回線は実際と違う地域になることがあります。IP Geolocation by DB-IP ==")
             for g, n in geo.most_common(15): print(f"{g}: {n}／{geouv.get(g, 0)}")
-            geo_txt = "／地域（訪問者のべ）：" + "・".join(f"{g}{n}" for g, n in geouv.most_common(5))
+            jp = [(g, n) for g, n in geouv.most_common() if not g.startswith(("海外", "不明"))]
+            jp7 = sum(data[k].get("jp_pv", 0) for k in last7); jpu7 = sum(data[k].get("jp_uv", 0) for k in last7)
+            print(f"== 国内だけ（閲覧数／訪問者数）==")
+            for k in last7: print(f"{k}: {data[k].get('jp_pv', '-')}／{data[k].get('jp_uv', '-')}")
+            geo_txt = (f"／うち国内：{y[5:].replace('-', '/')}の閲覧数{r.get('jp_pv', 0)}・訪問者{r.get('jp_uv', 0)}、直近{len(last7)}日の閲覧数{jp7}・訪問者のべ{jpu7}"
+                       + "（" + "・".join(f"{g}{n}" for g, n in jp[:6]) + "）" + f"／海外からの閲覧{pv7 - jp7}は機械の可能性が高い")
         print(f"REPORT: {y[5:].replace('-', '/')}の閲覧数{r['pv']}・訪問者{r['uv']}／直近{len(last7)}日の閲覧数{pv7}・訪問者のべ{uv7}／記録開始からの閲覧数{sum(data[k]['pv'] for k in done)}{geo_txt}")
 
 if __name__ == "__main__":
