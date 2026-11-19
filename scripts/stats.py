@@ -56,7 +56,7 @@ def main(logf, oldf, newf, mmdb=None):
         try:
             import maxminddb; db = maxminddb.open_database(mmdb)
         except Exception as e: print("地域データベースを開けませんでした:", type(e).__name__)
-    days = collections.defaultdict(lambda: {"geo": collections.Counter(), "geouv": collections.defaultdict(set), "pv": 0, "uvset": set(), "bot": 0, "pages": collections.Counter(), "src": collections.Counter(), "dev": collections.Counter(), "hours": collections.Counter()})
+    days = collections.defaultdict(lambda: {"jp_pages": collections.Counter(), "jp_src": collections.Counter(), "jp_dev": collections.Counter(), "geo": collections.Counter(), "geouv": collections.defaultdict(set), "pv": 0, "uvset": set(), "bot": 0, "pages": collections.Counter(), "src": collections.Counter(), "dev": collections.Counter(), "hours": collections.Counter()})
     total = bad = 0
     for line in open(logf, encoding="utf-8", errors="replace"):
         total += 1
@@ -77,6 +77,9 @@ def main(logf, oldf, newf, mmdb=None):
         d["pages"][p] += 1
         if db:
             g = region(db, ip); d["geo"][g] += 1; d["geouv"][g].add(ip + "|" + ua)
+            if not g.startswith(("海外", "不明")):
+                d["jp_pages"][p] += 1; d["jp_dev"]["スマホ" if re.search(r"Mobile|iPhone|Android", ua) else "パソコン"] += 1
+                if source(ref): d["jp_src"][source(ref)] += 1
         s = source(ref)
         if s: d["src"][s] += 1
         d["dev"]["スマホ" if re.search(r"Mobile|iPhone|Android", ua) else "パソコン"] += 1
@@ -91,6 +94,7 @@ def main(logf, oldf, newf, mmdb=None):
             rec["geo"] = dict(d["geo"].most_common(30)); rec["geo_uv"] = {g: len(v) for g, v in d["geouv"].items()}
             # 国内だけの数。海外からのアクセスは、ブラウザを名乗る機械であることが多いので分けて数える。
             rec["jp_pv"] = sum(n for g, n in d["geo"].items() if not g.startswith(("海外", "不明")))
+            rec["jp_pages"] = dict(d["jp_pages"].most_common(40)); rec["jp_src"] = dict(d["jp_src"].most_common(15)); rec["jp_dev"] = dict(d["jp_dev"])
             rec["jp_uv"] = sum(len(v) for g, v in d["geouv"].items() if not g.startswith(("海外", "不明")))
         if k not in data or rec["pv"] >= data[k].get("pv", 0): data[k] = rec
     json.dump({"updated": datetime.datetime.now(JST).isoformat(timespec="minutes"), "days": dict(sorted(data.items()))}, open(newf, "w", encoding="utf-8"), ensure_ascii=False)
@@ -128,6 +132,18 @@ def main(logf, oldf, newf, mmdb=None):
             for k in last7: print(f"{k}: {data[k].get('jp_pv', '-')}／{data[k].get('jp_uv', '-')}")
             geo_txt = (f"／うち国内：{y[5:].replace('-', '/')}の閲覧数{r.get('jp_pv', 0)}・訪問者{r.get('jp_uv', 0)}、直近{len(last7)}日の閲覧数{jp7}・訪問者のべ{jpu7}"
                        + "（" + "・".join(f"{g}{n}" for g, n in jp[:6]) + "）" + f"／海外からの閲覧{pv7 - jp7}は機械の可能性が高い")
+        # 週次の報告用：直近7日と、その前の7日の国内の数字
+        prev7 = done[-14:-7]
+        if geo:
+            wp = collections.Counter(); ws = collections.Counter(); wd = collections.Counter()
+            for k in last7:
+                wp.update(data[k].get("jp_pages", {})); ws.update(data[k].get("jp_src", {})); wd.update(data[k].get("jp_dev", {}))
+            print(f"== 週次（{last7[0]}〜{last7[-1]}）国内 ==")
+            print(f"WEEK: 閲覧数{jp7}・訪問者のべ{jpu7}" + (f"／前の7日（{prev7[0]}〜{prev7[-1]}、{len(prev7)}日分）: 閲覧数{sum(data[k].get('jp_pv', 0) for k in prev7)}・訪問者のべ{sum(data[k].get('jp_uv', 0) for k in prev7)}" if prev7 else "／前の7日: 記録なし"))
+            print("WEEK 都道府県（訪問者のべ）:", "・".join(f"{g}{n}" for g, n in jp[:10]) or "なし")
+            print("WEEK ページ:"); [print(f"  {n}  {pg}") for pg, n in wp.most_common(15)]
+            print("WEEK 流入元:", "・".join(f"{a}{b}" for a, b in ws.most_common(8)) or "なし")
+            print("WEEK 端末:", "・".join(f"{a}{b}" for a, b in wd.most_common()) or "なし")
         print(f"REPORT: {y[5:].replace('-', '/')}の閲覧数{r['pv']}・訪問者{r['uv']}／直近{len(last7)}日の閲覧数{pv7}・訪問者のべ{uv7}／記録開始からの閲覧数{sum(data[k]['pv'] for k in done)}{geo_txt}")
 
 if __name__ == "__main__":
