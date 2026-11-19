@@ -29,3 +29,11 @@
 ## 記事に写真を使うとき
 - `_stock/` の写真を記事に使ったら、`static/img/posts/<記事のslug>/` に移し、`_stock/README.md` の一覧から消す。
 - python は `python3 -m pip install pyyaml markdown pillow --break-system-packages` で入れてから使う。
+
+## 毎日の報告（記事公開のあと、報告の先頭に入れる）
+大西さんの希望で、毎日の報告の最初に次の4行を出す。
+1. `python3 scripts/build.py` のあと `python3 scripts/daily_report.py --live ok|ng --gbp-month "<月次の数字>"` を実行し、出た4行をそのまま使う。
+   - `--live` は、今日の push で動いた GitHub Actions の「本番URLで公開を確認」ステップが成功なら ok、失敗なら ng。
+   - `--gbp-month` は、Gmail に届く Googleビジネスプロフィールの月次レポート（差出人 businessprofile-noreply@google.com、件名「パフォーマンス レポート」）の最新のものから、閲覧数・検索数・ルート検索・ウェブサイト訪問を書く（例「2026年10月：閲覧数175・検索数17・ルート検索63・ウェブサイト訪問1」）。日ごとの数字は取れないので、月次の最新を出す。
+2. くらしのマーケットとゼヒトモはチェックマークだけでよい（大西さんの指示）。くらしのマーケットは確認する手段がないので「－」のまま。
+3. 記事サイトの閲覧数は、まだ取れていない（集計の方法を大西さんに確認中）。
