@@ -17,6 +17,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument("--date", default=(datetime.datetime.utcnow() + datetime.timedelta(hours=9)).date().isoformat())
 ap.add_argument("--live", choices=["ok", "ng"], default=None)
 ap.add_argument("--gbp-month", default="")
+ap.add_argument("--lp-views", default="", help="stats.yml の実行ログの REPORT: 行の中身")
 a = ap.parse_args()
 
 posts = sorted((ROOT / "content" / "posts").glob("*.md"))
@@ -43,7 +44,7 @@ def mark(ok):
 
 lp_ok = len(today) >= 3 and a.live == "ok"
 lp_note = "" if a.live else "（本番の公開は未確認）"
-print(f"クラリエLP {mark(lp_ok)} 今日{len(today)}本／累計{len(published)}本{lp_note}")
+print(f"クラリエLP {mark(lp_ok)} 今日{len(today)}本／累計{len(published)}本{lp_note}" + (f"／{a.lp_views}" if a.lp_views else ""))
 gbp_line = f"グーグルマップ {mark(gbp_today >= 1)} 投稿用一覧に今日{gbp_today}本"
 if a.gbp_month:
     gbp_line += f"／{a.gbp_month}"

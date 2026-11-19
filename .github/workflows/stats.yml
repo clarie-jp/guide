@@ -2,6 +2,9 @@ name: 閲覧数の集計
 # サーバー（お名前.com）のアクセスログから guide.clarie.jp の閲覧数を集計する（大西さんの了承済み 2026-11-19）。
 # このリポジトリは公開なので、実行ログには IP アドレスなどの生のログを出さない。出すのはファイルの場所と件数だけ。
 on:
+  # 毎日 00:30 JST。サーバーのログは約7日で消えるので、毎日集計して記録を残す。
+  schedule:
+    - cron: "30 15 * * *"
   workflow_dispatch:
     inputs:
       mode:
@@ -27,3 +30,14 @@ jobs:
         run: |
           ssh -i ~/.ssh/id -p "${{ secrets.SSH_PORT || 22 }}" "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
             'ls -d ~/*/ 2>/dev/null | sed "s/^/DIR: /"; find ~ -maxdepth 5 \( -iname "*access*" -o -iname "*.log" -o -iname "*.log.*" -o -iname "*log*.gz" \) -not -path "*/public_html/*" 2>/dev/null | head -60 | while read f; do echo "FOUND: $f $(wc -c < "$f" 2>/dev/null) bytes"; done; echo DONE'
+      # 集計の記録はサーバーの ~/stats/guide-stats.json（公開されない場所）に置く。実行ログに出すのは件数だけ。
+      - name: 閲覧数を集計
+        if: github.event.inputs.mode != 'discover'
+        run: |
+          S="ssh -i $HOME/.ssh/id -p ${{ secrets.SSH_PORT || 22 }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}"
+          W=$(mktemp -d)
+          $S 'cd ~/logs/guide.clarie.jp && for f in $(ls access_log.*.gz 2>/dev/null | sort); do zcat "$f"; done; cat access_log' > "$W/log" 2>/dev/null
+          $S 'cat ~/stats/guide-stats.json 2>/dev/null || echo "{}"' > "$W/old.json" 2>/dev/null
+          python3 scripts/stats.py "$W/log" "$W/old.json" "$W/new.json"
+          $S 'mkdir -p ~/stats && cat > ~/stats/guide-stats.json.tmp && mv ~/stats/guide-stats.json.tmp ~/stats/guide-stats.json' < "$W/new.json" 2>/dev/null
+          rm -rf "$W"
