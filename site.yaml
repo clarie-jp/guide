@@ -8,6 +8,8 @@ contact_url: https://clarie.jp/#contact
 tel: 045-285-3751
 tel_hours: 受付 9:00〜18:00（土日も対応）
 test_url: https://clarie-jp.github.io/test/
+# Googleアナリティクスの測定ID（G-で始まる番号）。入れると全ページに計測タグが入る。空なら入らない
+ga_id: ""
 company: 株式会社Improve
 company_address: 神奈川県横浜市西区みなとみらい2-2-1 ランドマークプラザ5階
 area: 神奈川・東京・千葉・埼玉

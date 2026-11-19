@@ -55,6 +55,10 @@ def page(title, desc, body_html, url, extra_head="", kind="WebPage", og_type="we
     a = SITE["author"]
     og = f'<meta property="og:image" content="{BASE}/{image}"><meta name="twitter:card" content="summary_large_image">' if image else ""
     extra_head = og + extra_head
+    ga = str(SITE.get("ga_id") or "").strip()
+    if ga:  # Googleアナリティクス（site.yaml の ga_id に測定IDを入れると有効になる）
+        extra_head += (f'<script async src="https://www.googletagmanager.com/gtag/js?id={ga}"></script>'
+                       f"<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{ga}');</script>")
     return (TPL.replace("{{title}}", html.escape(title)).replace("{{description}}", html.escape(desc))
             .replace("{{site_name}}", SITE["site_name"]).replace("{{canonical}}", url).replace("{{base}}", BASE)
             .replace("{{brand_url}}", SITE["brand_url"]).replace("{{contact_url}}", SITE["contact_url"])

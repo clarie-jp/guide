@@ -1,0 +1,29 @@
+name: 閲覧数の集計
+# サーバー（お名前.com）のアクセスログから guide.clarie.jp の閲覧数を集計する（大西さんの了承済み 2026-11-19）。
+# このリポジトリは公開なので、実行ログには IP アドレスなどの生のログを出さない。出すのはファイルの場所と件数だけ。
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "discover（ログの場所を探す）/ 空（集計）"
+        required: false
+        default: ""
+permissions:
+  contents: write
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: SSH の準備
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/id && chmod 600 ~/.ssh/id
+          ssh-keyscan -p "${{ secrets.SSH_PORT || 22 }}" "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null
+      - name: ログの場所を探す
+        if: github.event.inputs.mode == 'discover'
+        run: |
+          ssh -i ~/.ssh/id -p "${{ secrets.SSH_PORT || 22 }}" "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            'ls -d ~/*/ 2>/dev/null | sed "s/^/DIR: /"; find ~ -maxdepth 5 \( -iname "*access*" -o -iname "*.log" -o -iname "*.log.*" -o -iname "*log*.gz" \) -not -path "*/public_html/*" 2>/dev/null | head -60 | while read f; do echo "FOUND: $f $(wc -c < "$f" 2>/dev/null) bytes"; done; echo DONE'
