@@ -28,7 +28,7 @@ priority,category,keyword,intent,angle,status,slug,domain
 2,ihin,遺品整理 仏壇 処分,宗教,閉眼供養・お焚き上げ・引き取りの流れと費用,todo,,basic
 2,ihin,遺品整理 写真 処分,感情,アルバムの残し方。デジタル化。供養という選択,todo,,basic
 2,ihin,遺品整理 衣類 処分,手順,大量の衣類の仕分け。寄付・買取・資源回収,todo,,basic
-2,ihin,遺品整理 家電 処分,手順,家電リサイクル法4品目の料金と手続き。買取対象の年式,draft,ihin-seiri-kaden-shobun-recycle,basic
+2,ihin,遺品整理 家電 処分,手順,家電リサイクル法4品目の料金と手続き。買取対象の年式,done,ihin-seiri-kaden-shobun-recycle,basic
 2,ihin,遺品整理 本 処分,手順,大量の書籍の買取と資源回収。全集・専門書の扱い,todo,,basic
 2,ihin,遺品整理 車 処分,手続き,名義変更・廃車・売却。相続人の手続き,todo,,basic
 2,ihin,遺品整理 賃貸 退去,期限,大家・管理会社との調整。原状回復の範囲。期限の交渉,todo,,basic
@@ -66,7 +66,7 @@ priority,category,keyword,intent,angle,status,slug,domain
 2,area,遺品整理 相模原市,地域,相模原市の粗大ごみ・市の支援,done,ihin-seiri-sagamihara-gomi-support,area
 2,area,遺品整理 藤沢市,地域,藤沢市のルール,done,ihin-seiri-fujisawa-gomi-rule,area
 2,area,遺品整理 町田市,地域,町田市のルール,done,ihin-seiri-machida-gomi-rule,area
-2,area,遺品整理 鎌倉市,地域,鎌倉市の戸建と骨董,draft,ihin-seiri-kamakura-kodate-kottou,area
+2,area,遺品整理 鎌倉市,地域,鎌倉市の戸建と骨董,done,ihin-seiri-kamakura-kodate-kottou,area
 2,area,遺品整理 東京 世田谷区,地域,世田谷区のルール,todo,,area
 3,ihin,遺品整理 お布施,宗教,供養のお布施の相場,todo,,basic
 3,ihin,遺品整理 人形 処分,宗教,人形・ぬいぐるみの供養と処分,todo,,basic
