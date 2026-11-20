@@ -33,7 +33,7 @@ priority,category,keyword,intent,angle,status,slug,domain
 2,ihin,遺品整理 車 処分,手続き,名義変更・廃車・売却。相続人の手続き,todo,,basic
 2,ihin,遺品整理 賃貸 退去,期限,大家・管理会社との調整。原状回復の範囲。期限の交渉,todo,,basic
 2,ihin,遺品整理 マンション 管理規約,手順,搬出時間・エレベーター養生・管理人への届け出,todo,,basic
-2,ihin,遺品整理 立ち会い なし,手順,遠方から依頼する流れ。鍵の受け渡し。写真報告,todo,,basic
+2,ihin,遺品整理 立ち会い なし,手順,遠方から依頼する流れ。鍵の受け渡し。写真報告,draft,ihin-seiri-tachiai-nashi-flow,basic
 2,ihin,遺品整理 遠方 親の家,手順,遠方の実家を片付ける段取り。帰省回数を減らす方法,todo,,basic
 2,seizen,生前整理 60代,年代,60代で始めるメリット。体力があるうちに動かす大物,todo,,basic
 2,seizen,生前整理 70代,年代,70代の進め方。家族と一緒に。住み替えを見据えて,todo,,basic
