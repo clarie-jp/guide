@@ -54,7 +54,7 @@ priority,category,keyword,intent,angle,status,slug,domain
 2,souzoku,遺品整理 相続税 評価,法律,家財一式の評価。高額品の申告。整理費用は控除できるか,todo,,basic
 2,souzoku,デジタル遺品 整理,手続き,スマホ・パソコン・ネット口座・サブスクの整理手順,todo,,basic
 2,souzoku,孤独死 遺品整理,特殊,特殊清掃と遺品整理の違い。費用。保険,todo,,basic
-2,kaitori,着物 買取 遺品,買取,着物の買取相場。値が付く条件。処分との使い分け,todo,,item
+2,kaitori,着物 買取 遺品,買取,着物の買取相場。値が付く条件。処分との使い分け,draft,kimono-kaitori-ihin-souba-joken,item
 2,kaitori,骨董 買取 遺品,買取,骨董・美術品の査定基準。箱・銘・鑑定書,todo,,item
 2,kaitori,貴金属 買取 遺品,買取,金・プラチナの相場の見方。刻印の確認,todo,,item
 2,kaitori,切手 買取 遺品,買取,切手・古銭・記念硬貨の買取,todo,,item
