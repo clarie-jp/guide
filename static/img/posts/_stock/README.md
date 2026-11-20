@@ -24,3 +24,4 @@ EXIF（位置情報など）は削除済み、長辺1600px、顔・表札・宛�
 記事に使用済み（再取り込みしない）：Drive の fileId 1ETchgtTPtLaG4zjufnghx6VRCuP8ylev は ihin-seiri-kamakura-kodate-kottou/mokubori-okimono.jpg として使用。
 記事に使用済み（再取り込みしない）：Drive の fileId 1BVHcAT5lkDqgbtvR3AiHU1_5l2mj2Q6o は ihin-seiri-tachiai-nashi-flow/youshitsu-katazuke-go.jpg として使用。
 記事に使用済み（再取り込みしない）：Drive の fileId 11HHeUZJ5-j7Ky_airCJAjndwgAdy6jP2 は ihin-seiri-tachiai-nashi-flow/washitsu-sagyo-mae.jpg として使用。
+記事に使用済み（再取り込みしない）：2026-11-18 にチャットで取り込んだ brand-bag.jpg・brand-bag-soko.jpg は setagaya-mansion-kaitori-soudankai-case/ で使用。

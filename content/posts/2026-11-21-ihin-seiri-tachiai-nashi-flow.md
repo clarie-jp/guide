@@ -123,7 +123,7 @@ author: 大西 司
 
 ### 作業前の写真（見積り時、または作業開始時）
 
-- 各部屋の全景（四隅から2方向）
+- 各部屋の全景（対角の2方向から）
 - 押入れ、クローゼット、物置の中
 - 玄関、廊下、ベランダ
 - すでに傷や汚れがある場所（作業後のトラブル防止）
@@ -143,7 +143,7 @@ author: 大西 司
 - 床、壁、ドア枠に新しい傷がないこと
 - 残した物の保管場所と、箱の中身
 
-<figure class="photo"><img src="/img/posts/ihin-seiri-tachiai-nashi-flow/youshitsu-katazuke-go.jpg" alt="荷物を運び出し、カーテンと床だけが残った洋室の窓際" width="1280" height="1280" loading="lazy"><figcaption>作業後の写真の例：片付けが終わった洋室の窓際（別の部屋の写真です）。床や壁の状態が分かる角度で撮ります</figcaption></figure>
+<figure class="photo"><img src="/img/posts/ihin-seiri-tachiai-nashi-flow/youshitsu-katazuke-go.jpg" alt="荷物を運び出したあとの洋室の窓際。カーテンとエアコンが残っている" width="1280" height="1280" loading="lazy"><figcaption>作業後の写真の例：片付けが終わった洋室の窓際（別の部屋の写真です）。床や壁の状態が分かる角度で撮ります</figcaption></figure>
 
 同じ角度で撮ってもらうと、前後の比較がしやすくなります。
 
@@ -209,3 +209,5 @@ author: 大西 司
 遠方の実家の片付けで迷っている場合は、クラリエに相談する方法もあります。鍵をお預かりし、写真でご報告しながら進める方法にも対応しています。電話は045-285-3751（受付 9:00〜18:00、土日も対応）です。対応エリアは神奈川・東京・千葉・埼玉で、見積りは無料です。
 
 他社と見比べたうえで、選択肢のひとつとしてご検討ください。
+
+<p id="ref_6af6721afb91c8d6b1ea7668_estate-items-liquidator"><a href='https://www.zehitomo.com/profile/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BEimprove-qEedP40J8/pro' target='_blank'>ゼヒトモ内でのプロフィール: 株式会社Improve</a>,&nbsp;<a href='https://www.zehitomo.com/lifestyle/family/estate-items-liquidators/estate-items-liquidator' target='_blank'>ゼヒトモの遺品整理・生前整理サービス</a>,&nbsp;<a href='https://www.zehitomo.com' target='_blank'>仕事をお願いしたい依頼者と様々な「プロ」をつなぐサービス</a></p>
