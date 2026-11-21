@@ -31,7 +31,7 @@ priority,category,keyword,intent,angle,status,slug,domain
 2,ihin,遺品整理 家電 処分,手順,家電リサイクル法4品目の料金と手続き。買取対象の年式,done,ihin-seiri-kaden-shobun-recycle,basic
 2,ihin,遺品整理 本 処分,手順,大量の書籍の買取と資源回収。全集・専門書の扱い,todo,,basic
 2,ihin,遺品整理 車 処分,手続き,名義変更・廃車・売却。相続人の手続き,todo,,basic
-2,ihin,遺品整理 賃貸 退去,期限,大家・管理会社との調整。原状回復の範囲。期限の交渉,draft,ihin-seiri-chintai-taikyo-kigen,basic
+2,ihin,遺品整理 賃貸 退去,期限,大家・管理会社との調整。原状回復の範囲。期限の交渉,done,ihin-seiri-chintai-taikyo-kigen,basic
 2,ihin,遺品整理 マンション 管理規約,手順,搬出時間・エレベーター養生・管理人への届け出,todo,,basic
 2,ihin,遺品整理 立ち会い なし,手順,遠方から依頼する流れ。鍵の受け渡し。写真報告,done,ihin-seiri-tachiai-nashi-flow,basic
 2,ihin,遺品整理 遠方 親の家,手順,遠方の実家を片付ける段取り。帰省回数を減らす方法,todo,,basic
@@ -115,7 +115,7 @@ priority,category,keyword,intent,angle,status,slug,domain
 3,area,遺品整理 横須賀市,地域,横須賀市,todo,,area
 3,area,遺品整理 東京 大田区,地域,大田区,todo,,area
 3,area,遺品整理 東京 目黒区,地域,目黒区,todo,,area
-2,area,横浜 鶴見区 遺品整理,地域で探す,横浜市鶴見区の遺品整理の費用相場・区の粗大ごみと家電リサイクルの出し方・管理会社や賃貸退去の注意点・買取で費用を抑えた実例。区・市固有の情報は自治体サイトで確認を促す,draft,yokohama-tsurumi-ku-ihin-seiri,area
+2,area,横浜 鶴見区 遺品整理,地域で探す,横浜市鶴見区の遺品整理の費用相場・区の粗大ごみと家電リサイクルの出し方・管理会社や賃貸退去の注意点・買取で費用を抑えた実例。区・市固有の情報は自治体サイトで確認を促す,done,yokohama-tsurumi-ku-ihin-seiri,area
 2,area,横浜 鶴見区 生前整理,地域で探す,横浜市鶴見区の60代以降の始め方・区の高齢者支援や終活相談窓口の探し方・大型家具の処分方法・買取に出せる品。区・市固有の情報は自治体サイトで確認を促す,todo,,area
 2,area,横浜 鶴見区 実家 片付け,地域で探す,横浜市鶴見区の遠方からの進め方・区の処分ルール・売却や賃貸に出す前の原状・業者の選び方。区・市固有の情報は自治体サイトで確認を促す,todo,,area
 3,area,横浜 鶴見区 出張買取,地域で探す,横浜市鶴見区の出張買取で持ち込みより高くなる理由・区で多い住宅タイプと出やすい品・査定の流れと注意点。区・市固有の情報は自治体サイトで確認を促す,todo,,area
@@ -450,6 +450,6 @@ priority,category,keyword,intent,angle,status,slug,domain
 1,seizen,生前整理 70代 一人暮らし,手順,一人暮らしの高齢者が無理なく進める生前整理と、見守りの仕組み,todo,,basic
 1,seizen,終活 何から 50代,手順,50代で始める終活の順番。物・お金・情報・人間関係の4つ,todo,,basic
 1,hiyou,遺品整理 見積もり 無料 注意,比較検討,無料見積りの範囲と、出張費・キャンセル料の確認ポイント,todo,,basic
-1,hiyou,遺品整理 費用 安くする方法,比較検討,買取相殺・自分で仕分け・自治体回収・時期の選び方で費用を下げる方法,draft,ihin-seiri-cost-saving-methods,basic
+1,hiyou,遺品整理 費用 安くする方法,比較検討,買取相殺・自分で仕分け・自治体回収・時期の選び方で費用を下げる方法,done,ihin-seiri-cost-saving-methods,basic
 1,hiyou,生前整理 費用 相場,比較検討,生前整理の費用相場と遺品整理との違い。部分依頼の料金,todo,,basic
 1,hiyou,家財処分 費用 一軒家,比較検討,一軒家の家財処分の費用目安と、解体前にやるべきこと,todo,,basic

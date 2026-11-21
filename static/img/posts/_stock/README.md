@@ -13,7 +13,6 @@ EXIF（位置情報など）は削除済み、長辺1600px、顔・表札・宛�
 | kagu-konpo.jpg | 気泡緩衝材で包み「ガラス」と書いた家具 | 搬出・梱包、形見分けの配送、作業の流れ | 178MV0yTSlMCPdiRFBZSPr2CD-HzQ-5xf |
 | oshiire-futon.jpg | 押し入れに残った布団と枕 | 布団の処分、押し入れの整理、ごみの分別 | 1nRxOPng84WCSTo_3dMDq4ZWm2EYCPffi |
 | danboru-bako.jpg | 空になった部屋の隅の段ボール箱 | 仕分け、残す物の箱、作業の終盤 | 1EThYvhpxEeF91WkAHzKX57OA_Az5rdpP |
-| washitsu-isu.jpg | 片付いた和室の隅に残った木の椅子（窓の外が見える上端は切り抜き済み） | 作業後の状態、残す家具、賃貸の退去 | 1u0WTqS_qbLd178lVyK9qtEl-krVSOdon |
 | kitchen-akiya.jpg | 空き家のキッチン全景。吊り戸棚が開き、流しに少し物が残る（明るさを補正） | 空き家の片付け、キッチンの整理、実家じまい | 1EWtD7GCoH0gDSXl3hHcUV5T909j4-0CQ |
 
 取り込み済みと同じ写真だったもの（取り込まない）：Drive「木製の整理タンス」1SEz4-ToFzkHe639QUOAPiY0vUnUcQ0Wl は ihin-seiri-kichohin-sagashikata/chest-drawers.jpg と同じ。
@@ -25,3 +24,20 @@ EXIF（位置情報など）は削除済み、長辺1600px、顔・表札・宛�
 記事に使用済み（再取り込みしない）：Drive の fileId 1BVHcAT5lkDqgbtvR3AiHU1_5l2mj2Q6o は ihin-seiri-tachiai-nashi-flow/youshitsu-katazuke-go.jpg として使用。
 記事に使用済み（再取り込みしない）：Drive の fileId 11HHeUZJ5-j7Ky_airCJAjndwgAdy6jP2 は ihin-seiri-tachiai-nashi-flow/washitsu-sagyo-mae.jpg として使用。
 記事に使用済み（再取り込みしない）：2026-11-18 にチャットで取り込んだ brand-bag.jpg・brand-bag-soko.jpg は setagaya-mansion-kaitori-soudankai-case/ で使用。
+
+## Googleドライブから取り込んだ写真（2026-11-22 取り込み）
+
+| ファイル | 写っている内容 | 合いそうな記事 | Drive の fileId |
+|---|---|---|---|
+| soujiki.jpg | 部屋の隅に立てかけたコードレス掃除機 | 小型家電の買取・処分、費用を抑える | 1P4PoHygLtiib3SLJumZTcDTGqcz0OH2U |
+| oshiire-tv.jpg | 押し入れの下段にしまわれた液晶テレビ（足元が写る左端・下端は切り抜き済み） | 家電リサイクル、押し入れの整理、地域別の記事 | 1HFJywi3fstPkLwH4-LgP2BVR9iaxahjq |
+| cabinet-hikidashi.jpg | 引き出しをすべて開けて空にした木製キャビネット | 貴重品の確認、仕分け、家具の処分 | 1_AHPo4UC5dNTbmqJKGhlxkY3U_lsCSEF |
+
+使わなかった写真（2026-11-22）：Drive「洋室の掃き出し窓とカーテン」1m4iXiziiHldpri-LytUWOfda4qiC0ZvS は、窓の外に隣の家が大きく写っているため取り込まない（Drive には残してある）。
+
+記事に使用済み（再取り込みしない）：Drive の fileId 1whhB-1ZJeEaVLaO4GS0FJfC7SHORezfh は ihin-seiri-chintai-taikyo-kigen/eakon.jpg として使用。
+記事に使用済み（再取り込みしない）：Drive の fileId 1u0WTqS_qbLd178lVyK9qtEl-krVSOdon は ihin-seiri-chintai-taikyo-kigen/washitsu-isu.jpg として使用。
+記事に使用済み（再取り込みしない）：Drive の fileId 1dyby0D5b6-8AKR0xq6Glj3JRB-K6F2GY は ihin-seiri-cost-saving-methods/senpuuki-hako.jpg として使用。
+記事に使用済み（再取り込みしない）：Drive の fileId 1fbjNbw2N0dqN9Lo-HU82SAR6zYIcDr1Q は ihin-seiri-cost-saving-methods/sink-shita.jpg として使用。
+記事に使用済み（再取り込みしない）：Drive の fileId 1R1ByYaOq-n1NYxq5mwoLl6ZhKvFGiEmh は yokohama-tsurumi-ku-ihin-seiri/sentakuki-senmenjo.jpg として使用。
+記事に使用済み（再取り込みしない）：Drive の fileId 1C8wtxRp3-8HUfGbXNqq4xjr0YicNRgaT は yokohama-tsurumi-ku-ihin-seiri/mattress.jpg として使用。
