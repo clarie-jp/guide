@@ -41,3 +41,22 @@ EXIF（位置情報など）は削除済み、長辺1600px、顔・表札・宛�
 記事に使用済み（再取り込みしない）：Drive の fileId 1fbjNbw2N0dqN9Lo-HU82SAR6zYIcDr1Q は ihin-seiri-cost-saving-methods/sink-shita.jpg として使用。
 記事に使用済み（再取り込みしない）：Drive の fileId 1R1ByYaOq-n1NYxq5mwoLl6ZhKvFGiEmh は yokohama-tsurumi-ku-ihin-seiri/sentakuki-senmenjo.jpg として使用。
 記事に使用済み（再取り込みしない）：Drive の fileId 1C8wtxRp3-8HUfGbXNqq4xjr0YicNRgaT は yokohama-tsurumi-ku-ihin-seiri/mattress.jpg として使用。
+
+## Googleドライブから取り込んだ写真（2026-11-23 取り込み）
+
+| ファイル | 写っている内容 | 合いそうな記事 | Drive の fileId |
+|---|---|---|---|
+| sentakuki-tategata.jpg | ふたを開けた縦型洗濯機（5kg）と、脇に置かれた掃除機 | 家電リサイクル、洗濯機の処分、費用の内訳 | 12q3Cu1oUE-5QN0GUaJ_HKAZG_yZu8hZO |
+| washitsu-futon.jpg | 和室の隅に積まれた掛け布団と毛布 | 布団の処分、ごみの分別、和室の片付け | 1l_z4vVsWWHyIpemq9xrFYcU0C3iPnhw9 |
+| sofa-hanagara.jpg | 花柄の布張りクッションが付いた木製フレームのソファ（2脚） | 家具の買取・処分、形見分け、粗大ごみ | 17gCKRQR8R_qJUXmZWvlgRGVzLkXD4oGw |
+| denshi-renji.jpg | 床に段ボールを敷いて置かれた黒い電子レンジ | 小型家電の処分・買取、費用を抑える | 1r57eFPqC9b6vsx3mdg2DGGJ7CxIR-jSJ |
+| washitsu-locker.jpg | 和室に置かれた白いロッカーと、積まれた衣装ケース・引き出し収納 | 収納家具の処分、衣類の仕分け、作業前の様子 | 1NX2MUswggQ1_SYTEjW79TTuZtH7rcxvz |
+| oshiire-hikidashi.jpg | 押し入れの中段に置かれた木製の引き出し収納と小引き出し | 押し入れの整理、貴重品の確認、仕分け | 1UURAKzCOyv0k9vQhpmWiLRPIKkMQyhT- |
+
+使わなかった写真（2026-11-23）：Drive「家具が並ぶ整理前の部屋」1nDjTOjkdIIbJhZ82uQDk-zQ8gYPUtZ2q は、ihin-seiri-mitsumori-muryo-flow/slim-cabinet.jpg と同じ場面のほぼ同じ構図のため取り込まない（Drive には残してある）。
+使わなかった写真（2026-11-23）：Drive「キッチンの流し台」17xPmHR7DAv4EcxE2kUIBTwlEzHZfzDJo は、暗く手ぶれがあり、在庫の kitchen-akiya.jpg と内容も重なるため取り込まない（Drive には残してある）。
+使わなかった写真（2026-11-23）：Drive「下駄箱のスニーカーとサンダル」1z-wfPaUG7QAnEtfgvgyVdbiHKv062tm- は、暗くて何の写真か分かりにくく、靴のブランドロゴも写っているため取り込まない（Drive には残してある）。
+
+記事に使用済み（再取り込みしない）：Drive の fileId 1rcqA0KFfsiN-FNhozaVc8BMoE0SDkzJv は ihin-seiri-souzoku-houki-sawatte-ii-mono/washitsu-sanran.jpg として使用。
+記事に使用済み（再取り込みしない）：Drive の fileId 1XfbVfUKh8G6AKn1oXFDeipSGHpySByxK は ihin-seiri-kawasaki-nakahara-ku-guide/washitsu-youfukudansu.jpg として使用。
+記事に使用済み（再取り込みしない）：Drive の fileId 1-teOJGg8stEu1PrreSxA3CL0QTm5dEKB は ihin-seiri-kawasaki-nakahara-ku-guide/reizouko-suihanki.jpg として使用。

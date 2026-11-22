@@ -13,7 +13,7 @@ priority,category,keyword,intent,angle,status,slug,domain
 1,kaitori,遺品整理 買取 相殺,買取,買取額で整理費用を相殺する仕組み。相殺の実例と注意点,done,ihin-seiri-kaitori-sousai,item
 1,jikka,実家じまい 進め方,手順,親の家を片付けて売るまでの全体の流れ。期間と費用,done,jikka-jimai-susumekata-flow,basic
 1,jikka,実家 片付け 親が元気なうち,生前,親と揉めない片付けの進め方。声のかけ方。残す物の決め方,done,jikka-katazuke-oya-genki-uchi,basic
-1,souzoku,遺品整理 相続放棄,法律,相続放棄を予定しているときに触ってよい物・いけない物,draft,ihin-seiri-souzoku-houki-sawatte-ii-mono,basic
+1,souzoku,遺品整理 相続放棄,法律,相続放棄を予定しているときに触ってよい物・いけない物,done,ihin-seiri-souzoku-houki-sawatte-ii-mono,basic
 1,souzoku,遺品整理 遺産分割 前,法律,遺産分割協議の前に遺品整理をしてよいか。相続人の同意の取り方,todo,,basic
 1,seizen,終活 片付け,手順,終活の中の片付けの位置づけ。エンディングノートとの連動,todo,,basic
 1,area,遺品整理 横浜市,地域,横浜市の家庭ごみ・粗大ごみのルール。区ごとの搬入先。マンションが多い地域の注意,done,ihin-seiri-yokohama-gomi-rule,area
@@ -25,7 +25,7 @@ priority,category,keyword,intent,angle,status,slug,domain
 2,hiyou,遺品整理 一軒家 費用,比較検討,戸建の相場。庭・物置・2階の搬出。解体前の整理,done,ihin-seiri-ikkenya-hiyou,basic
 2,ihin,遺品整理 業者 必要な許可,比較検討,一般廃棄物収集運搬業・古物商・産業廃棄物の違いをやさしく,todo,,basic
 2,ihin,遺品整理 貴重品 探し方,手順,通帳・印鑑・権利証・保険証券が隠れている場所20か所,done,ihin-seiri-kichohin-sagashikata,basic
-2,ihin,遺品整理 仏壇 処分,宗教,閉眼供養・お焚き上げ・引き取りの流れと費用,draft,ihin-seiri-butsudan-shobun-flow,basic
+2,ihin,遺品整理 仏壇 処分,宗教,閉眼供養・お焚き上げ・引き取りの流れと費用,done,ihin-seiri-butsudan-shobun-flow,basic
 2,ihin,遺品整理 写真 処分,感情,アルバムの残し方。デジタル化。供養という選択,todo,,basic
 2,ihin,遺品整理 衣類 処分,手順,大量の衣類の仕分け。寄付・買取・資源回収,todo,,basic
 2,ihin,遺品整理 家電 処分,手順,家電リサイクル法4品目の料金と手続き。買取対象の年式,done,ihin-seiri-kaden-shobun-recycle,basic
@@ -195,7 +195,7 @@ priority,category,keyword,intent,angle,status,slug,domain
 2,area,川崎 幸区 生前整理,地域で探す,川崎市幸区の60代以降の始め方・区の高齢者支援や終活相談窓口の探し方・大型家具の処分方法・買取に出せる品。区・市固有の情報は自治体サイトで確認を促す,todo,,area
 2,area,川崎 幸区 実家 片付け,地域で探す,川崎市幸区の遠方からの進め方・区の処分ルール・売却や賃貸に出す前の原状・業者の選び方。区・市固有の情報は自治体サイトで確認を促す,todo,,area
 3,area,川崎 幸区 出張買取,地域で探す,川崎市幸区の出張買取で持ち込みより高くなる理由・区で多い住宅タイプと出やすい品・査定の流れと注意点。区・市固有の情報は自治体サイトで確認を促す,todo,,area
-2,area,川崎 中原区 遺品整理,地域で探す,川崎市中原区の遺品整理の費用相場・区の粗大ごみと家電リサイクルの出し方・管理会社や賃貸退去の注意点・買取で費用を抑えた実例。区・市固有の情報は自治体サイトで確認を促す,draft,ihin-seiri-kawasaki-nakahara-ku-guide,area
+2,area,川崎 中原区 遺品整理,地域で探す,川崎市中原区の遺品整理の費用相場・区の粗大ごみと家電リサイクルの出し方・管理会社や賃貸退去の注意点・買取で費用を抑えた実例。区・市固有の情報は自治体サイトで確認を促す,done,ihin-seiri-kawasaki-nakahara-ku-guide,area
 2,area,川崎 中原区 生前整理,地域で探す,川崎市中原区の60代以降の始め方・区の高齢者支援や終活相談窓口の探し方・大型家具の処分方法・買取に出せる品。区・市固有の情報は自治体サイトで確認を促す,todo,,area
 2,area,川崎 中原区 実家 片付け,地域で探す,川崎市中原区の遠方からの進め方・区の処分ルール・売却や賃貸に出す前の原状・業者の選び方。区・市固有の情報は自治体サイトで確認を促す,todo,,area
 3,area,川崎 中原区 出張買取,地域で探す,川崎市中原区の出張買取で持ち込みより高くなる理由・区で多い住宅タイプと出やすい品・査定の流れと注意点。区・市固有の情報は自治体サイトで確認を促す,todo,,area
