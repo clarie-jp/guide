@@ -19,7 +19,7 @@ priority,category,keyword,intent,angle,status,slug,domain
 1,area,遺品整理 横浜市,地域,横浜市の家庭ごみ・粗大ごみのルール。区ごとの搬入先。マンションが多い地域の注意,done,ihin-seiri-yokohama-gomi-rule,area
 1,area,遺品整理 川崎市,地域,川崎市の粗大ごみ・リサイクル。鉄道沿線の単身物件の特徴,done,ihin-seiri-kawasaki-gomi-recycle,area
 1,area,生前整理 横浜,地域,横浜で生前整理を頼むときの相場と業者の探し方,done,seizen-seiri-yokohama-hiyou-gyosha,area
-2,hiyou,遺品整理 費用 誰が払う,相続,費用の負担者。相続財産から払えるか。領収書の扱い,todo,,basic
+2,hiyou,遺品整理 費用 誰が払う,相続,費用の負担者。相続財産から払えるか。領収書の扱い,draft,ihin-seiri-hiyou-dare-ga-harau,basic
 2,hiyou,遺品整理 安くする方法,節約,自分で仕分ける・買取を使う・時期をずらす。安さだけで選ぶ危険,todo,,basic
 2,hiyou,遺品整理 見積もり 無料,比較検討,無料見積りの流れ。訪問査定で見られる点。追加料金が出る条件,done,ihin-seiri-mitsumori-muryo-flow,basic
 2,hiyou,遺品整理 一軒家 費用,比較検討,戸建の相場。庭・物置・2階の搬出。解体前の整理,done,ihin-seiri-ikkenya-hiyou,basic
@@ -27,14 +27,14 @@ priority,category,keyword,intent,angle,status,slug,domain
 2,ihin,遺品整理 貴重品 探し方,手順,通帳・印鑑・権利証・保険証券が隠れている場所20か所,done,ihin-seiri-kichohin-sagashikata,basic
 2,ihin,遺品整理 仏壇 処分,宗教,閉眼供養・お焚き上げ・引き取りの流れと費用,done,ihin-seiri-butsudan-shobun-flow,basic
 2,ihin,遺品整理 写真 処分,感情,アルバムの残し方。デジタル化。供養という選択,todo,,basic
-2,ihin,遺品整理 衣類 処分,手順,大量の衣類の仕分け。寄付・買取・資源回収,todo,,basic
+2,ihin,遺品整理 衣類 処分,手順,大量の衣類の仕分け。寄付・買取・資源回収,draft,ihin-seiri-irui-shobun-teburi,basic
 2,ihin,遺品整理 家電 処分,手順,家電リサイクル法4品目の料金と手続き。買取対象の年式,done,ihin-seiri-kaden-shobun-recycle,basic
 2,ihin,遺品整理 本 処分,手順,大量の書籍の買取と資源回収。全集・専門書の扱い,todo,,basic
 2,ihin,遺品整理 車 処分,手続き,名義変更・廃車・売却。相続人の手続き,todo,,basic
 2,ihin,遺品整理 賃貸 退去,期限,大家・管理会社との調整。原状回復の範囲。期限の交渉,done,ihin-seiri-chintai-taikyo-kigen,basic
 2,ihin,遺品整理 マンション 管理規約,手順,搬出時間・エレベーター養生・管理人への届け出,todo,,basic
 2,ihin,遺品整理 立ち会い なし,手順,遠方から依頼する流れ。鍵の受け渡し。写真報告,done,ihin-seiri-tachiai-nashi-flow,basic
-2,ihin,遺品整理 遠方 親の家,手順,遠方の実家を片付ける段取り。帰省回数を減らす方法,todo,,basic
+2,ihin,遺品整理 遠方 親の家,手順,遠方の実家を片付ける段取り。帰省回数を減らす方法,failed,,basic
 2,seizen,生前整理 60代,年代,60代で始めるメリット。体力があるうちに動かす大物,todo,,basic
 2,seizen,生前整理 70代,年代,70代の進め方。家族と一緒に。住み替えを見据えて,todo,,basic
 2,seizen,生前整理 80代,年代,80代の無理のない進め方。1日1引き出し。業者に任せる範囲,todo,,basic
