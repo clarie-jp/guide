@@ -38,7 +38,7 @@ priority,category,keyword,intent,angle,status,slug,domain
 2,seizen,生前整理 60代,年代,60代で始めるメリット。体力があるうちに動かす大物,todo,,basic
 2,seizen,生前整理 70代,年代,70代の進め方。家族と一緒に。住み替えを見据えて,todo,,basic
 2,seizen,生前整理 80代,年代,80代の無理のない進め方。1日1引き出し。業者に任せる範囲,todo,,basic
-2,seizen,生前整理 親 嫌がる,感情,親が片付けを嫌がる理由と声のかけ方。NGワード,todo,,basic
+2,seizen,生前整理 親 嫌がる,感情,親が片付けを嫌がる理由と声のかけ方。NGワード,draft,seizen-seiri-oya-iyagaru-koe-kake,basic
 2,seizen,生前整理 一人暮らし,状況,単身高齢者の生前整理。もしもの時に家族が困らない準備,todo,,basic
 2,seizen,生前整理 リスト,手順,生前整理のチェックリスト（印刷できる形式）,todo,,basic
 2,seizen,生前整理 捨てられない,感情,思い出の品の手放し方。写真に残す・一部だけ残す,todo,,basic
