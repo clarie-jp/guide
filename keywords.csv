@@ -14,8 +14,8 @@ priority,category,keyword,intent,angle,status,slug,domain
 1,jikka,実家じまい 進め方,手順,親の家を片付けて売るまでの全体の流れ。期間と費用,done,jikka-jimai-susumekata-flow,basic
 1,jikka,実家 片付け 親が元気なうち,生前,親と揉めない片付けの進め方。声のかけ方。残す物の決め方,done,jikka-katazuke-oya-genki-uchi,basic
 1,souzoku,遺品整理 相続放棄,法律,相続放棄を予定しているときに触ってよい物・いけない物,done,ihin-seiri-souzoku-houki-sawatte-ii-mono,basic
-1,souzoku,遺品整理 遺産分割 前,法律,遺産分割協議の前に遺品整理をしてよいか。相続人の同意の取り方,draft,ihin-seiri-isan-bunkatsu-mae-doui,basic
-1,seizen,終活 片付け,手順,終活の中の片付けの位置づけ。エンディングノートとの連動,draft,shukatsu-katazuke-ending-note-steps,basic
+1,souzoku,遺品整理 遺産分割 前,法律,遺産分割協議の前に遺品整理をしてよいか。相続人の同意の取り方,done,ihin-seiri-isan-bunkatsu-mae-doui,basic
+1,seizen,終活 片付け,手順,終活の中の片付けの位置づけ。エンディングノートとの連動,done,shukatsu-katazuke-ending-note-steps,basic
 1,area,遺品整理 横浜市,地域,横浜市の家庭ごみ・粗大ごみのルール。区ごとの搬入先。マンションが多い地域の注意,done,ihin-seiri-yokohama-gomi-rule,area
 1,area,遺品整理 川崎市,地域,川崎市の粗大ごみ・リサイクル。鉄道沿線の単身物件の特徴,done,ihin-seiri-kawasaki-gomi-recycle,area
 1,area,生前整理 横浜,地域,横浜で生前整理を頼むときの相場と業者の探し方,done,seizen-seiri-yokohama-hiyou-gyosha,area
@@ -119,7 +119,7 @@ priority,category,keyword,intent,angle,status,slug,domain
 2,area,横浜 鶴見区 生前整理,地域で探す,横浜市鶴見区の60代以降の始め方・区の高齢者支援や終活相談窓口の探し方・大型家具の処分方法・買取に出せる品。区・市固有の情報は自治体サイトで確認を促す,todo,,area
 2,area,横浜 鶴見区 実家 片付け,地域で探す,横浜市鶴見区の遠方からの進め方・区の処分ルール・売却や賃貸に出す前の原状・業者の選び方。区・市固有の情報は自治体サイトで確認を促す,todo,,area
 3,area,横浜 鶴見区 出張買取,地域で探す,横浜市鶴見区の出張買取で持ち込みより高くなる理由・区で多い住宅タイプと出やすい品・査定の流れと注意点。区・市固有の情報は自治体サイトで確認を促す,todo,,area
-2,area,横浜 神奈川区 遺品整理,地域で探す,横浜市神奈川区の遺品整理の費用相場・区の粗大ごみと家電リサイクルの出し方・管理会社や賃貸退去の注意点・買取で費用を抑えた実例。区・市固有の情報は自治体サイトで確認を促す,draft,yokohama-kanagawa-ku-ihin-seiri,area
+2,area,横浜 神奈川区 遺品整理,地域で探す,横浜市神奈川区の遺品整理の費用相場・区の粗大ごみと家電リサイクルの出し方・管理会社や賃貸退去の注意点・買取で費用を抑えた実例。区・市固有の情報は自治体サイトで確認を促す,done,yokohama-kanagawa-ku-ihin-seiri,area
 2,area,横浜 神奈川区 生前整理,地域で探す,横浜市神奈川区の60代以降の始め方・区の高齢者支援や終活相談窓口の探し方・大型家具の処分方法・買取に出せる品。区・市固有の情報は自治体サイトで確認を促す,todo,,area
 2,area,横浜 神奈川区 実家 片付け,地域で探す,横浜市神奈川区の遠方からの進め方・区の処分ルール・売却や賃貸に出す前の原状・業者の選び方。区・市固有の情報は自治体サイトで確認を促す,todo,,area
 3,area,横浜 神奈川区 出張買取,地域で探す,横浜市神奈川区の出張買取で持ち込みより高くなる理由・区で多い住宅タイプと出やすい品・査定の流れと注意点。区・市固有の情報は自治体サイトで確認を促す,todo,,area

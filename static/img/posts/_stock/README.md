@@ -12,7 +12,6 @@ EXIF（位置情報など）は削除済み、長辺1600px、顔・表札・宛�
 |---|---|---|---|
 | kagu-konpo.jpg | 気泡緩衝材で包み「ガラス」と書いた家具 | 搬出・梱包、形見分けの配送、作業の流れ | 178MV0yTSlMCPdiRFBZSPr2CD-HzQ-5xf |
 | oshiire-futon.jpg | 押し入れに残った布団と枕 | 布団の処分、押し入れの整理、ごみの分別 | 1nRxOPng84WCSTo_3dMDq4ZWm2EYCPffi |
-| danboru-bako.jpg | 空になった部屋の隅の段ボール箱 | 仕分け、残す物の箱、作業の終盤 | 1EThYvhpxEeF91WkAHzKX57OA_Az5rdpP |
 | kitchen-akiya.jpg | 空き家のキッチン全景。吊り戸棚が開き、流しに少し物が残る（明るさを補正） | 空き家の片付け、キッチンの整理、実家じまい | 1EWtD7GCoH0gDSXl3hHcUV5T909j4-0CQ |
 
 取り込み済みと同じ写真だったもの（取り込まない）：Drive「木製の整理タンス」1SEz4-ToFzkHe639QUOAPiY0vUnUcQ0Wl は ihin-seiri-kichohin-sagashikata/chest-drawers.jpg と同じ。
@@ -30,8 +29,6 @@ EXIF（位置情報など）は削除済み、長辺1600px、顔・表札・宛�
 | ファイル | 写っている内容 | 合いそうな記事 | Drive の fileId |
 |---|---|---|---|
 | soujiki.jpg | 部屋の隅に立てかけたコードレス掃除機 | 小型家電の買取・処分、費用を抑える | 1P4PoHygLtiib3SLJumZTcDTGqcz0OH2U |
-| oshiire-tv.jpg | 押し入れの下段にしまわれた液晶テレビ（足元が写る左端・下端は切り抜き済み） | 家電リサイクル、押し入れの整理、地域別の記事 | 1HFJywi3fstPkLwH4-LgP2BVR9iaxahjq |
-| cabinet-hikidashi.jpg | 引き出しをすべて開けて空にした木製キャビネット | 貴重品の確認、仕分け、家具の処分 | 1_AHPo4UC5dNTbmqJKGhlxkY3U_lsCSEF |
 
 使わなかった写真（2026-11-22）：Drive「洋室の掃き出し窓とカーテン」1m4iXiziiHldpri-LytUWOfda4qiC0ZvS は、窓の外に隣の家が大きく写っているため取り込まない（Drive には残してある）。
 
@@ -60,3 +57,6 @@ EXIF（位置情報など）は削除済み、長辺1600px、顔・表札・宛�
 記事に使用済み（再取り込みしない）：Drive の fileId 1-teOJGg8stEu1PrreSxA3CL0QTm5dEKB は ihin-seiri-kawasaki-nakahara-ku-guide/reizouko-suihanki.jpg として使用。
 記事に使用済み（再取り込みしない）：Drive の fileId 1NX2MUswggQ1_SYTEjW79TTuZtH7rcxvz は ihin-seiri-irui-shobun-teburi/washitsu-locker.jpg として使用。
 記事に使用済み（再取り込みしない）：Drive の fileId 1UURAKzCOyv0k9vQhpmWiLRPIKkMQyhT- は seizen-seiri-oya-iyagaru-koe-kake/oshiire-hikidashi.jpg として使用。
+記事に使用済み（再取り込みしない）：Drive の fileId 1EThYvhpxEeF91WkAHzKX57OA_Az5rdpP は shukatsu-katazuke-ending-note-steps/danboru-bako.jpg として使用。
+記事に使用済み（再取り込みしない）：Drive の fileId 1HFJywi3fstPkLwH4-LgP2BVR9iaxahjq は yokohama-kanagawa-ku-ihin-seiri/oshiire-tv.jpg として使用。
+記事に使用済み（再取り込みしない）：Drive の fileId 1_AHPo4UC5dNTbmqJKGhlxkY3U_lsCSEF は ihin-seiri-isan-bunkatsu-mae-doui/cabinet-hikidashi.jpg として使用。
