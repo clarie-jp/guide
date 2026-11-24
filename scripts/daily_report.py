@@ -18,6 +18,8 @@ ap.add_argument("--date", default=(datetime.datetime.utcnow() + datetime.timedel
 ap.add_argument("--live", choices=["ok", "ng"], default=None)
 ap.add_argument("--gbp-month", default="")
 ap.add_argument("--lp-views", default="", help="stats.yml の実行ログの REPORT: 行の中身")
+ap.add_argument("--curama-last", default="", help="投稿履歴シートで、くらしのマーケットの結果が「公開」の最後の投稿日（例 2026-11-18）")
+ap.add_argument("--curama-count", default="", help="投稿履歴シートで、くらしのマーケットの結果が「公開」の累計本数")
 a = ap.parse_args()
 
 posts = sorted((ROOT / "content" / "posts").glob("*.md"))
@@ -49,5 +51,16 @@ gbp_line = f"グーグルマップ {mark(gbp_today >= 1)} 投稿用一覧に今�
 if a.gbp_month:
     gbp_line += f"／{a.gbp_month}"
 print(gbp_line)
-print("くらしのマーケット － 確認できる情報がありません")
+if a.curama_last:
+    # 投稿は昼（12:41）のタスクなので、朝の報告では「前日までに公開されているか」で判定する
+    d = datetime.date.fromisoformat(a.date)
+    last = datetime.date.fromisoformat(a.curama_last)
+    gap = (d - last).days
+    cnt = f"／累計{a.curama_count}本" if a.curama_count else ""
+    if gap <= 1:
+        print(f"くらしのマーケット ✅ 最後の公開 {last.month}/{last.day}{cnt}")
+    else:
+        print(f"くらしのマーケット ❌ {last.month}/{last.day} を最後に{gap}日止まっています{cnt}（昼の投稿タスクとChromeの接続を確認）")
+else:
+    print("くらしのマーケット － 確認できる情報がありません")
 print(f"ゼヒトモ {mark(len(zeh_today) == 1)} 今日{len(zeh_today)}本にタグ／累計{len(zeh_all)}本")
