@@ -81,6 +81,9 @@ def pick_targets(count, kws, cases, posts):
         # 「目標比率 − 現在比率」が最大の領域。候補がない領域は除く
         cand = [(mix.get(d, 0) - done[d] / total, d) for d in pools if pools[d] and mix.get(d, 0) > 0]
         if not cand: break
+        # 1回の実行の中では、できるだけ別の領域から選ぶ（地域だけ・一般だけの日にしない）
+        fresh = [c for c in cand if c[1] not in {t[0] for t in targets}]
+        if fresh: cand = fresh
         _, dom = max(cand)
         row = pools[dom].pop(0)
         targets.append((dom, row))

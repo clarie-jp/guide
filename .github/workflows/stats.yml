@@ -46,4 +46,6 @@ jobs:
           GEO=""; [ -s "$W/geo.mmdb" ] && GEO="$W/geo.mmdb"
           python3 scripts/stats.py "$W/log" "$W/old.json" "$W/new.json" $GEO
           $S 'mkdir -p ~/stats && cat > ~/stats/guide-stats.json.tmp && mv ~/stats/guide-stats.json.tmp ~/stats/guide-stats.json' < "$W/new.json" 2>/dev/null
+          # 記事サイトの相談フォームの件数（~/inquiries/guide.jsonl、公開されない場所）。中身は出さず、日付ごとの件数だけを出す
+          $S 'f=~/inquiries/guide.jsonl; if [ -f "$f" ]; then grep -o "\"date\":\"[0-9-]*\"" "$f" | cut -d\" -f4 | sort | uniq -c | tail -14 | sed "s/^ */INQUIRY_DAY: /"; echo "INQUIRY_TOTAL: $(wc -l < "$f")"; else echo "INQUIRY_TOTAL: 0"; fi' || echo "INQUIRY: 取れなかった"
           rm -rf "$W"

@@ -4,12 +4,16 @@ tagline: 生前整理・遺品整理・実家じまいの費用、手順、相�
 # 公開URL（第1段階：サブドメイン。第2段階で https://clarie.jp/guide に変える場合はここだけ変更）
 base_url: https://guide.clarie.jp
 brand_url: https://clarie.jp/
-contact_url: https://clarie.jp/#contact
+contact_url: https://guide.clarie.jp/contact/
+# 記事サイトの相談フォームの受け先（static/contact/send.php が読む。変えるときは send.php も合わせる）
+inquiry_to: info@imp-corp.com
 tel: 045-285-3751
 tel_hours: 受付 9:00〜18:00（土日も対応）
 test_url: https://clarie-jp.github.io/test/
 # Googleアナリティクスの測定ID（G-で始まる番号）。入れると全ページに計測タグが入る。空なら入らない
 ga_id: "G-H86BJS4PP3"
+# Search Console の所有権確認（HTMLタグ方式のときだけ。content="…" の中身を入れる）。Googleアナリティクス方式で確認するなら空のまま
+gsc_verification: ""
 company: 株式会社Improve
 company_address: 神奈川県横浜市西区みなとみらい2-2-1 ランドマークプラザ5階
 area: 神奈川・東京・千葉・埼玉
@@ -28,13 +32,14 @@ categories:
   area: 地域別
   jirei: 現場の事例
 # 1回の自動実行で生成する本数（GitHub Actions の cron で毎日実行）
-posts_per_run: 3
+posts_per_run: 2
 # Googleマップへの投稿は1日何本までにするか（記事が多い日も、この本数だけ投稿する）
 gbp_per_day: 2
 # 4領域の生成比率。keywords.csv の domain 列（basic / area / case / item）に対応。合計1.0
+# 2026-11-25 見直し：大手ポータルが強い一般語を減らし、地域・マンション・買取相殺の3本柱へ
 mix:
-  basic: 0.4
-  area: 0.3
+  basic: 0.25
+  area: 0.45
   case: 0.2
   item: 0.1
 # true にすると、生成した記事を content/drafts に置き、確認してから content/posts に移す運用になる

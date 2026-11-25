@@ -58,7 +58,15 @@ def page(title, desc, body_html, url, extra_head="", kind="WebPage", og_type="we
     ga = str(SITE.get("ga_id") or "").strip()
     if ga:  # Googleアナリティクス（site.yaml の ga_id に測定IDを入れると有効になる）
         extra_head += (f'<script async src="https://www.googletagmanager.com/gtag/js?id={ga}"></script>'
-                       f"<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{ga}');</script>")
+                       f"<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{ga}');</script>"
+                       # 問い合わせの入口が押された数を数える（電話ボタン・フォームへのリンク）。どの記事から押されたかも残る
+                       "<script>document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a||!window.gtag)return;"
+                       "var h=a.getAttribute('href')||'',w=a.getAttribute('data-cta')||'';"
+                       "if(h.indexOf('tel:')===0)gtag('event','tel_click',{cta_place:w,page_path:location.pathname});"
+                       "else if(/\\/contact\\/|tayori|#contact/.test(h))gtag('event','form_click',{cta_place:w,page_path:location.pathname});});</script>")
+    gsc = str(SITE.get("gsc_verification") or "").strip()
+    if gsc:  # Search Console の所有権確認（HTMLタグの content の値だけを site.yaml に入れる）
+        extra_head += f'<meta name="google-site-verification" content="{html.escape(gsc)}">'
     return (TPL.replace("{{title}}", html.escape(title)).replace("{{description}}", html.escape(desc))
             .replace("{{site_name}}", SITE["site_name"]).replace("{{canonical}}", url).replace("{{base}}", BASE)
             .replace("{{brand_url}}", SITE["brand_url"]).replace("{{contact_url}}", SITE["contact_url"])
@@ -77,9 +85,61 @@ def cta_html():
     return f"""<aside class="cta">
 <p class="cta-h">片付けと買取を、ひとつの窓口で</p>
 <p>クラリエは、生前整理・遺品整理の作業と、貴金属・ブランド品・骨董・楽器などの買取を同じ担当が行います。買取額は整理費用から差し引けるので、持ち出しを抑えられます。出張査定・お見積りは無料です（{SITE['area']}）。</p>
-<p class="cta-btns"><a class="btn" href="tel:{SITE['tel'].replace('-', '')}">電話で相談 {SITE['tel']}</a><a class="btn ghost" href="{SITE['contact_url']}">フォームで無料見積り</a><a class="btn ghost" href="{BASE}/#ryokin">費用の目安を見る</a></p>
+<p class="cta-btns"><a class="btn" data-cta="end" href="tel:{SITE['tel'].replace('-', '')}">電話で相談 {SITE['tel']}</a><a class="btn ghost" data-cta="end" href="{SITE['contact_url']}">フォームで無料見積り</a><a class="btn ghost" href="{BASE}/#ryokin">費用の目安を見る</a></p>
 <p class="cta-sub">まず自分の準備度を知りたい方は <a href="{SITE['test_url']}">生前整理・相続・遺品整理 理解度テスト（無料・3分）</a></p>
 </aside>"""
+
+
+def cta_mid_html():
+    """記事の途中（3つ目の見出しの前）に置く小さな相談枠。最後まで読まない人にも入口を見せる。"""
+    return f"""<aside class="cta-mid"><p><b>間取りと地域が分かれば、電話で概算をお伝えします。</b>見積りは無料で、お断りいただいても費用はかかりません。</p>
+<p class="cta-btns"><a class="btn" data-cta="mid" href="tel:{SITE['tel'].replace('-', '')}">電話で相談 {SITE['tel']}</a><a class="btn navy" data-cta="mid" href="{SITE['contact_url']}">フォームで相談（1分）</a></p></aside>"""
+
+
+def insert_mid_cta(body):
+    hs = [m.start() for m in re.finditer(r"<h2[ >]", body)]
+    if len(hs) < 4: return body
+    i = hs[2]
+    return body[:i] + cta_mid_html() + body[i:]
+
+
+def contact_html():
+    """サイトの中で完結する相談フォーム（4つの項目＋連絡先）。送信が成功したら generate_lead を計測する。"""
+    pref = "".join(f"<option>{x}</option>" for x in ["神奈川県", "東京都", "千葉県", "埼玉県", "その他"])
+    madori = "".join(f"<option>{x}</option>" for x in ["1K・1R", "1DK・1LDK", "2DK・2LDK", "3DK・3LDK", "4LDK以上", "戸建て", "まだ分からない"])
+    when = "".join(f"<option>{x}</option>" for x in ["できるだけ早く", "1か月以内", "2〜3か月以内", "時期は未定（まず相談）"])
+    kind = "".join(f"<option>{x}</option>" for x in ["遺品整理", "生前整理", "実家じまい（片付けと売却）", "買取だけ相談したい", "その他"])
+    return f"""<article class="form-page">
+<p class="crumb"><a href="{BASE}/">ホーム</a> › 無料相談</p>
+<h1>無料相談・お見積り</h1>
+<p class="lead">地域・間取り・時期が分かれば、概算をお伝えできます。見積りは無料で、お断りいただいても費用はかかりません。お急ぎの方はお電話（<a data-cta="form" href="tel:{SITE['tel'].replace('-', '')}">{SITE['tel']}</a>、{html.escape(SITE['tel_hours'])}）でもどうぞ。</p>
+<form id="cf" class="cf" novalidate>
+<label>ご相談の内容<select name="kind" required>{kind}</select></label>
+<div class="row2"><label>都県<select name="pref" required>{pref}</select></label><label>市区町村<input name="city" required placeholder="例：横浜市港北区"></label></div>
+<div class="row2"><label>間取り<select name="madori" required>{madori}</select></label><label>ご希望の時期<select name="when" required>{when}</select></label></div>
+<label>お名前<input name="name" required autocomplete="name"></label>
+<div class="row2"><label>お電話番号<input name="tel" type="tel" autocomplete="tel" inputmode="tel" placeholder="どちらか一方で大丈夫です"></label><label>メールアドレス<input name="email" type="email" autocomplete="email" placeholder="どちらか一方で大丈夫です"></label></div>
+<label>ご連絡の方法<select name="reply"><option>どちらでもよい</option><option>電話がよい</option><option>メールがよい</option></select></label>
+<label>気になっていること（任意）<textarea name="memo" rows="4" placeholder="例：母が施設に入るので、3月までに実家を片付けたい／仏壇と着物の扱いを相談したい"></textarea></label>
+<p class="hp" aria-hidden="true"><label>空欄のままにしてください<input name="website" tabindex="-1" autocomplete="off"></label></p>
+<p class="note">お部屋の写真があると、概算が早くお伝えできます。メールでご連絡する場合は、その返信に写真を添付してください。</p>
+<p class="note">いただいた情報は、ご相談への回答とお見積りのためだけに使い、法令に基づく場合を除いて第三者に渡しません。運営：{SITE['company']}（{html.escape(SITE['company_address'])}）</p>
+<label class="agree"><input type="checkbox" name="agree" value="1" required> 上の内容に同意して送信する</label>
+<p class="err" id="cferr" role="alert"></p>
+<p><button class="btn" type="submit" id="cfbtn">この内容で相談する</button></p>
+</form>
+<div id="cfok" class="cf-ok" hidden><h2>ご相談を受け付けました</h2><p>内容を確認して、折り返しご連絡します。お急ぎの場合はお電話（{SITE['tel']}）でもお受けします。</p><p><a href="{BASE}/">記事の一覧に戻る</a></p></div>
+</article>
+<script>(function(){{var f=document.getElementById('cf'),e=document.getElementById('cferr'),b=document.getElementById('cfbtn');
+f.addEventListener('submit',function(ev){{ev.preventDefault();e.textContent='';var d=new FormData(f);
+if(!d.get('city')||!d.get('name')){{e.textContent='市区町村とお名前を入れてください';return;}}
+if(!d.get('tel')&&!d.get('email')){{e.textContent='お電話番号かメールアドレスのどちらかを入れてください';return;}}
+if(!d.get('agree')){{e.textContent='同意のチェックを入れてください';return;}}
+d.append('from',document.referrer||'');b.disabled=true;b.textContent='送信しています…';
+fetch('{BASE}/contact/send.php',{{method:'POST',body:d}}).then(function(r){{return r.json();}}).then(function(j){{
+if(j&&j.ok){{f.hidden=true;document.getElementById('cfok').hidden=false;window.scrollTo(0,0);if(window.gtag)gtag('event','generate_lead',{{form:'guide_contact',kind:d.get('kind'),pref:d.get('pref')}});}}
+else{{e.textContent=(j&&j.error)||'送信できませんでした。お手数ですがお電話でご連絡ください';b.disabled=false;b.textContent='この内容で相談する';}}
+}}).catch(function(){{e.textContent='送信できませんでした。お手数ですがお電話（{SITE['tel']}）でご連絡ください';b.disabled=false;b.textContent='この内容で相談する';}});}});}})();</script>"""
 
 
 def is_new(p, days=7):
@@ -125,9 +185,9 @@ def post_html(p, posts):
     if faq:
         ld.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
             {"@type": "Question", "name": f["q"], "acceptedAnswer": {"@type": "Answer", "text": f["a"]}} for f in faq]})
-    extra = "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)
     img = pick_image(p)
     if img: ld[0]["image"] = f"{BASE}/{img}"
+    extra = "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)
     hero = f'<img class="hero" src="{BASE}/{img}" alt="{html.escape(p["title"])}" width="1200" height="800" loading="eager">' if img else ""
     rel = "".join(card(q) for q in related(p, posts))
     tags = "".join(f'<a class="tag" href="{BASE}/tag/{html.escape(t)}/">#{html.escape(t)}</a>' for t in p.get("tags", []))
@@ -138,7 +198,7 @@ def post_html(p, posts):
 <p class="lead">{html.escape(p['description'])}</p>
 {hero}
 {'<nav class="toc"><p>この記事の内容</p>' + toc + '</nav>' if toc else ''}
-<div class="body">{body}</div>
+<div class="body">{insert_mid_cta(body)}</div>
 {faq_html}
 {cta_html()}
 <div class="author-box"><p class="an">この記事を書いた人</p><p><b>{a['name']}</b>　{a['title']}</p><p>{a['bio']}</p><p class="lic">{SITE['company']}　{SITE['license']}</p></div>
@@ -355,10 +415,18 @@ def main():
         (d / "index.html").write_text(listing(f"#{t} の記事", f"{t}に関する記事の一覧です。", ps, f"{BASE}/tag/{t}/"), encoding="utf-8")
     d = DIST / "author"; d.mkdir(exist_ok=True)
     (d / "index.html").write_text(page(f"{a['name']}（{a['title']}）", a["bio"], f"<h1>{a['name']}</h1><p class=\"lead\">{a['title']}</p><p>{a['bio']}</p><p>{SITE['company']}　{SITE['license']}</p><h2>執筆記事</h2><ul class=\"cards\">{''.join(card(p) for p in posts)}</ul>", f"{BASE}/author/"), encoding="utf-8")
+    # 相談フォーム（/contact/）。送信先は同じサーバーの contact/send.php（static/contact/send.php）
+    d = DIST / "contact"; d.mkdir(exist_ok=True)
+    (d / "index.html").write_text(page("無料相談・お見積りのお申し込み", "遺品整理・生前整理・実家じまいのご相談フォーム。地域・間取り・時期が分かれば、概算をお伝えします。見積り無料、お断りいただいても費用はかかりません。", contact_html(), f"{BASE}/contact/"), encoding="utf-8")
     # sitemap / feed / robots / static
-    urls = [BASE + "/"] + [f"{BASE}/posts/{p['slug']}/" for p in posts] + [f"{BASE}/category/{k}/" for k in CATS] + [f"{BASE}/tag/{t}/" for t in tags] + [f"{BASE}/author/"]
-    today = datetime.date.today().isoformat()
-    (DIST / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + "".join(f"<url><loc>{u}</loc><lastmod>{today}</lastmod></url>" for u in urls) + "</urlset>", encoding="utf-8")
+    # lastmod は本当に変わった日だけを書く（毎日全ページを「今日更新」にすると、Googleが日付を信用しなくなる）
+    newest = max([str(p.get("updated", p["date"])) for p in posts] or [datetime.date.today().isoformat()])
+    def last(ps): return max([str(p.get("updated", p["date"])) for p in ps] or [newest])
+    entries = [(BASE + "/", newest)] + [(f"{BASE}/posts/{p['slug']}/", str(p.get("updated", p["date"]))) for p in posts]
+    entries += [(f"{BASE}/category/{k}/", last([p for p in posts if p["category"] == k])) for k in CATS]
+    entries += [(f"{BASE}/tag/{t}/", last([p for p in posts if t in p.get("tags", [])])) for t in tags]
+    entries += [(f"{BASE}/author/", newest), (f"{BASE}/contact/", "2026-11-25")]
+    (DIST / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + "".join(f"<url><loc>{u}</loc><lastmod>{d}</lastmod></url>" for u, d in entries) + "</urlset>", encoding="utf-8")
     items = "".join(f"<item><title>{html.escape(p['title'])}</title><link>{BASE}/posts/{p['slug']}/</link><guid>{BASE}/posts/{p['slug']}/</guid><pubDate>{p['date']}</pubDate><description>{html.escape(p['description'])}</description></item>" for p in posts[:50])
     (DIST / "feed.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>{html.escape(SITE["site_name"])}</title><link>{BASE}/</link><description>{html.escape(SITE["tagline"])}</description>{items}</channel></rss>', encoding="utf-8")
     # Google ビジネスプロフィール投稿用フィード（Zapier/Make の「RSS→投稿」で使う。本文は1,500字以内の投稿文）
@@ -379,7 +447,7 @@ def main():
     for f in (ROOT / "static").iterdir():
         if f.is_dir(): shutil.copytree(f, DIST / f.name, dirs_exist_ok=True)
         else: shutil.copy(f, DIST / f.name)
-    print(f"built {len(posts)} posts, {len(urls)} urls -> {DIST}")
+    print(f"built {len(posts)} posts, {len(entries)} urls -> {DIST}")
 
 
 if __name__ == "__main__":
