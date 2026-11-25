@@ -43,7 +43,7 @@ priority,category,keyword,intent,angle,status,slug,domain
 2,seizen,生前整理 リスト,手順,生前整理のチェックリスト（印刷できる形式）,todo,,basic
 2,seizen,生前整理 捨てられない,感情,思い出の品の手放し方。写真に残す・一部だけ残す,todo,,basic
 2,seizen,エンディングノート 書き方,終活,書く項目と保管場所。家族への伝え方,todo,,basic
-0,seizen,老人ホーム 入居 前 片付け,住み替え,入居前の自宅整理。持ち込める物。家の売却との段取り,todo,,basic
+0,seizen,老人ホーム 入居 前 片付け,住み替え,入居前の自宅整理。持ち込める物。家の売却との段取り,draft,roujin-home-nyukyo-mae-katazuke,basic
 0,seizen,住み替え 荷物 減らす,住み替え,シニアの住み替えで荷物を半分にする方法,todo,,basic
 2,jikka,空き家 片付け 費用,費用,空き家の残置物撤去の相場。放置のリスク,todo,,basic
 0,jikka,実家 売却 残置物,手順,残置物ありで売るか空にして売るか。買主との交渉,todo,,basic
@@ -101,7 +101,7 @@ priority,category,keyword,intent,angle,status,slug,domain
 3,kaitori,出張買取 手数料,買取,出張費・査定料の有無,todo,,item
 3,kaitori,買取 クーリングオフ,法律,訪問買取のクーリングオフ,todo,,item
 3,kaitori,買取 相場 調べ方,買取,相場の調べ方と複数査定,todo,,item
-1,area,遺品整理 横浜市 旭区,地域,旭区,todo,,area
+1,area,遺品整理 横浜市 旭区,地域,旭区,draft,ihin-seiri-yokohama-asahi-ku-guide,area
 1,area,遺品整理 横浜市 港南区,地域,港南区,todo,,area
 1,area,遺品整理 横浜市 金沢区,地域,金沢区,todo,,area
 1,area,遺品整理 横浜市 緑区,地域,緑区,todo,,area
