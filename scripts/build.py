@@ -40,6 +40,7 @@ def parse(path):
     fm["body_md"] = body
     fm["words"] = len(re.sub(r"\s", "", body))
     fm["date"] = str(fm["date"])
+    if fm.get("updated"): fm["updated"] = str(fm["updated"])
     fm["file"] = path.name
     return fm
 
