@@ -1,0 +1,20 @@
+name: 本番の相談フォームと計測の確認
+# 手動実行だけ。送信も記録もしない dry=1 で、send.php が動くかを確かめる
+on:
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 本番を確認
+        run: |
+          B=https://guide.clarie.jp
+          c=$(curl -fsS "$B/contact/"); echo "$c" | grep -q 'id="cf"' && echo "OK フォームのページ" || echo "NG フォームのページ"
+          echo "$c" | grep -q "G-H86BJS4PP3" && echo "OK 計測タグ" || echo "NG 計測タグ"
+          echo "$c" | grep -q "tel_click" && echo "OK 電話ボタンの計測" || echo "NG 電話ボタンの計測"
+          a=$(curl -fsS "$B/posts/ihin-seiri-hiyou-souba/"); echo "$a" | grep -q '<aside class="cta-mid"' && echo "OK 記事途中の相談枠" || echo "NG 記事途中の相談枠"
+          echo "$a" | grep -q "$B/contact/" && echo "OK 記事からフォームへのリンク" || echo "NG 記事からフォームへのリンク"
+          s=$(curl -fsS "$B/sitemap.xml"); echo "sitemap の日付の種類: $(echo "$s" | grep -o '<lastmod>[^<]*' | sort -u | wc -l)"; echo "$s" | grep -q "/contact/" && echo "OK サイトマップに /contact/"
+          echo "send.php dry: $(curl -sS -X POST -d dry=1 "$B/contact/send.php")"
+          echo "send.php GET: $(curl -sS -o /dev/null -w '%{http_code}' "$B/contact/send.php")"
+          echo "send.php 空送信: $(curl -sS -X POST -d agree=1 "$B/contact/send.php")"
