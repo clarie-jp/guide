@@ -2,6 +2,15 @@ name: 本番の相談フォームと計測の確認
 # 手動実行だけ。送信も記録もしない dry=1 で、send.php が動くかを確かめる
 on:
   workflow_dispatch:
+    inputs:
+      page:
+        description: "文言を確かめるページのパス（例 /posts/xxx/）"
+        required: false
+        default: ""
+      text:
+        description: "そのページにあるはずの文言"
+        required: false
+        default: ""
 jobs:
   verify:
     runs-on: ubuntu-latest
@@ -18,3 +27,4 @@ jobs:
           echo "send.php dry: $(curl -sS -X POST -d dry=1 "$B/contact/send.php")"
           echo "send.php GET: $(curl -sS -o /dev/null -w '%{http_code}' "$B/contact/send.php")"
           echo "send.php 空送信: $(curl -sS -X POST -d agree=1 "$B/contact/send.php")"
+          if [ -n "${{ github.event.inputs.page }}" ]; then p=$(curl -fsS "$B${{ github.event.inputs.page }}"); echo "$p" | grep -q "${{ github.event.inputs.text }}" && echo "OK 文言あり" || echo "NG 文言なし"; echo "$p" | grep -q "28万円" && echo "NG 古い文言が残っている" || echo "OK 古い文言なし"; fi
