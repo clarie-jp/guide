@@ -44,7 +44,10 @@ if gbp_xml.exists():
 def mark(ok):
     return "✅" if ok else "❌"
 
-lp_ok = len(today) >= 3 and a.live == "ok"
+# 1日の本数は site.yaml の posts_per_run に合わせる（2026-11-25 から1日2本）
+_m = re.search(r"^posts_per_run:\s*(\d+)", (ROOT / "site.yaml").read_text(encoding="utf-8"), re.M)
+per_day = int(_m.group(1)) if _m else 3
+lp_ok = len(today) >= per_day and a.live == "ok"
 lp_note = "" if a.live else "（本番の公開は未確認）"
 print(f"クラリエLP {mark(lp_ok)} 今日{len(today)}本／累計{len(published)}本{lp_note}" + (f"／{a.lp_views}" if a.lp_views else ""))
 gbp_line = f"グーグルマップ {mark(gbp_today >= 1)} 投稿用一覧に今日{gbp_today}本"

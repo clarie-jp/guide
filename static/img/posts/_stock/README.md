@@ -3,7 +3,6 @@ EXIF（位置情報など）は削除済み、長辺1600px、顔・表札・宛�
 
 | ファイル | 写っている内容 | 合いそうな記事 |
 |---|---|---|
-| sideboard-glass.jpg | ガラス戸付きの木製サイドボード（彫刻入り） | 家具の処分・買取、間取り別費用 |
 | desk-wagon.jpg | 青い3段のデスクワゴン | 事務用品・小型家具の処分 |
 
 ## Googleドライブから取り込んだ写真（2026-11-20 取り込み。同じ写真を二度取り込まないよう fileId を記録）
@@ -43,9 +42,7 @@ EXIF（位置情報など）は削除済み、長辺1600px、顔・表札・宛�
 
 | ファイル | 写っている内容 | 合いそうな記事 | Drive の fileId |
 |---|---|---|---|
-| sentakuki-tategata.jpg | ふたを開けた縦型洗濯機（5kg）と、脇に置かれた掃除機 | 家電リサイクル、洗濯機の処分、費用の内訳 | 12q3Cu1oUE-5QN0GUaJ_HKAZG_yZu8hZO |
 | washitsu-futon.jpg | 和室の隅に積まれた掛け布団と毛布 | 布団の処分、ごみの分別、和室の片付け | 1l_z4vVsWWHyIpemq9xrFYcU0C3iPnhw9 |
-| sofa-hanagara.jpg | 花柄の布張りクッションが付いた木製フレームのソファ（2脚） | 家具の買取・処分、形見分け、粗大ごみ | 17gCKRQR8R_qJUXmZWvlgRGVzLkXD4oGw |
 | denshi-renji.jpg | 床に段ボールを敷いて置かれた黒い電子レンジ | 小型家電の処分・買取、費用を抑える | 1r57eFPqC9b6vsx3mdg2DGGJ7CxIR-jSJ |
 
 使わなかった写真（2026-11-23）：Drive「家具が並ぶ整理前の部屋」1nDjTOjkdIIbJhZ82uQDk-zQ8gYPUtZ2q は、ihin-seiri-mitsumori-muryo-flow/slim-cabinet.jpg と同じ場面のほぼ同じ構図のため取り込まない（Drive には残してある）。
@@ -60,3 +57,6 @@ EXIF（位置情報など）は削除済み、長辺1600px、顔・表札・宛�
 記事に使用済み（再取り込みしない）：Drive の fileId 1EThYvhpxEeF91WkAHzKX57OA_Az5rdpP は shukatsu-katazuke-ending-note-steps/danboru-bako.jpg として使用。
 記事に使用済み（再取り込みしない）：Drive の fileId 1HFJywi3fstPkLwH4-LgP2BVR9iaxahjq は yokohama-kanagawa-ku-ihin-seiri/oshiire-tv.jpg として使用。
 記事に使用済み（再取り込みしない）：Drive の fileId 1_AHPo4UC5dNTbmqJKGhlxkY3U_lsCSEF は ihin-seiri-isan-bunkatsu-mae-doui/cabinet-hikidashi.jpg として使用。
+記事に使用済み（再取り込みしない）：Drive の fileId 12q3Cu1oUE-5QN0GUaJ_HKAZG_yZu8hZO は ihin-seiri-yokohama-asahi-ku-guide/sentakuki-tategata.jpg として使用。
+記事に使用済み（再取り込みしない）：Drive の fileId 17gCKRQR8R_qJUXmZWvlgRGVzLkXD4oGw は roujin-home-nyukyo-mae-katazuke/sofa-hanagara.jpg として使用。
+記事に使用済み（再取り込みしない）：2026-11-18 にチャットで取り込んだ sideboard-glass.jpg は ihin-seiri-yokohama-asahi-ku-guide/ で使用。
