@@ -60,3 +60,22 @@ EXIF（位置情報など）は削除済み、長辺1600px、顔・表札・宛�
 記事に使用済み（再取り込みしない）：Drive の fileId 12q3Cu1oUE-5QN0GUaJ_HKAZG_yZu8hZO は ihin-seiri-yokohama-asahi-ku-guide/sentakuki-tategata.jpg として使用。
 記事に使用済み（再取り込みしない）：Drive の fileId 17gCKRQR8R_qJUXmZWvlgRGVzLkXD4oGw は roujin-home-nyukyo-mae-katazuke/sofa-hanagara.jpg として使用。
 記事に使用済み（再取り込みしない）：2026-11-18 にチャットで取り込んだ sideboard-glass.jpg は ihin-seiri-yokohama-asahi-ku-guide/ で使用。
+
+## Googleドライブから取り込んだ写真（2026-11-27 取り込み）
+
+| ファイル | 写っている内容 | 合いそうな記事 | Drive の fileId |
+|---|---|---|---|
+| kabin-shikki.jpg | 床に並べた花瓶・壺・漆器の椀と大皿 | 買取で整理費用を差し引く、骨董・食器の買取、仕分け | 12tmuYvRJqwMPRoFy7vezk0B4xlewI-hl |
+| kinko-taka-okimono.jpg | 和室の隅の金庫と、その上の鷹の置物。壁に掛け軸と書の額 | 金庫・貴重品の探し方、骨董の買取、買取で整理費用を差し引く | 11J4bec4q7mQjcBwRcpNJupFrqj8BrOWl |
+| stereo-speaker.jpg | 古いカセットデッキと大型スピーカー2台、上に漆器の箱（スピーカーの上の書類はぼかし済み） | オーディオの買取、買取で整理費用を差し引く、大型の家電の搬出 | 146jmtLeIhM8TtVUI848rtXs80qZ_CQuZ |
+| closet-futon.jpg | ほぼ空になったクローゼット。上段に布団、中段にバッグ | マンションの収納の整理、布団の処分、片付け後の確認 | 1aBxO9lOskkn7bU-4r9SwEwT1vV_pxIV0 |
+| kawa-sofa-3nin.jpg | マンションのリビングに置かれたベージュの革の3人掛けソファ（奥の机の上はぼかし済み） | マンションの大型家具の搬出、エレベーター養生、家具の買取 | 1xHw7QCUs1or93-MA0PvkYnQ-ZVFrRUjm |
+| record-player.jpg | 木製キャビネットに収まったステレオのレコードプレーヤー（上の操作パネルと手前は切り抜き済み） | オーディオ・レコードの買取、買取で整理費用を差し引く | 1f8rNhSot-MDqoTGa1MUGl6GsvSo-yuyj |
+| ekisho-tv.jpg | トラックの荷台に載せた液晶テレビ | 家電リサイクル、搬出・積み込み、家電の買取 | 1rgp1YaTPUr0fl9NrKeyKLLiy24FwBtG7 |
+| desk-dark-brown.jpg | リビングに置かれたダークブラウンのデスク。奥にダイニングセット | マンションの家具の搬出、住み替え、家具の買取 | 1F7X99zGCxwRiswBhavyBVDFLv4K7j6C4 |
+
+使わなかった写真（2026-11-27）：Drive「古い百科事典と洋書の本棚」1hkeZkQUcBkRgyrVPsWJaTy--ED7Hir7O は、全体が暗く、右端に人の手も写っているため取り込まない（Drive には残してある）。
+使わなかった写真（2026-11-27）：Drive「通路を歩くスタッフの後ろ姿」1L-3g0KXGotK47786K7IBen9nX9qJ2M1D は、手ぶれがあり、人物の後ろ姿が主役のため取り込まない（Drive には残してある）。
+
+記事に使用済み（再取り込みしない）：Drive の fileId 11MLiMIZIYJOhoylZKgusGQ34MEmLGWum は ihin-seiri-mansion-kanri-kiyaku-steps/shokkidana-shiro.jpg として使用。
+記事に使用済み（再取り込みしない）：Drive の fileId 1JKRaS0Vx14szHxagNAmAIRDXKQcjgLAt は ihin-seiri-yokohama-konan-ku-guide/tv-stand-glass.jpg として使用。
