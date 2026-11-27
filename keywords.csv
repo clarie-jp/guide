@@ -103,7 +103,7 @@ priority,category,keyword,intent,angle,status,slug,domain
 3,kaitori,買取 相場 調べ方,買取,相場の調べ方と複数査定,todo,,item
 1,area,遺品整理 横浜市 旭区,地域,旭区,done,ihin-seiri-yokohama-asahi-ku-guide,area
 1,area,遺品整理 横浜市 港南区,地域,港南区,done,ihin-seiri-yokohama-konan-ku-guide,area
-1,area,遺品整理 横浜市 金沢区,地域,金沢区,todo,,area
+1,area,遺品整理 横浜市 金沢区,地域,金沢区,draft,ihin-seiri-yokohama-kanazawa-ku-guide,area
 1,area,遺品整理 横浜市 緑区,地域,緑区,todo,,area
 3,area,遺品整理 横浜市 神奈川区,地域,神奈川区,hold,,area
 3,area,遺品整理 横浜市 鶴見区,地域,鶴見区,hold,,area
@@ -455,7 +455,7 @@ priority,category,keyword,intent,angle,status,slug,domain
 1,hiyou,家財処分 費用 一軒家,比較検討,一軒家の家財処分の費用目安と、解体前にやるべきこと,hold,,basic
 0,ihin,マンション 遺品整理 エレベーター 養生,手順,管理会社への届出、養生の範囲、作業できる時間帯。集合住宅で先に確認すること,todo,,basic
 0,ihin,マンション 粗大ごみ 置き場 遺品整理,手順,集積所に出せる量と日、管理員への相談、一度に出せないときの段取り,todo,,basic
-0,jikka,分譲マンション 実家じまい 流れ,手順,片付け→残置物→査定→売却の順番。管理費・修繕積立金の扱い,todo,,basic
+0,jikka,分譲マンション 実家じまい 流れ,手順,片付け→残置物→査定→売却の順番。管理費・修繕積立金の扱い,draft,bunjo-mansion-jikka-jimai-nagare,basic
 0,ihin,マンション 遺品整理 費用 戸建てとの違い,比較検討,搬出距離・駐車・養生で金額が変わる理由。見積りで確認する点,todo,,basic
 0,seizen,マンション 生前整理 住み替え 前,手順,高齢者施設・小さな住まいへの住み替え前に、何を残し何を手放すか,todo,,basic
 0,hiyou,遺品整理 買取 一緒に 頼む メリット,比較検討,整理と買取を同じ業者に頼むと費用から差し引ける。別々だと起きること,todo,,basic
