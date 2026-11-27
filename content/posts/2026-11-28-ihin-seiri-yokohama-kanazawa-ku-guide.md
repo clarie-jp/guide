@@ -91,7 +91,7 @@ author: 大西 司
 
 遺品整理では、一度に出る量が多くなります。1回の申込で出せる量や、収集日までの日数も、市の案内で確認しておくと安心です。
 
-<figure class="photo"><img src="/img/posts/ihin-seiri-yokohama-kanazawa-ku-guide/washitsu-futon.jpg" alt="和室の隅に積み重ねられた白い掛け布団と、灰色の毛布" width="1280" height="1280" loading="lazy"><figcaption>和室の隅に積まれた布団と毛布：別の現場の写真です。布団は一度にまとまって出やすい物のひとつです。出し方は横浜市の公式案内で確認してください</figcaption></figure>
+<figure class="photo"><img src="/img/posts/ihin-seiri-yokohama-kanazawa-ku-guide/washitsu-futon.jpg" alt="和室の隅に積み重ねられた白い掛け布団と、灰茶色の毛布" width="1280" height="1280" loading="lazy"><figcaption>和室の隅に積まれた布団と毛布：別の現場の写真です。布団は一度にまとまって出やすい物のひとつです。出し方は横浜市の公式案内で確認してください</figcaption></figure>
 
 金沢区は、横須賀市・逗子市・鎌倉市と接しています。ごみの出し方は市ごとに違うため、ご実家が市境の向こう側にある場合は、その市の案内を確認してください。
 
